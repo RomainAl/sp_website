@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
-  basePath: "/sp_website",
+  basePath: "",
   images: {
     unoptimized: true,
   },

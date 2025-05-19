@@ -8,6 +8,7 @@ type audioStoreType = {
   audioAnalyser: AnalyserNode | null;
   merger: ChannelMergerNode | null;
   nikedal: Device | null;
+  filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
 };
 
@@ -17,13 +18,15 @@ export const useAudioAdminStore = create(
     audioAnalyser: null,
     merger: null,
     nikedal: null,
+    filter: null,
     nikedalAnalyser: null,
   }))
 );
 
 export const setAdminAudio = async () => {
   const ctx = new AudioContext();
-  ctx.resume();
+  const filter = ctx.createBiquadFilter();
+  filter.type = "highpass";
   let nikedal = null;
   try {
     const path = nextConfig.basePath + "/nikedal";
@@ -36,6 +39,7 @@ export const setAdminAudio = async () => {
   useAudioAdminStore.setState({
     audioContext: ctx,
     nikedal: nikedal,
+    filter: filter,
     nikedalAnalyser: ctx.createAnalyser(),
   });
 };

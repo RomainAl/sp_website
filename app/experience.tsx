@@ -1,8 +1,9 @@
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { errorMess } from "@/store/elon.store";
-import { nikedalParamsDefStore, useNikedalStore } from "@/store/nikedal.admin.store";
+import { useNikedalStore } from "@/store/nikedal.admin.store";
 import { CameraControls, Html, Instance, Instances } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import ACTION from "camera-controls";
 import { memo, useEffect, useRef } from "react";
 import * as THREE from "three";
 import CustomObject from "./customObject";
@@ -28,6 +29,7 @@ export const ExperienceMemo = memo(function Experience() {
   const audioContext = useAudioAdminStore((store) => store.audioContext);
   const analyser = useAudioAdminStore((store) => store.nikedalAnalyser);
   const nikedal = useAudioAdminStore((store) => store.nikedal);
+  const filter = useAudioAdminStore((store) => store.filter);
   const times = useRef<Uint8Array>(null);
   const refBoxs = useRef<(THREE.Group | null)[]>([]);
   const refCustoms = useRef<(THREE.Group | null)[]>([]);
@@ -50,11 +52,6 @@ export const ExperienceMemo = memo(function Experience() {
       delta_sum.current = 0;
     }
 
-    if (refTotal.current) {
-      refTotal.current.rotation.x += Math.pow(refState.current.camRotX / nikedalParamsDefStore.camRotX[1], 7) * nikedalParamsDefStore.camRotX[1];
-      refTotal.current.rotation.y += Math.pow(refState.current.camRotY / nikedalParamsDefStore.camRotY[1], 7) * nikedalParamsDefStore.camRotY[1];
-      // refTotal.current.rotation.z += Math.pow(refState.current.camRotZ / nikedalParamsDefStore.camRotZ[1], 7) * nikedalParamsDefStore.camRotZ[1];
-    }
     if (analyser && times.current) {
       analyser.getByteTimeDomainData(times.current);
       let value: number;
@@ -97,12 +94,13 @@ export const ExperienceMemo = memo(function Experience() {
   });
 
   useEffect(() => {
-    if (audioContext && analyser && nikedal) {
+    if (audioContext && analyser && nikedal && filter) {
       analyser.disconnect();
       analyser.fftSize = NB * 2;
       analyser.smoothingTimeConstant = 1.0;
       times.current = new Uint8Array(analyser.frequencyBinCount);
-      nikedal.node.connect(analyser).connect(audioContext.destination);
+      nikedal.node.connect(filter).connect(analyser);
+      nikedal.node.connect(audioContext.destination);
       audioContext.resume();
       nikedal.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
     }
@@ -111,7 +109,7 @@ export const ExperienceMemo = memo(function Experience() {
       audioContext?.suspend();
       nikedal?.node.disconnect();
     };
-  }, [audioContext, analyser, nikedal]);
+  }, [audioContext, analyser, nikedal, filter]);
 
   useEffect(() => {
     const unsubscribeTotal = useNikedalStore.subscribe((state) => (refState.current = state));
@@ -158,6 +156,20 @@ export const ExperienceMemo = memo(function Experience() {
       }
     );
 
+    const unsubscribeRotPlus = useNikedalStore.subscribe(
+      (state) => state.camRotYPlus,
+      () => {
+        refCam.current?.rotate(Math.PI/2, 0, true)
+      }
+    );
+
+    const unsubscribeRotMoins = useNikedalStore.subscribe(
+      (state) => state.camRotYMoins,
+      () => {
+        refCam.current?.rotate(-Math.PI/2, 0, true)
+      }
+    );
+
     return () => {
       unsubscribeTotal();
       unsubscribeDoBoxs();
@@ -165,12 +177,25 @@ export const ExperienceMemo = memo(function Experience() {
       unsubscribeCamDist();
       unsubscribeTextSize();
       unsubscribeDoText();
+      unsubscribeRotPlus();
+      unsubscribeRotMoins();
     };
   }, []);
 
   return (
     <>
-      <CameraControls ref={refCam} />
+      <CameraControls
+        ref={refCam}
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI}
+        smoothTime={1.0}
+        maxDistance={10}
+        minDistance={1}
+        azimuthRotateSpeed={0.4}
+        dollySpeed={0.7}
+        touches={{ one: ACTION.ACTION.DOLLY, two: ACTION.ACTION.TOUCH_ROTATE, three: 0 }} // 1 = ROTATE, 16 = DOLLY, 0 = NONE
+        mouseButtons={{ left: ACTION.ACTION.DOLLY, right: 0, wheel: ACTION.ACTION.DOLLY, middle: 0 }}
+      />
       <Lights />
       <PostProd />
       <group ref={refTotal}>

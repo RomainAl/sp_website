@@ -9,7 +9,7 @@ export const initNikedalStore = {
   scaleNik: 1,
   fillMix: 1,
   fillOpacity: 0,
-  gainNik: 10,
+  gainNik: 30,
   doGlitch: 0,
   doBloom: 1,
   doNoise: 0,
@@ -21,7 +21,9 @@ export const initNikedalStore = {
   camRotY: 0,
   camRotZ: 0,
   compress: 1,
-  textSize: 10,
+  textSize: 0,
+  camRotYPlus: 0,
+  camRotYMoins: 0,
 };
 
 export const useNikedalStore = create(subscribeWithSelector<typeof initNikedalStore>(() => initNikedalStore));

@@ -176,7 +176,7 @@ export const ExperienceMemo = memo(function Experience() {
       <group ref={refTotal}>
         <Instances ref={refBoxsInstances} range={NB}>
           <boxGeometry />
-          <meshStandardMaterial depthTest={false} toneMapped={false} />
+          <meshStandardMaterial depthTest={false} toneMapped={true} />
           <Wireframe_ />
           {props.map(({ position, scale }, i) => (
             <group
@@ -192,7 +192,7 @@ export const ExperienceMemo = memo(function Experience() {
           ))}
         </Instances>
 
-        <Instances ref={refLinesInstances} range={NB} visible={false}>
+        <Instances ref={refLinesInstances} range={NB} visible={true}>
           <CustomObject />
           <meshStandardMaterial depthTest={false} toneMapped={false} />
           <Wireframe_ />

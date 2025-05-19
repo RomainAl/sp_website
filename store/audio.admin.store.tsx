@@ -1,3 +1,4 @@
+import nextConfig from "@/next.config";
 import { createDevice, Device } from "@rnbo/js";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
@@ -25,7 +26,7 @@ export const setAdminAudio = async () => {
   ctx.resume();
   let nikedal = null;
   try {
-    const path = "/sp_website/nikedal";
+    const path = nextConfig.basePath + "/nikedal";
     nikedal = await loadRNBO(path, ctx);
   } catch (e) {
     console.error(e);

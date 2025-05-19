@@ -1,26 +1,160 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  --background: oklch(94.91% 0 0);
+  --foreground: oklch(14.5% 0 0);
+  --card: oklch(94.91% 0 0);
+  --card-foreground: oklch(14.5% 0 0);
+  --popover: oklch(94.91% 0 0);
+  --popover-foreground: oklch(14.5% 0 0);
+  --primary: oklch(20.5% 0 0);
+  --primary-foreground: oklch(94.91% 0 0);
+  --secondary: oklch(94.91% 0 0);
+  --secondary-foreground: oklch(20.5% 0 0);
+  --muted: oklch(94.91% 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(94.91% 0 0);
+  --accent-foreground: oklch(20.5% 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(94.91% 0 0);
+  --input: oklch(94.91% 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(64.6% 0.222 41.116);
+  --chart-2: oklch(60% 0.118 184.704);
+  --chart-3: oklch(39.8% 0.07 227.392);
+  --chart-4: oklch(82.8% 0.189 84.429);
+  --chart-5: oklch(76.9% 0.188 70.08);
+}
+
+.dark {
+  --background: oklch(0% 0 0);
+  --foreground: oklch(94.91% 0 0);
+  --card: oklch(21.34% 0 0);
+  --card-foreground: oklch(94.91% 0 0);
+  --popover: oklch(21.34% 0 0);
+  --popover-foreground: oklch(94.91% 0 0);
+  --primary: oklch(68.93% 0.19 45.17);
+  --primary-foreground: oklch(100% 0 0);
+  --secondary: oklch(25.79% 0.0447 60.79);
+  --secondary-foreground: oklch(92.47% 0.0524 66.18);
+  --muted: oklch(25.19% 0 0);
+  --muted-foreground: oklch(76.99% 0 0);
+  --accent: oklch(28.5% 0 0);
+  --accent-foreground: oklch(94.91% 0 0);
+  --destructive: oklch(52.13% 0.2138 33.34);
+  --destructive-foreground: oklch(100% 0 0);
+  --border: oklch(23.48% 0.0111 90.39);
+  --input: oklch(40.17% 0 0);
+  --ring: oklch(54.05% 0.1156 50.04);
+  --chart-1: var(--primary);
+  --chart-2: oklch(25.79% 0.0447 60.79);
+  --chart-3: oklch(28.5% 0 0);
+  --chart-4: oklch(29.43% 0.0535 60.3);
+  --chart-5: oklch(69.34% 0.1946 44.61);
+
+  --toastify-color-light: oklch(68.93% 0.19 45.17/0.7);
+  --toastify-color-dark: oklch(28.5% 0 0 / 0.7);
+  --toastify-color-info: var(--primary);
+  --toastify-color-success: oklch(69% 0.23 142.64);
+  --toastify-color-warning: oklch(84% 0.17 91.77);
+  --toastify-color-error: oklch(63% 0.19 29.74);
+  --toastify-color-transparent: oklch(94.91% 0 0 / 0.7);
+
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+
+  --toastify-container-width: fit-content;
+  --toastify-toast-width: 320px;
+  --toastify-toast-offset: 16px;
+  --toastify-toast-top: max(var(--toastify-toast-offset), env(safe-area-inset-top));
+  --toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-right));
+  --toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-left));
+  --toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));
+  --toastify-toast-background: oklch(94.91% 0 0);
+  --toastify-toast-padding: 14px;
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-toast-bd-radius: 10px;
+  --toastify-toast-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  --toastify-font-family: sans-serif;
+  --toastify-z-index: 9999;
+  --toastify-text-color-light: oklch(94.91% 0 0);
+  --toastify-text-color-dark: oklch(94.91% 0 0);
+
+  /* Used only for colored theme */
+  --toastify-text-color-info: oklch(94.91% 0 0);
+  --toastify-text-color-success: oklch(94.91% 0 0);
+  --toastify-text-color-warning: oklch(94.91% 0 0);
+  --toastify-text-color-error: oklch(94.91% 0 0);
+
+  --toastify-spinner-color: oklch(59% 0.14 47.89);
+  --toastify-spinner-color-empty-area: oklch(94.91% 0 0);
+  --toastify-color-progress-light: var(--primary);
+  --toastify-color-progress-dark: var(--primary);
+  --toastify-color-progress-info: var(--toastify-color-info);
+  --toastify-color-progress-success: var(--toastify-color-success);
+  --toastify-color-progress-warning: var(--toastify-color-warning);
+  --toastify-color-progress-error: var(--toastify-color-error);
+  /* used to control the opacity of the progress trail */
+  --toastify-color-progress-bgo: 0.1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.Toastify__toast {
+  border-radius: 10px;
+  backdrop-filter: blur(var(--blur-xs));
 }

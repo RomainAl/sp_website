@@ -10,6 +10,7 @@ type audioStoreType = {
   nikedal: Device | null;
   filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
+  instrus: Device[];
 };
 
 export const useAudioAdminStore = create(
@@ -20,6 +21,7 @@ export const useAudioAdminStore = create(
     nikedal: null,
     filter: null,
     nikedalAnalyser: null,
+    instrus: new Array(1),
   }))
 );
 
@@ -27,20 +29,30 @@ export const setAdminAudio = async () => {
   const ctx = new AudioContext();
   const filter = ctx.createBiquadFilter();
   filter.type = "highpass";
+  const instrus = useAudioAdminStore.getState().instrus;
   let nikedal = null;
   try {
     const path = nextConfig.basePath + "/nikedal";
     nikedal = await loadRNBO(path, ctx);
   } catch (e) {
     console.error(e);
-    alert("Impossible de charger nikedal !");
   }
 
+  for (let i = 0; i < instrus.length; i++) {
+    try {
+      const path = `/instru${i}`;
+      instrus[i] = await loadRNBO(path, ctx);
+    } catch (e) {
+      console.error(e);
+    }
+  }
   useAudioAdminStore.setState({
     audioContext: ctx,
     nikedal: nikedal,
     filter: filter,
+    instrus: instrus,
     nikedalAnalyser: ctx.createAnalyser(),
+    audioAnalyser: ctx.createAnalyser(),
   });
 };
 

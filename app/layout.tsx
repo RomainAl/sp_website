@@ -1,7 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import { PlayButton } from "@/components/playButton";
+// import { MyHeader } from "@/components/myHeader";
+import { MyHeader } from "@/components/myHeader";
 import "./globals.css";
-import { MyHeader } from "./myHeader";
+import ToastG from "./toastG";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +38,8 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable} relative dark antialiased overflow-hidden h-dvh w-dvw flex flex-col`}>
         <MyHeader />
+        <PlayButton />
+        <ToastG />
         {children}
       </body>
     </html>

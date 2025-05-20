@@ -63,12 +63,10 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           </div>
         </div>
 
-        {index === 0 && (
-          <div className="w-full overflow-y-auto">
-            <div className="size-fit m-auto" ref={playerRef}></div>
-            <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
-          </div>
-        )}
+        <div className="w-full overflow-y-auto">
+          {index === 0 && <div className="size-fit m-auto" ref={playerRef}></div>}
+          <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
+        </div>
 
         <div className={cn("p-4 w-full flex flex-row gap-3 items-center z-20 bg-card")}>
           <p className="text-xs italic text-primary">{vidMeta.hashtag}</p>

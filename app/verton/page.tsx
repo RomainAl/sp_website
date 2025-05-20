@@ -49,7 +49,7 @@ export default function Home() {
     setElonSpeech(true);
     setTimeout(() => {
       setElonSpeech(false);
-    }, Math.random() * 3000);
+    }, Math.random() * 4000);
   }, 10000);
 
   useUnmount(() => {

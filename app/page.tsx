@@ -4,15 +4,29 @@ import { initNikedalStore, nikedalParamsTopStore, setNikedalParam } from "@/stor
 import { PerformanceMonitor } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { ChevronLeft, ChevronRight, Palette } from "lucide-react";
+import { motion } from "motion/react";
 import { memo, useRef, useState } from "react";
 import { ExperienceMemo } from "./experience";
 
 export default function Home() {
   const [dpr, setDpr] = useState(2);
   console.log("🚀 ~ App ~ dpr:", dpr);
-
+  const pointId = useRef(0);
   return (
-    <div className="relative size-full">
+    <motion.div
+      className="relative size-full"
+      onPan={(e, pointInfo) => {
+        if (pointId.current !== e.pointerId) {
+          if (pointInfo.offset.x < -100) {
+            setNikedalParam({ camRotYPlus: Date.now() });
+            pointId.current = e.pointerId;
+          } else if (pointInfo.offset.x > 100) {
+            setNikedalParam({ camRotYMoins: Date.now() });
+            pointId.current = e.pointerId;
+          }
+        }
+      }}
+    >
       <Canvas
         gl={{ antialias: true, precision: "mediump" }}
         dpr={dpr}
@@ -28,7 +42,7 @@ export default function Home() {
         <PerformanceMonitor onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} />
       </Canvas>
       <FooterMemo />
-    </div>
+    </motion.div>
   );
 }
 

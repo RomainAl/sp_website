@@ -18,7 +18,7 @@ export default function Home() {
       <Carousel setApi={setApi} opts={{ loop: true }}>
         <CarouselContent className="h-dvh w-dvw max-w-2xl -ml-2 -mt-2">
           {vidMeta.map((_, index) => (
-            <CarouselItem key={index} className="basis-full  pl-4 pt-4 flex items-center">
+            <CarouselItem key={index} className="basis-full pl-4 pt-4 flex items-center">
               {isMounted() && <InstaComponent index={index} goPrev={() => api?.scrollPrev()} goNext={() => api?.scrollNext()} />}
             </CarouselItem>
           ))}

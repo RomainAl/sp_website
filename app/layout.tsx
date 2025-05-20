@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { PlayButton } from "@/components/playButton";
 // import { MyHeader } from "@/components/myHeader";
 import { MyHeader } from "@/components/myHeader";
 import "./globals.css";
@@ -36,9 +35,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} relative dark antialiased overflow-hidden h-dvh w-dvw flex flex-col`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} relative dark antialiased overflow-hidden h-screen w-screen flex flex-col`}>
         <MyHeader />
-        <PlayButton />
         <ToastG />
         {children}
       </body>

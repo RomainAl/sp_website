@@ -18,9 +18,9 @@ export function PlayButton() {
   return (
     <Button
       onClick={init}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 size-12 rounded-full border-1 border-accent-foreground"
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 size-12 rounded-full border-1 border-accent-foreground pointer-events-auto"
     >
-      <span className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-primary size-full"></span>
+      <span className="absolute z-0 size-full animate-ping rounded-full bg-primary"></span>
       {!clicked ? (
         <Play fill="var(--foreground)" stroke="var(--foreground)" className="size-full" />
       ) : (

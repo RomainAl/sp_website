@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { useInstaUserStore } from "@/store/insta.user.store";
 import Player from "@vimeo/player";
 import { ChevronUp } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useWindowSize } from "usehooks-ts";
@@ -31,45 +32,49 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
   }, []);
 
   return (
-    <div className={cn("relative flex w-full h-full flex-col justify-center items-center")}>
+    <div className={cn("relative flex size-full flex-col justify-center items-center")}>
       <div className="absolute size-full flex flex-row justify-between items-center z-40 pointer-events-none">
         <ChevronUp
           onClick={goPrev}
           strokeWidth={0.85}
           size={60}
-          className="text-primary -rotate-90 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+          className="text-primary -rotate-90 -ml-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
         />
         <ChevronUp
           onClick={goNext}
           strokeWidth={0.85}
           size={60}
-          className="text-primary rotate-90 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+          className="text-primary rotate-90 -mr-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
         />
       </div>
 
       <div className={cn("size-full ring-2 ring-accent rounded-none flex flex-col justify-between bg-card")}>
-        <div className="flex flex-row gap-3 items-center text-sm p-4 h-30">
-          <div className="h-full">
+        <div className="flex flex-row gap-4 items-center text-sm px-4 py-2.5 h-30 ring-2 ring-accent">
+          <div className="size-20">
             <InstaAvatarJpgMemo name={vidMeta.name.substring(0, 3)} />
           </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-primary font-black">{vidMeta.name}</p>
+          <div className="flex flex-col gap-0">
+            <p className="text-primary font-black text-base">{vidMeta.name}</p>
             {vidMeta.link !== "" && (
               <Link href={vidMeta.link} className="text-primary italic hover:underline" target="_blank">
                 {"╰┈➤ " + vidMeta.linkname}
               </Link>
             )}
-            <p className="text-xs">{`il y a ${vidMeta.name.length} jours`}</p>
+            {index == 0 && <p className="text-xs italic text-center">{"Contenu suggéré"}</p>}
+            {index == 1 && <p className="text-xs italic text-center">{"Reels"}</p>}
+            {index == 2 && <p className="text-xs italic text-center">{"Story pour toi"}</p>}
+            <p className="text-xs italic text-center">{`il y a ${vidMeta.name.length} jours`}</p>
           </div>
         </div>
 
-        <div className="w-full overflow-y-auto">
-          {index === 0 && <div className="size-fit m-auto" ref={playerRef}></div>}
+        <div className="w-full overflow-y-scroll">
+          {index === 0 && <div className="size-fit m-auto pt-1" ref={playerRef}></div>}
           <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
+          <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the author" />
         </div>
 
-        <div className={cn("p-4 w-full flex flex-row gap-3 items-center z-20 bg-card")}>
-          <p className="text-xs italic text-primary">{vidMeta.hashtag}</p>
+        <div className={cn("px-4 py-1 w-full max-h-1/9 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>
+          <p className="text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden">{vidMeta.hashtag}</p>
           <InstaComLike index={index} />
         </div>
       </div>

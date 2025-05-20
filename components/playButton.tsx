@@ -18,12 +18,13 @@ export function PlayButton() {
   return (
     <Button
       onClick={init}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 aspect-square rounded-full size-fit border-1 border-accent-foreground"
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 size-12 rounded-full border-1 border-accent-foreground"
     >
+      <span className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-primary size-full"></span>
       {!clicked ? (
-        <Play fill="var(--foreground)" stroke="none" className="size-full m-auto" size={30} />
+        <Play fill="var(--foreground)" stroke="var(--foreground)" className="size-full" />
       ) : (
-        <Spinner size="medium" className="text-foreground"></Spinner>
+        <Spinner size="medium" className="text-foreground size-9"></Spinner>
       )}
     </Button>
   );

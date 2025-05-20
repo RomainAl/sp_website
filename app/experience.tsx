@@ -186,15 +186,15 @@ export const ExperienceMemo = memo(function Experience() {
     <>
       <CameraControls
         ref={refCam}
-        minPolarAngle={0}
-        maxPolarAngle={Math.PI}
+        minPolarAngle={Math.PI/2}
+        maxPolarAngle={Math.PI/2}
         smoothTime={1.0}
         maxDistance={10}
         minDistance={1}
         azimuthRotateSpeed={0.4}
         dollySpeed={0.7}
         touches={{ one: ACTION.ACTION.DOLLY, two: ACTION.ACTION.TOUCH_ROTATE, three: 0 }} // 1 = ROTATE, 16 = DOLLY, 0 = NONE
-        mouseButtons={{ left: ACTION.ACTION.DOLLY, right: 0, wheel: ACTION.ACTION.DOLLY, middle: 0 }}
+        mouseButtons={{ left: ACTION.ACTION.ROTATE, right: 0, wheel: ACTION.ACTION.DOLLY, middle: 0 }}
       />
       <Lights />
       <PostProd />

@@ -9,8 +9,8 @@ export const initInstaUserStore = {
   vidMeta: [
     {
       name: "smart.phonics",
-      link: "https://vimeo.com/libertad/sp",
-      linkname: "Voir le teaser",
+      link: "",
+      linkname: "",
       description: `smart.phonics est une performance musicale et visuelle hybride, utilisant les smartphones du public comme dispositif numérique principal. Ainsi, tour à tour, elle peut prendre la forme d’un live électronique AV  et d’une création digitale participative, tous deux augmentés de ces téléphones intelligents qui sont autant d’écrans, d’enceintes, de microphones, d’instruments de musique électronique, de pinceaux numériques, etc.
       \n\nÀ la fois spectateur et co-créateur, le public s'interface avec les artistes, sur scène, via un site Web modifié en temps réel tout au long de la performance. Ainsi connectés, ils donnent vie, ensemble, à une création sonore et visuelle, collective et immersive.
       \n\nLes smartphones, archétypes technologiques de notre époque, sont désormais omniprésents et connectent les individus autant qu’ils les isolent. Scroller, swiper, liker sont aujourd’hui devenus des gestes anodins  et la caresse micro-timée d’un pouce sur un écran tactile impacte les rapports sociaux. smart.phonics interroge ces nouvelles pratiques, cette avalanche d’échanges, de contenus, de vidéos et de sons. Tel un internaute qui passe d’un site à l’autre au gré de ses recherches, de ses pensées, la performance procède d’une écriture par tableaux successifs, visuels et sonores.

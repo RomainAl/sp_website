@@ -8,6 +8,7 @@ type audioStoreType = {
   audioAnalyser: AnalyserNode | null;
   merger: ChannelMergerNode | null;
   nikedal: Device | null;
+  verton: Device | null;
   filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
   instrus: Device[];
@@ -19,6 +20,7 @@ export const useAudioAdminStore = create(
     audioAnalyser: null,
     merger: null,
     nikedal: null,
+    verton: null,
     filter: null,
     nikedalAnalyser: null,
     instrus: new Array(1),
@@ -29,11 +31,20 @@ export const setAdminAudio = async () => {
   const ctx = new AudioContext();
   const filter = ctx.createBiquadFilter();
   filter.type = "highpass";
+  filter.frequency.setValueAtTime(200, ctx.currentTime);
   const instrus = useAudioAdminStore.getState().instrus;
   let nikedal = null;
   try {
     const path = nextConfig.basePath + "/nikedal";
     nikedal = await loadRNBO(path, ctx);
+  } catch (e) {
+    console.error(e);
+  }
+
+  let verton = null;
+  try {
+    const path = nextConfig.basePath + "/verton";
+    verton = await loadRNBO(path, ctx);
   } catch (e) {
     console.error(e);
   }
@@ -46,9 +57,11 @@ export const setAdminAudio = async () => {
       console.error(e);
     }
   }
+
   useAudioAdminStore.setState({
     audioContext: ctx,
     nikedal: nikedal,
+    verton: verton,
     filter: filter,
     instrus: instrus,
     nikedalAnalyser: ctx.createAnalyser(),

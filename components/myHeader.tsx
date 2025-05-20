@@ -74,6 +74,17 @@ export function MyHeader() {
                 INTRU #1
               </Link>
             </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                href={"/verton"}
+                className="text-primary text-center w-full"
+                onClick={() => {
+                  setShowSP(false);
+                }}
+              >
+                VERTON
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>

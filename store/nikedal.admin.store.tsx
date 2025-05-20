@@ -9,7 +9,7 @@ export const initNikedalStore = {
   scaleNik: 1,
   fillMix: 1,
   fillOpacity: 0,
-  gainNik: 30,
+  gainNik: 40,
   doGlitch: 0,
   doBloom: 1,
   doNoise: 0,

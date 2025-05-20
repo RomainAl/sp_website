@@ -19,7 +19,7 @@ export function MyHeader() {
   const [showSP, setShowSP] = useState(true);
   const [showPlay, setShowPlay] = useState(true);
   return (
-    <div className="absolute top-0 size-full pointer-events-none">
+    <div className="absolute top-0 h-dvh w-dvw pointer-events-none">
       {showPlay && <PlayButton />}
       <div className="absolute top-0 w-full z-10 flex flex-row p-5 items-center pointer-events-none">
         {showSP && (

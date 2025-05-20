@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex size-full max-w-2xl m-auto flex-col items-center justify-center gap-7">
+      <div className="flex h-dvh w-dvw max-w-2xl m-auto flex-col items-center justify-center gap-7">
         {instru?.parameters.length < 10 && (
           <div className="flex w-2/3 flex-col rounded-full border-3 border-accent bg-background shadow transition-colors">
             <SoundwaveCanvas width={width} height={width / 3} analyser={analyser} />

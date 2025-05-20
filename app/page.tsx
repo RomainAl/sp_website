@@ -14,7 +14,7 @@ export default function Home() {
   const pointId = useRef(0);
   return (
     <motion.div
-      className="relative size-full"
+      className="relative h-dvh w-dvw"
       onPan={(e, pointInfo) => {
         if (pointId.current !== e.pointerId) {
           if (pointInfo.offset.x < -100) {

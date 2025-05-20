@@ -54,7 +54,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             <InstaAvatarJpgMemo name={vidMeta.name.substring(0, 3)} />
           </div>
           <div className="flex flex-col gap-0">
-            <p className="text-primary font-black text-base">{vidMeta.name}</p>
+            <p className="text-primary font-black text-xl">{vidMeta.name}</p>
             {vidMeta.link !== "" && (
               <Link href={vidMeta.link} className="text-primary italic hover:underline" target="_blank">
                 {"╰┈➤ " + vidMeta.linkname}

@@ -17,8 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "smart.phonics",
-  description: "Disable this behaviour !",
+  metadataBase: new URL("https://web.smartphonics.art"),
+  title: "smart.phonics - Live Audiovisual && Collaborative Performance ? Disable this behaviour : undefined",
+  description:
+    "smart.phonics est une performance musicale et visuelle hybride, utilisant les smartphones du public comme dispositif numérique principal. Ainsi, tour à tour, elle peut prendre la forme d’un live électronique AV  et d’une création digitale participative, tous deux augmentés de ces téléphones intelligents qui sont autant d’écrans, d’enceintes, de microphones, d’instruments de musique électronique, de pinceaux numériques, etc.",
 };
 
 export const viewport: Viewport = {

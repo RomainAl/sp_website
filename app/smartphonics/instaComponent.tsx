@@ -12,9 +12,8 @@ import { InstaComLike } from "./instaComLike";
 export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPrev: () => void; goNext: () => void }) => {
   const vidMeta = useInstaUserStore((store) => store.vidMeta[index]);
   const playerRef = useRef<HTMLDivElement>(null);
-  let player = {};
+  const player = useRef<Player>(null);
   const { width = 0 } = useWindowSize();
-
   useEffect(() => {
     const options = {
       id: 1081556604,
@@ -26,10 +25,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
     };
 
     if (playerRef.current !== null) {
-      player = new Player(playerRef.current, options);
-      console.log(player);
+      player.current = new Player(playerRef.current, options);
     }
-  }, []);
+  }, [width]);
 
   return (
     <div className={cn("relative flex size-full flex-col justify-center items-center")}>
@@ -69,6 +67,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 
         <div className="w-full overflow-y-scroll">
           {index === 0 && <div className="size-fit m-auto pt-1" ref={playerRef}></div>}
+
           <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
           <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the author" />
         </div>

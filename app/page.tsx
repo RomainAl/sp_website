@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { initNikedalStore, nikedalParamsTopStore, setNikedalParam } from "@/store/nikedal.admin.store";
 import { PerformanceMonitor } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
@@ -10,6 +11,7 @@ import { ExperienceMemo } from "./experience";
 
 export default function Home() {
   const [dpr, setDpr] = useState(2);
+  const [created, setCreated] = useState(false);
   console.log("🚀 ~ App ~ dpr:", dpr);
   const pointId = useRef(0);
   return (
@@ -27,7 +29,19 @@ export default function Home() {
         }
       }}
     >
+      {!created ? (
+        <div className="h-dvh w-dvw flex justify-center items-center">
+          <Spinner size="xxlarge" />
+        </div>
+      ) : (
+        <FooterMemo />
+      )}
+
       <Canvas
+        fallback={<div className="h-dvh w-dvw flex justify-center items-center">Sorry no WebGL supported!</div>}
+        onCreated={() => setCreated(true)}
+        id="experienceCanvas"
+        resize={{ offsetSize: true }}
         gl={{ antialias: true, precision: "mediump" }}
         dpr={dpr}
         shadows
@@ -41,7 +55,6 @@ export default function Home() {
         <ExperienceMemo />
         <PerformanceMonitor onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} />
       </Canvas>
-      <FooterMemo />
     </motion.div>
   );
 }

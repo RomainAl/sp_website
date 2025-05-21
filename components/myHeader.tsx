@@ -76,7 +76,7 @@ export function MyHeader() {
                     setShowPlay(true);
                   }}
                 >
-                  <p className="w-full text-primary text-center active:text-foreground">{"INTRU #1"}</p>
+                  <p className="w-full text-primary text-center active:text-foreground">{"INTRUMENT #1"}</p>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
@@ -87,7 +87,18 @@ export function MyHeader() {
                     setShowPlay(true);
                   }}
                 >
-                  <p className="w-full text-primary text-center active:text-foreground">{"VERTON"}</p>
+                  <p className="w-full text-primary text-center active:text-foreground">{"CRAZY X"}</p>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href={"/flashes"}
+                  onClick={() => {
+                    setShowSP(true);
+                    setShowPlay(false);
+                  }}
+                >
+                  <p className="w-full text-primary text-center active:text-foreground">{"TECHNO FLASHES"}</p>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>

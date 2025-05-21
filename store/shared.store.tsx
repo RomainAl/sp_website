@@ -35,6 +35,7 @@ type toastStoreType = {
   position?: string;
   progress?: number | undefined;
   autoClose?: boolean | number;
+  pauseOnFocusLoss?: boolean;
   render?: string;
   type?: "error" | "info" | "warning" | "success" | "" | "loading" | "update" | "form";
 };

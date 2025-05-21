@@ -14,7 +14,7 @@ export default function Home() {
   });
 
   return (
-    <div className="size-full max-w-2xl m-auto">
+    <div className="h-dvh w-dvw max-w-2xl m-auto">
       <Carousel setApi={setApi} opts={{ loop: true }}>
         <CarouselContent className="h-dvh w-dvw max-w-2xl -ml-2 -mt-2">
           {vidMeta.map((_, index) => (

@@ -1,8 +1,8 @@
 "use client";
 
+import { Knob } from "@/components/knob_user";
 import { SoundwaveCanvas } from "@/components/soundwaveCanvas";
 import { cn } from "@/lib/utils";
-import { Knob } from "./knob_user";
 // import { Slider } from "@/components/ui/slider";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { initSoundVisualizerParams, setSoundVisualizerParams } from "@/store/soundVisu.user.store";

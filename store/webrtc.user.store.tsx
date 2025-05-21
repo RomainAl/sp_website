@@ -37,7 +37,7 @@ export const useWebrtcUserStore = create(
         },
       },
       {
-        audio: true,
+        audio: false,
         video: {
           width: { ideal: 320 },
           height: { ideal: 180 },
@@ -89,14 +89,14 @@ export const flash = (onFlash: boolean) => {
     const track = stream.getVideoTracks()[0];
 
     (track as any).applyConstraints({ advanced: [{ torch: onFlash }] }).catch(() => {
-      // setToast({
-      //   type: "error",
-      //   data: {
-      //     content: "Impossible d'allumer ta torche !",
-      //   },
-      //   autoClose: 30,
-      //   pauseOnFocusLoss: false,
-      // });
+      setToast({
+        type: "error",
+        data: {
+          content: "Impossible d'allumer ta torche !",
+        },
+        autoClose: 30,
+        pauseOnFocusLoss: false,
+      });
     });
   }
 };

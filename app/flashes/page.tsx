@@ -35,7 +35,7 @@ export default function Home() {
       flashesTech.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
     }
     return () => {
-      audioContext?.suspend();
+      // audioContext?.suspend();
       flashesTech?.node.disconnect();
     };
   }, [audioContext, flashesTech]);
@@ -105,13 +105,13 @@ export default function Home() {
             <span className="absolute z-0 size-full animate-ping rounded-full bg-primary pointer-events-none"></span>
             <Button
               variant={"default"}
-              className="size-full focus:outline-2 focus:outline-2-offset-2 focus:outline-primary z-50"
+              className="size-full focus:outline-2 focus:outline-2-offset-2 focus:outline-primary z-10"
               size={"circle"}
               onClick={() => {
                 setStreamWebcam(1);
               }}
             >
-              <Phone className="size-1/2" />
+              <Phone className="size-1/3" />
             </Button>
           </div>
         </div>
@@ -122,9 +122,9 @@ export default function Home() {
           ) : (
             <video className={"hue-rotate-180 brightness-125 contrast-200 size-full object-cover"} playsInline ref={myVideoRef} autoPlay muted />
           )}
+          <FooterMemo />
         </div>
       )}
-      <FooterMemo />
     </div>
   );
 }
@@ -136,8 +136,8 @@ const FooterMemo = memo(function Footer() {
     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
       <div className="w-1/2">
         <Knob
-          Kname={"FLASH_DURATION"}
-          Kmax={1}
+          Kname={"FLASH_TIME"}
+          Kmax={0.9}
           Kmin={0.1}
           Kinitval={0.5}
           unit="%"

@@ -6,6 +6,7 @@ import { useFrame } from "@react-three/fiber";
 import ACTION from "camera-controls";
 import { memo, useEffect, useRef } from "react";
 import * as THREE from "three";
+import { useUnmount } from "usehooks-ts";
 import CustomObject from "./customObject";
 import Lights from "./lights";
 import PostProd from "./postProd";
@@ -104,12 +105,13 @@ export const ExperienceMemo = memo(function Experience() {
       audioContext.resume();
       nikedal.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
     }
-    return () => {
-      analyser?.disconnect();
-      audioContext?.suspend();
-      nikedal?.node.disconnect();
-    };
   }, [audioContext, analyser, nikedal, filter]);
+
+  useUnmount(() => {
+    analyser?.disconnect();
+    // audioContext?.suspend();
+    nikedal?.node.disconnect();
+  });
 
   useEffect(() => {
     const unsubscribeTotal = useNikedalStore.subscribe((state) => (refState.current = state));
@@ -159,14 +161,14 @@ export const ExperienceMemo = memo(function Experience() {
     const unsubscribeRotPlus = useNikedalStore.subscribe(
       (state) => state.camRotYPlus,
       () => {
-        refCam.current?.rotate(Math.PI/2, 0, true)
+        refCam.current?.rotate(Math.PI / 2, 0, true);
       }
     );
 
     const unsubscribeRotMoins = useNikedalStore.subscribe(
       (state) => state.camRotYMoins,
       () => {
-        refCam.current?.rotate(-Math.PI/2, 0, true)
+        refCam.current?.rotate(-Math.PI / 2, 0, true);
       }
     );
 
@@ -186,8 +188,8 @@ export const ExperienceMemo = memo(function Experience() {
     <>
       <CameraControls
         ref={refCam}
-        minPolarAngle={Math.PI/2}
-        maxPolarAngle={Math.PI/2}
+        minPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2}
         smoothTime={1.0}
         maxDistance={10}
         minDistance={1}

@@ -57,7 +57,7 @@ export default function Home() {
   useUnmount(() => {
     analyser?.disconnect();
     instru?.node.disconnect();
-    audioContext?.suspend();
+    // audioContext?.suspend();
     try {
       instru?.messageEvent?.removeAllSubscriptions();
     } catch (e) {

@@ -95,7 +95,7 @@ export function MyHeader() {
                   href={"/flashes"}
                   onClick={() => {
                     setShowSP(true);
-                    setShowPlay(false);
+                    setShowPlay(true);
                   }}
                 >
                   <p className="w-full text-primary text-center active:text-foreground">{"TECHNO FLASHES"}</p>

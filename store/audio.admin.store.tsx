@@ -9,6 +9,7 @@ type audioStoreType = {
   merger: ChannelMergerNode | null;
   nikedal: Device | null;
   verton: Device | null;
+  hack: Device | null;
   flashesTech: Device | null;
   filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
@@ -21,6 +22,7 @@ export const useAudioAdminStore = create(
     audioAnalyser: null,
     merger: null,
     nikedal: null,
+    hack: null,
     verton: null,
     flashesTech: null,
     filter: null,
@@ -59,6 +61,14 @@ export const setAdminAudio = async () => {
     console.error(e);
   }
 
+  let hack = null;
+  try {
+    const path = nextConfig.basePath + "/hack";
+    hack = await loadRNBO(path, ctx);
+  } catch (e) {
+    console.error(e);
+  }
+
   for (let i = 0; i < instrus.length; i++) {
     try {
       const path = `/instru${i}`;
@@ -72,6 +82,7 @@ export const setAdminAudio = async () => {
     audioContext: ctx,
     nikedal: nikedal,
     verton: verton,
+    hack: hack,
     flashesTech: flashesTech,
     filter: filter,
     instrus: instrus,

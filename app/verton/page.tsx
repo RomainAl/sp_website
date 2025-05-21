@@ -26,7 +26,7 @@ export default function Home() {
       verton.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
     }
     return () => {
-      audioContext?.suspend();
+      // audioContext?.suspend();
       verton?.node.disconnect();
     };
   }, [audioContext, verton]);

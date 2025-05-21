@@ -11,15 +11,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { PlayButton } from "./playButton";
-
 export function MyHeader() {
   const [showSP, setShowSP] = useState(true);
   const [showPlay, setShowPlay] = useState(true);
   return (
-    <div className="absolute top-0 h-dvh w-dvw pointer-events-none">
+    <motion.div
+      className="absolute top-0 h-dvh w-dvw pointer-events-none"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 2 } }}
+    >
       {showPlay && <PlayButton />}
       <div className="absolute top-0 w-full z-10 flex flex-row p-5 items-center pointer-events-none">
         {showSP && (
@@ -101,10 +105,21 @@ export function MyHeader() {
                   <p className="w-full text-primary text-center active:text-foreground">{"TECHNO FLASHES"}</p>
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href={"/hack"}
+                  onClick={() => {
+                    setShowSP(false);
+                    setShowPlay(true);
+                  }}
+                >
+                  <p className="w-full text-primary text-center active:text-foreground">{"HACK"}</p>
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-    </div>
+    </motion.div>
   );
 }

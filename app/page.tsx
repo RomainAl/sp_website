@@ -16,6 +16,8 @@ export default function Home() {
   const pointId = useRef(0);
   return (
     <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 2 } }}
       className="relative h-dvh w-dvw"
       onPan={(e, pointInfo) => {
         if (pointId.current !== e.pointerId) {
@@ -30,7 +32,7 @@ export default function Home() {
       }}
     >
       {!created ? (
-        <div className="h-dvh w-dvw flex justify-center items-center">
+        <div className="relative h-dvh w-dvw flex justify-center items-center">
           <Spinner size="xxlarge" />
         </div>
       ) : (

@@ -20,6 +20,7 @@ export default function Home() {
       animate={{ opacity: 1, transition: { duration: 2 } }}
       className="relative h-dvh w-dvw"
       onPan={(e, pointInfo) => {
+        console.log(pointInfo);
         if (pointId.current !== e.pointerId) {
           if (pointInfo.offset.x < -100) {
             setNikedalParam({ camRotYPlus: Date.now() });

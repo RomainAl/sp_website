@@ -3,6 +3,8 @@ import { InstaComponent } from "@/app/verton/instaComponent";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
+import { errorMess } from "@/store/elon.store";
+import { setToast } from "@/store/shared.store";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
 import { useInterval, useIsMounted, useUnmount } from "usehooks-ts";
@@ -51,6 +53,16 @@ export default function Home() {
       setElonSpeech(false);
     }, Math.random() * 4000);
   }, 10000);
+
+  useInterval(() => {
+    const err = errorMess[Math.floor(Math.random() * errorMess.length)];
+    setToast({
+      type: "error",
+      data: { title: `ERROR : ${err.message}`, content: err.explication },
+      position: "bottom-center",
+      autoClose: Math.round(Math.random() * 5000 + 200),
+    });
+  }, 2000);
 
   useUnmount(() => {
     api?.destroy();

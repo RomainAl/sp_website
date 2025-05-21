@@ -8,6 +8,22 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      use: ["raw-loader"],
+    });
+
+    return config;
+  },
+  turbopack: {
+    rules: {
+      "*.glsl": {
+        loaders: ["raw-loader"],
+        as: "*.tsx",
+      },
+    },
+  },
 };
 
 export default nextConfig;

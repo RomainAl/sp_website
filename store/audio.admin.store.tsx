@@ -10,6 +10,7 @@ type audioStoreType = {
   nikedal: Device | null;
   verton: Device | null;
   hack: Device | null;
+  climaticsdisasters: Device | null;
   flashesTech: Device | null;
   filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
@@ -22,6 +23,7 @@ export const useAudioAdminStore = create(
     audioAnalyser: null,
     merger: null,
     nikedal: null,
+    climaticsdisasters: null,
     hack: null,
     verton: null,
     flashesTech: null,
@@ -35,7 +37,7 @@ export const setAdminAudio = async () => {
   const ctx = new AudioContext();
   const filter = ctx.createBiquadFilter();
   filter.type = "highpass";
-  filter.frequency.setValueAtTime(200, ctx.currentTime);
+  filter.frequency.setValueAtTime(400, ctx.currentTime);
   const instrus = useAudioAdminStore.getState().instrus;
   let nikedal = null;
   try {
@@ -68,6 +70,13 @@ export const setAdminAudio = async () => {
   } catch (e) {
     console.error(e);
   }
+  let climaticsdisasters = null;
+  try {
+    const path = nextConfig.basePath + "/climaticsdisasters";
+    climaticsdisasters = await loadRNBO(path, ctx);
+  } catch (e) {
+    console.error(e);
+  }
 
   for (let i = 0; i < instrus.length; i++) {
     try {
@@ -83,6 +92,7 @@ export const setAdminAudio = async () => {
     nikedal: nikedal,
     verton: verton,
     hack: hack,
+    climaticsdisasters: climaticsdisasters,
     flashesTech: flashesTech,
     filter: filter,
     instrus: instrus,

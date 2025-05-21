@@ -18,10 +18,14 @@ import { usePathname } from "next/navigation";
 import { PlayButton } from "./playButton";
 export function MyHeader() {
   const pathname = usePathname();
-  console.log(pathname);
   const showPlay =
-    pathname === "/" || pathname.includes("instru") || pathname.includes("verton") || pathname.includes("flashes") || pathname.includes("hack");
-  const showSP = pathname === "/" || pathname.includes("flashes") || pathname.includes("instru");
+    pathname === "/" ||
+    pathname.includes("instru") ||
+    pathname.includes("verton") ||
+    pathname.includes("flashes") ||
+    pathname.includes("hack") ||
+    pathname.includes("climaticsdisasters");
+  const showSP = pathname === "/" || pathname.includes("flashes") || pathname.includes("instru") || pathname.includes("climaticsdisasters");
   return (
     <motion.div
       className="absolute top-0 h-dvh w-dvw pointer-events-none"
@@ -84,6 +88,17 @@ export function MyHeader() {
                 <Link href={"/hack"}>
                   <p className={cn("w-full text-primary text-center active:text-foreground", { "text-foreground": pathname.includes("hack") })}>
                     {"HACK"}
+                  </p>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href={"/climaticsdisasters"}>
+                  <p
+                    className={cn("w-full text-primary text-center active:text-foreground", {
+                      "text-foreground": pathname.includes("climaticsdisasters"),
+                    })}
+                  >
+                    {"CLIMATIC DISASTERS"}
                   </p>
                 </Link>
               </DropdownMenuItem>

@@ -1,7 +1,7 @@
-import { shaderParamsDefStore, useShaderStore } from "@/store/shader.admin.store";
+import { initShaderStore, shaderParamsDefStore, useShaderStore } from "@/store/shader.admin.store";
 import { shaderMaterial } from "@react-three/drei";
 import { extend, useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef } from "react";
+import { memo, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import myFragmentShader from "./shaders/frag.glsl";
 import myVertexShader from "./shaders/vertex.glsl";
@@ -14,14 +14,13 @@ const MyShader = shaderMaterial(
 
 extend({ MyShader });
 
-const params = Object.keys(shaderParamsDefStore);
+const params = Object.keys(initShaderStore);
 
-export default function Experience() {
+export const ExperienceMemo = memo(function Experience() {
   const ref3DPlane = useRef<THREE.PlaneGeometry>(null);
   const refState = useRef(useShaderStore.getState());
   const delta_sum = useRef<number>(0);
   const { size } = useThree();
-
   console.log("RENDER CLIMATIC EXP !");
   const myShader = useMemo(() => {
     console.log("MEMO MYSHADER");
@@ -46,9 +45,16 @@ export default function Experience() {
     }
 
     params.map((name) => {
-      const name_ = name as keyof typeof shaderParamsDefStore;
-      if (shaderParamsDefStore[name_] && shaderParamsDefStore[name_][2] === 1) {
-        myShader[name_] += Math.pow(refState.current[name_] / shaderParamsDefStore[name_][1], 7) * shaderParamsDefStore[name_][1];
+      const name_ = name as keyof typeof initShaderStore;
+      if (
+        shaderParamsDefStore[name_ as keyof typeof shaderParamsDefStore] &&
+        shaderParamsDefStore[name_ as keyof typeof shaderParamsDefStore][2] === 1
+      ) {
+        myShader[name_] +=
+          Math.pow(
+            refState.current[name_ as keyof typeof shaderParamsDefStore] / shaderParamsDefStore[name_ as keyof typeof shaderParamsDefStore][1],
+            3
+          ) * shaderParamsDefStore[name_ as keyof typeof shaderParamsDefStore][1];
       } else {
         myShader[name_] = refState.current[name_];
       }
@@ -75,4 +81,4 @@ export default function Experience() {
       </mesh>
     </>
   );
-}
+});

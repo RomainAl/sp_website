@@ -21,7 +21,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
       autoplay: false,
       muted: false,
       controls: true,
-      width: Math.min(width, 672) - 20,
+      width: Math.min(width, 768) - 20,
     };
 
     if (playerRef.current !== null) {

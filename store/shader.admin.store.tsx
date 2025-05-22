@@ -12,7 +12,7 @@ export const initShaderStore = {
   uFog: 0.063 / 1000,
   uCamX: 0.0,
   uCamY: 0.0,
-  uCamZ: 0.0,
+  uCamZ: 0.5,
   uCamRotXTime: 0.0,
   uCamRotYTime: 0.0,
   uCamRotZTime: 0.0,
@@ -27,7 +27,7 @@ export const initShaderStore = {
   uNoiseScale1: 0.95,
   uNoiseAmp0: 0.2,
   uNoiseAmp1: 2.14,
-  uNoise2: 0.1,
+  uNoise2: 0.2,
   uNoiseMinus: 0.54,
   uNoiseTime0: 0.0,
   uSeaHeight: 0.6,
@@ -46,7 +46,7 @@ export const initShaderStore = {
   uSunRM_TdMax: 1.0,
   uAmpSun: 0.0,
   uAmpTerrain: 1.0,
-  uColBright: 0.0,
+  uColBright: 0.01,
   uColContrast: 1.0,
   uColSat: 1.0,
   uColFond: 1.5,
@@ -82,7 +82,7 @@ export const shaderParamsDefStore = {
   // uTorNb: [0.0, 30.0, 0], //
   // uNoiseScale0: [0.0, 2.0, 0],
   // uNoiseScale1: [0.0, 2.0, 0],
-  uCamZ: [-10.0, 10.0, 1], //
+  uCamZ: [-1.0, 1.0, 1], //
   // uNoiseAmp1: [0.0, 2.0, 0], //
   // uNoise2: [-5.0, 5.0, 0], // TODO //
   // uNoiseMinus: [-10.0, 10.0, 0],
@@ -103,7 +103,7 @@ export const shaderParamsDefStore = {
   // uSunRM_TdMax: [0.5, 1.5, 0],
   // uAmpSun: [0.0, 1.0, 0],
   // uAmpTerrain: [0.0, 1.0, 0],
-  // uColBright: [-1.0, 1.0, 0], //
+  // uColBright: [-2.0, 10.0, 0], //
   // uColContrast: [-10.0, 10.0, 0], //
   // uColSat: [-10.0, 10.0, 0], //
   // uColFond: [0.0, 5.0, 0], //

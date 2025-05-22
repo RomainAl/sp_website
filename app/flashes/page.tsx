@@ -101,7 +101,7 @@ export default function Home() {
     <div className="h-dvh w-dvw">
       {!stream || !stream.active ? (
         <div ref={refDiv} className="size-full flex items-center justify-center">
-          <div className="relative w-1/5 aspect-square">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 size-20 md:size-30 rounded-full border-1 border-accent-foreground pointer-events-auto">
             <span className="absolute z-0 size-full animate-ping rounded-full bg-primary pointer-events-none"></span>
             <Button
               variant={"default"}
@@ -133,8 +133,8 @@ const FooterMemo = memo(function Footer() {
   console.log("RENDER FOOTER");
 
   return (
-    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
-      <div className="w-1/2">
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
+      <div className="w-25 xs:w-40 md:w-45">
         <Knob
           Kname={"FLASH_TIME"}
           Kmax={0.9}
@@ -145,10 +145,12 @@ const FooterMemo = memo(function Footer() {
             setFlashesTime(val);
           }}
           setDirectValue={true}
+          paramsNb={100}
+          color="white"
           duration={700}
         />
       </div>
-      <div className="w-1/2">
+      <div className="w-25 xs:w-40 md:w-45">
         <Knob
           Kname={"FLASH_SPEED"}
           Kmax={1}
@@ -159,6 +161,8 @@ const FooterMemo = memo(function Footer() {
           }}
           unit="%"
           setDirectValue={true}
+          paramsNb={100}
+          color="white"
           duration={700}
         />
       </div>

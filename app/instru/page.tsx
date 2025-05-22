@@ -43,6 +43,7 @@ export default function Home() {
         }
       });
     }
+
     return () => {
       console.log("TODO : NORMALEMENT KILL HERE");
       //   console.log("KILL INSTRU");
@@ -64,6 +65,8 @@ export default function Home() {
       console.log(e);
     }
   });
+
+  if (!instru) return null;
 
   return (
     <>

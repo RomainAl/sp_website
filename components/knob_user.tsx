@@ -83,10 +83,11 @@ export function Knob({
 
   useEffect(() => {
     const myDiv = refDiv.current;
+    const divRect = myDiv?.getBoundingClientRect();
     const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0 && myDiv) {
+      if (e.touches.length > 0 && myDiv && divRect) {
         const touch = e.touches[0];
-        const param = Math.min(Math.max((touch.clientX - myDiv.offsetLeft) / myDiv.offsetWidth, 0), 1);
+        const param = Math.min(Math.max((touch.clientX - divRect.left) / divRect.width, 0), 1);
         aa.set(param);
       }
     };
@@ -103,9 +104,9 @@ export function Knob({
   }, [aa, Kinitval, Kmin, Kmax, setVal]);
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-    const myDiv = refDiv.current;
-    if (myDiv) {
-      const param = Math.min(Math.max((e.clientX - myDiv.offsetLeft) / myDiv.offsetWidth, 0), 1);
+    const divRect = refDiv.current?.getBoundingClientRect();
+    if (divRect) {
+      const param = Math.min(Math.max((e.clientX - divRect.left) / divRect.width, 0), 1);
       aa.set(param);
     }
   };
@@ -113,7 +114,7 @@ export function Knob({
   return (
     <div ref={refDiv} onClick={handleClick} className={"flex size-full touch-none flex-col items-center justify-center"}>
       <p
-        className={cn("m-auto text-sm font-black text-foreground", {
+        className={cn("m-auto text-sm font-black text-foreground select-none text-center", {
           "text-xl": paramsNb && paramsNb <= 10,
           "text-xs font-medium text-primary": paramsNb && paramsNb >= 100,
           "text-foreground": color === "white",
@@ -121,7 +122,7 @@ export function Knob({
       >
         {Kname}
       </p>
-      <div className="relative w-3/4">
+      <div className="relative w-3/4 select-none">
         <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} fill="none" strokeWidth={stroke}>
           <path d={`M${startCircle.x} ${startCircle.y} A 50 50 0 1 1 ${stopCircle.x} ${stopCircle.y}`} className="stroke-accent" />
           <motion.path ref={refPath} d={pathD} className={cn("stroke-primary", { "stroke-foreground": color === "white" })} />

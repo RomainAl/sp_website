@@ -20,7 +20,6 @@ export default function Home() {
       animate={{ opacity: 1, transition: { duration: 2 } }}
       className="relative h-dvh w-dvw"
       onPan={(e, pointInfo) => {
-        console.log(pointInfo);
         if (pointId.current !== e.pointerId) {
           if (pointInfo.offset.x < -100) {
             setNikedalParam({ camRotYPlus: Date.now() });
@@ -79,15 +78,15 @@ const FooterMemo = memo(function Footer() {
   };
 
   return (
-    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
-      <Button onClick={RotateMoins} className="rounded-full size-12 border-1 border-accent-foreground">
-        <ChevronLeft className="size-full" />
+    <div className="absolute rounded-t-2xl bottom-0 left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
+      <Button onClick={RotateMoins} className="rounded-full size-12 md:size-16 border-1 border-accent-foreground">
+        <ChevronLeft className="size-full -ml-0.5" />
       </Button>
-      <Button onClick={RandomParams} className="rounded-full size-12 border-1 border-accent-foreground">
+      <Button onClick={RandomParams} className="rounded-full size-12 md:size-16 border-1 border-accent-foreground">
         <Palette className="size-full" />
       </Button>
-      <Button onClick={RotatePlus} className="rounded-full size-12 border-1 border-accent-foreground">
-        <ChevronRight className="size-full" />
+      <Button onClick={RotatePlus} className="rounded-full size-12 md:size-16 border-1 border-accent-foreground">
+        <ChevronRight className="size-full ml-0.5" />
       </Button>
     </div>
   );

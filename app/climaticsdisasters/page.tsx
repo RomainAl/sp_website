@@ -7,10 +7,11 @@ import { Canvas } from "@react-three/fiber";
 import { motion } from "motion/react";
 import { memo, Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
-import Experience from "./experience";
+import { ExperienceMemo } from "./experience";
 export default function Home() {
   console.log("RENDER INSTRU PAGE !");
-  const [dpr, setDpr] = useState(1);
+  const [dpr, setDpr] = useState(2);
+  console.log("🚀 ~ App ~ dpr:", dpr);
   const camera = new THREE.OrthographicCamera(
     -1, // left
     1, // right
@@ -35,6 +36,8 @@ export default function Home() {
     };
   }, [audioContext, climaticsdisasters]);
 
+  if (!climaticsdisasters) return null;
+
   return (
     <motion.div
       className="h-dvh w-dvw"
@@ -42,10 +45,10 @@ export default function Home() {
       //   console.log(pointInfo);
       // }}
     >
-      <Canvas gl={{ antialias: true, precision: "mediump" }} dpr={dpr} flat orthographic camera={camera}>
+      <Canvas gl={{ antialias: true }} dpr={dpr} flat orthographic camera={camera}>
         <Suspense fallback={<div>LOADING...</div>}>
           {/* <color args={["#555555"]} attach="background" /> */}
-          <Experience />
+          <ExperienceMemo />
         </Suspense>
         <PerformanceMonitor onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} />
       </Canvas>
@@ -57,16 +60,26 @@ export default function Home() {
 const FooterMemo = memo(function Footer() {
   console.log("RENDER CLIMATIC FOOTER");
   setShaderParam({
-    ["uCamZ" as keyof typeof shaderParamsDefStore]: 5,
+    ["uCamZ" as keyof typeof shaderParamsDefStore]: 0.5,
   });
 
   const setVal = (val: number | boolean, name?: string) => {
-    setShaderParam({ [name as keyof typeof shaderParamsDefStore]: val });
+    if (name === "uNoiseAmp0") {
+      setShaderParam({
+        [name as keyof typeof shaderParamsDefStore]: val,
+        ["uColContrast" as keyof typeof initShaderStore]: Number(val) / 4.0 + 1.0,
+        ["uColSat" as keyof typeof initShaderStore]: Number(val) / 4.0 + 1.0,
+        ["uColBright" as keyof typeof initShaderStore]: (5.0 * Number(val)) / 40.0,
+        ["uLightAmp" as keyof typeof initShaderStore]: 1.0 - Number(val) / 80.0,
+      });
+    } else {
+      setShaderParam({ [name as keyof typeof shaderParamsDefStore]: val });
+    }
   };
   return (
-    <div className="absolute bottom-0 h-fit left-1/2 -translate-x-1/2 w-full max-w-lg flex flex-row justify-center py-5 items-center z-10 bg-[#00000077]">
+    <div className="absolute bottom-0 h-fit left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center p-5 gap-2 items-center z-10 bg-[#00000077]">
       {Object.keys(shaderParamsDefStore).map((name, i) => (
-        <div key={i} className="w-1/3 flex aspect-square">
+        <div key={i} className="w-23 xs:w-30 md:w-35 flex aspect-square">
           <Knob
             Kname={name}
             Kmin={shaderParamsDefStore[name as keyof typeof shaderParamsDefStore][0]}

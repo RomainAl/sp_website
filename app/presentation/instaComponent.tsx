@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { useInstaUserStore } from "@/store/insta.user.store";
 import Player from "@vimeo/player";
@@ -13,6 +14,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
   const vidMeta = useInstaUserStore((store) => store.vidMeta[index]);
   const playerRef = useRef<HTMLDivElement>(null);
   const player = useRef<Player>(null);
+  const refSpinner = useRef<HTMLDivElement>(null);
   const { width = 0 } = useWindowSize();
   useEffect(() => {
     const options = {
@@ -26,6 +28,10 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 
     if (playerRef.current !== null) {
       player.current = new Player(playerRef.current, options);
+      player.current.on("loaded", () => {
+        if (refSpinner.current) refSpinner.current.style.display = "none";
+        if (playerRef.current) playerRef.current.style.display = "block";
+      });
     }
   }, [width]);
 
@@ -66,7 +72,14 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
         </div>
 
         <div className="w-full overflow-y-scroll">
-          {index === 0 && <div className="size-fit m-auto pt-1" ref={playerRef}></div>}
+          {index === 0 && (
+            <div>
+              <div ref={refSpinner} className="w-full aspect-video flex items-center justify-center">
+                <Spinner size="xlarge" />
+              </div>
+              <div className="size-fit m-auto pt-1 hidden" ref={playerRef}></div>
+            </div>
+          )}
 
           <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
           <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the author" />

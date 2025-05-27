@@ -19,18 +19,16 @@ export default function Home() {
   };
   return (
     <div className="h-dvh w-dvw max-w-3xl m-auto flex flex-col items-center justify-center gap-3 p-4">
-      <div className="bg-card p-6 rounded-lg shadow-md ring-1 ring-accent flex flex-col gap-3 overflow-auto">
-        <h2 className="text-lg text-primary font-semibold">Démonstration de smart.phonics</h2>
+      <div className="bg-card p-6 rounded-lg shadow-md ring-1 ring-accent flex flex-col gap-3">
+        <h2 className="text-lg text-center text-primary font-semibold">FIN</h2>
         <p className="text-sm text-justify">
-          <strong className="italic">smart.phonics</strong> utilise les smartphones du public comme dispositif numérique principal, accompagné
-          d&apos;un écran de projection et d&apos;une diffusion sonore avec lesquels les artistes, au plateau, jouent aussi. Cette démonstration en
-          ligne donne simplement un aperçu de l&apos;expérience du spectateur lors de la performance.
+          Evidemment, il s&apos;agit d&apos;un petit échantillon de tableaux de <strong className="italic">smart.phonics</strong>. Et si leurs
+          déclenchements ici sont automatisés et rapides, en Live, ils le sont par les artistes qui font vivre chaque tableau au gré de leur écriture
+          et improvisation.
         </p>
-
         <p className="text-sm text-justify">
-          <strong>NOTA :</strong> Evidemment, il s&apos;agit d&apos;un petit échantillon de tableaux de{" "}
-          <strong className="italic">smart.phonics</strong>. Et si leurs déclenchements ici sont automatisés et rapides, en Live, ils le sont par les
-          artistes qui font vivre chaque tableau au gré de leur écriture et improvisation.
+          <strong>NOTA :</strong> <strong className="italic">smart.phonics</strong> est aussi accompagné d&apos;un écran de projection et d&apos;une
+          diffusion sonore avec lesquels les artistes, au plateau, jouent aussi.
         </p>
         <div className="size-fit m-auto mt-2">
           <Button onClick={launch} className="relative z-50 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">

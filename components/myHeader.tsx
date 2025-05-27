@@ -15,6 +15,7 @@ export function MyHeader() {
 
   const nikedal = useAudioAdminStore((store) => store.nikedal);
   const [onLoad, setOnLoad] = useState(false);
+
   const init = () => {
     if (!nikedal) {
       setAdminAudio();
@@ -28,7 +29,12 @@ export function MyHeader() {
     pathname.includes("flashes") ||
     pathname.includes("hack") ||
     pathname.includes("climaticsdisasters");
-  const showSP = pathname === "/" || pathname === "/demo" || pathname.includes("flashes") || pathname.includes("climaticsdisasters");
+  const showSP =
+    pathname === "/" ||
+    pathname === "/demo" ||
+    pathname.includes("ending") ||
+    pathname.includes("flashes") ||
+    pathname.includes("climaticsdisasters");
 
   return (
     <motion.div

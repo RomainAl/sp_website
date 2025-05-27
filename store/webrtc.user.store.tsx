@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
-import { setToast } from "./shared.store";
+import { setDismissToasts, setToast } from "./shared.store";
 
 type webrtcUserStoreType = {
   webcamStream: MediaStream | null;
@@ -89,6 +89,8 @@ export const flash = (onFlash: boolean) => {
     const track = stream.getVideoTracks()[0];
 
     (track as any).applyConstraints({ advanced: [{ torch: onFlash }] }).catch(() => {
+      setDismissToasts();
+
       setToast({
         type: "error",
         data: {

@@ -1,15 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { setAdminAudio, useAudioAdminStore } from "@/store/audio.admin.store";
 import { Menu } from "lucide-react";
@@ -36,7 +28,7 @@ export function MyHeader() {
     pathname.includes("flashes") ||
     pathname.includes("hack") ||
     pathname.includes("climaticsdisasters");
-  const showSP = pathname === "/" || pathname.includes("flashes") || pathname.includes("climaticsdisasters");
+  const showSP = pathname === "/" || pathname === "/demo" || pathname.includes("flashes") || pathname.includes("climaticsdisasters");
 
   return (
     <motion.div
@@ -78,35 +70,40 @@ export function MyHeader() {
                 </p>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuSeparator className="bg-primary" />
-            <DropdownMenuLabel className="text-primary underline underline-offset-4 font-black text-center w-full">DEMO :</DropdownMenuLabel>
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/instru?n=0"}>
+                <Link onClick={init} href={"/demo"}>
+                  <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("demo") })}>
+                    {"DEMONSTRATION"}
+                  </p>
+                </Link>
+              </DropdownMenuItem>
+              {/* <DropdownMenuItem asChild>
+                <Link onClick={init} href={"/demo/instru?n=0"}>
                   <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("instru") })}>
                     {"INSTRUMENT #1"}
                   </p>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/verton"}>
+                <Link onClick={init} href={"/demo/verton"}>
                   <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("verton") })}>{"CRAZY X"}</p>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/flashes"}>
+                <Link onClick={init} href={"/demo/flashes"}>
                   <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("flashes") })}>
                     {"TECHNO FLASHES"}
                   </p>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/hack"}>
+                <Link onClick={init} href={"/demo/hack"}>
                   <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("hack") })}>{"HACK"}</p>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/climaticsdisasters"}>
+                <Link onClick={init} href={"/demo/climaticsdisasters"}>
                   <p
                     className={cn("w-full text-center active:text-foreground", {
                       "text-foreground": pathname.includes("climaticsdisasters"),
@@ -115,7 +112,7 @@ export function MyHeader() {
                     {"CLIMATIC DISASTERS"}
                   </p>
                 </Link>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>

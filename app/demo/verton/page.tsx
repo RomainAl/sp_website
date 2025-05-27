@@ -1,5 +1,4 @@
 "use client";
-import { InstaComponent } from "@/app/verton/instaComponent";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
@@ -9,6 +8,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
 import { useInterval, useIsMounted, useUnmount } from "usehooks-ts";
 import { ElonSpeechMemo } from "./elonSpeech";
+import { InstaComponent } from "./instaComponent";
 
 export default function Home() {
   const [api, setApi] = useState<CarouselApi>();

@@ -32,7 +32,7 @@ export const SoundwaveCanvas = ({ analyser, ...props }: SoundwaveCanvasProps) =>
           value = times[i] / 256 - 0.5;
           const z =
             Math.min(Math.max(value * canvas[wOrh] * refState.current.gain + canvas[wOrh] * 0.5, 0), canvas[wOrh]) - refState.current.rectSize / 2;
-          value = Math.abs(value);
+          // value = Math.abs(value);
           ctx.strokeStyle = refState.current.color;
           if (isVertical) {
             ctx.strokeRect(z, i * barWidth, refState.current.rectSize_ * (1 - value), refState.current.rectSize_ * (1 - value));

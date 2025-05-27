@@ -28,13 +28,15 @@ export function MyHeader() {
     pathname.includes("verton") ||
     pathname.includes("flashes") ||
     pathname.includes("hack") ||
-    pathname.includes("climaticsdisasters");
+    pathname.includes("climaticsdisasters") ||
+    pathname.includes("nikedal");
   const showSP =
     pathname === "/" ||
     pathname === "/demo" ||
     pathname.includes("ending") ||
     pathname.includes("flashes") ||
-    pathname.includes("climaticsdisasters");
+    pathname.includes("climaticsdisasters") ||
+    pathname.includes("nikedal");
 
   return (
     <motion.div
@@ -116,6 +118,17 @@ export function MyHeader() {
                     })}
                   >
                     {"CLIMATIC DISASTERS"}
+                  </p>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link onClick={init} href={"/demo/nikedal"}>
+                  <p
+                    className={cn("w-full text-center active:text-foreground", {
+                      "text-foreground": pathname.includes("nikedal"),
+                    })}
+                  >
+                    {"NIKEDAL"}
                   </p>
                 </Link>
               </DropdownMenuItem> */}

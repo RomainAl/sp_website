@@ -29,8 +29,8 @@ export default function Home() {
 
         <p className="text-sm text-justify">
           <strong>NOTA :</strong> Evidemment, il s&apos;agit d&apos;un petit échantillon de tableaux de{" "}
-          <strong className="italic">smart.phonics</strong>. Et si leurs déclenchements ici sont automatisés et rapides, en Live, ils le sont par les
-          artistes qui font vivre chaque tableau au gré de leur écriture et improvisation.
+          <strong className="italic">smart.phonics</strong>. Et si leurs déclenchements ici sont automatisés et rapides (~3min), en Live, ils le sont
+          par les artistes qui font vivre chaque tableau au gré de leur écriture et improvisation.
         </p>
         <div className="size-fit m-auto mt-2">
           <Button onClick={launch} className="relative z-50 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">

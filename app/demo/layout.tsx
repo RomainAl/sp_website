@@ -40,23 +40,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useTimeout(
     () => {
       router.push("/demo/flashes");
-      router.prefetch("/demo/climaticsdisasters");
+      router.prefetch("/demo/nikedal");
     },
     start ? 65000 : null
+  );
+  useTimeout(
+    () => {
+      router.push("/demo/nikedal");
+      router.prefetch("/demo/climaticsdisasters");
+    },
+    start ? 90000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/climaticsdisasters");
       router.prefetch("/demo/ending");
     },
-    start ? 90000 : null
+    start ? 130000 : null
   );
   useTimeout(
     () => {
       setStart(false);
       router.push("/demo/ending");
     },
-    start ? 110000 : null
+    start ? 160000 : null
   );
 
   useUnmount(() => setStart(false));

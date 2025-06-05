@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { setAdminAudio, useAudioAdminStore } from "@/store/audio.admin.store";
 import { Menu } from "lucide-react";
@@ -78,15 +78,21 @@ export function MyHeader() {
                 </p>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuGroup>
-              <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/demo"}>
-                  <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("demo") })}>
-                    {"DEMONSTRATION"}
-                  </p>
-                </Link>
-              </DropdownMenuItem>
-              {/* <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild>
+              <Link onClick={init} href={"/demo"}>
+                <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("demo") })}>{"DEMONSTRATION"}</p>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link onClick={init} href={"/list"}>
+                <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("list") })}>
+                  {"EXEMPLE DE PAGES"}
+                </p>
+              </Link>
+            </DropdownMenuItem>
+            {/* <DropdownMenuGroup> */}
+
+            {/* <DropdownMenuItem asChild>
                 <Link onClick={init} href={"/demo/instru?n=0"}>
                   <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("instru") })}>
                     {"INSTRUMENT #1"}
@@ -132,7 +138,7 @@ export function MyHeader() {
                   </p>
                 </Link>
               </DropdownMenuItem> */}
-            </DropdownMenuGroup>
+            {/* </DropdownMenuGroup> */}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

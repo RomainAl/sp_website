@@ -49,7 +49,7 @@ export const InstaComponent = ({
           </div>
 
           <div className={cn("p-4 w-full flex flex-row gap-3 items-center z-20  bg-[#00000099] backdrop-blur-xs border-b-2 border-b-accent")}>
-            <p className="text-xs italic text-primary">#ManWithAMovieCamera #CinemaOeil #Analog #Grain #ArchiveMovie</p>
+            <p className="text-xs italic text-primary">#ManWithAMovieCamera #LaSixièmePartieDuMonde #SymphonieDuDonbass #Berceuse #CinemaOeil</p>
             <InstaComLike />
           </div>
         </div>

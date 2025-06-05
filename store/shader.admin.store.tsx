@@ -3,13 +3,13 @@ import { subscribeWithSelector } from "zustand/middleware";
 
 export const initShaderStore = {
   uRMDmin: 10.0,
-  uRMDmax: 90.0,
+  uRMDmax: 30.0,
   uRMPrecision: 0.001,
   uLightAmp: 0.5,
   uLightRotY: 0.0,
   uLightY: 0.5,
   uFOV: 70.0,
-  uFog: 0.063 / 1000,
+  uFog: 1.063 / 1000,
   uCamX: 0.0,
   uCamY: 0.0,
   uCamZ: 0.5,
@@ -17,12 +17,12 @@ export const initShaderStore = {
   uCamRotYTime: 0.0,
   uCamRotZTime: 0.0,
   uCamYTilt: 0.9,
-  uTorY: 2.0,
+  uTorY: 3.0,
   uTorP1: 5.51,
-  uTorP2: 0.6,
+  uTorP2: 0.8,
   uTorNoise: -15.0,
   uTorTime: 10.0,
-  uTorNb: 15.0,
+  uTorNb: 10.0,
   uNoiseScale0: 0.25,
   uNoiseScale1: 0.95,
   uNoiseAmp0: 0.2,
@@ -33,7 +33,7 @@ export const initShaderStore = {
   uSeaHeight: 0.6,
   uNoiseIterN: 12.0,
   uNoiseIter: 3.0,
-  uIQNoiseAmp: 15.0,
+  uIQNoiseAmp: 20.0,
   uIQNoiseTime: 0.0,
   uIQNoiseScale: 50.0,
   uNoiseOffset: 0.0,
@@ -49,7 +49,7 @@ export const initShaderStore = {
   uColBright: 0.01,
   uColContrast: 1.0,
   uColSat: 1.0,
-  uColFond: 1.5,
+  uColFond: 0.9,
 };
 
 export const useShaderStore = create(subscribeWithSelector<typeof initShaderStore>(() => initShaderStore));
@@ -69,12 +69,12 @@ export const shaderParamsDefStore = {
   // uFog: [0.0, 0.02, 0], //
   // uCamX: [-100.0, 100.0, 1], //
   // uCamY: [-1.0, 1.0, 1], //
-  uNoiseAmp0: [0.0, 40.0, 0], //
+  uNoiseAmp0: [0.2, 10.0, 0], //
   // uCamRotXTime: [-1.0, 1.0, 1], //
   // uCamRotYTime: [-1.0, 1.0, 1], //
   // uCamRotZTime: [-1.0, 1.0, 1], //
   // uCamYTilt: [0.0, 1.0, 0], //
-  uTorY: [-20.0, 2.0, 0], //
+  uTorY: [-20.0, 4.0, 0], //
   // uTorP1: [-10.0, 10.0, 0], //
   // uTorP2: [0.0, 2.0, 0], //
   // uTorNoise: [-50.0, 50.0, 0], //

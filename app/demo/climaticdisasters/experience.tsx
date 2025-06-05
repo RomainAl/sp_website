@@ -43,7 +43,6 @@ export const ExperienceMemo = memo(function Experience() {
     } else {
       delta_sum.current = 0;
     }
-
     params.map((name) => {
       const name_ = name as keyof typeof initShaderStore;
       if (

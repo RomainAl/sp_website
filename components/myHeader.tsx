@@ -28,14 +28,14 @@ export function MyHeader() {
     pathname.includes("verton") ||
     pathname.includes("flashes") ||
     pathname.includes("hack") ||
-    pathname.includes("climaticsdisasters") ||
+    pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal");
   const showSP =
     pathname === "/" ||
     pathname === "/demo" ||
     pathname.includes("ending") ||
     pathname.includes("flashes") ||
-    pathname.includes("climaticsdisasters") ||
+    pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal");
 
   return (

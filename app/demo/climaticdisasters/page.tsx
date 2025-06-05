@@ -67,17 +67,17 @@ const FooterMemo = memo(function Footer() {
     if (name === "uNoiseAmp0") {
       setShaderParam({
         [name as keyof typeof shaderParamsDefStore]: val,
-        ["uColContrast" as keyof typeof initShaderStore]: Number(val) / 4.0 + 1.0,
-        ["uColSat" as keyof typeof initShaderStore]: Number(val) / 4.0 + 1.0,
-        ["uColBright" as keyof typeof initShaderStore]: (5.0 * Number(val)) / 40.0,
-        ["uLightAmp" as keyof typeof initShaderStore]: 1.0 - Number(val) / 80.0,
+        ["uColContrast" as keyof typeof initShaderStore]: Number(val) / 2.0 + 1.0,
+        ["uColSat" as keyof typeof initShaderStore]: Number(val) / 2.0 + 1.0,
+        ["uColBright" as keyof typeof initShaderStore]: (5.0 * Number(val)) / 20.0,
+        ["uLightAmp" as keyof typeof initShaderStore]: 1.0 - Number(val) / 40.0,
       });
     } else {
       setShaderParam({ [name as keyof typeof shaderParamsDefStore]: val });
     }
   };
   return (
-    <div className="absolute bottom-0 h-fit left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center p-5 gap-2 items-center z-10 bg-[#00000077]">
+    <div className="absolute rounded-t-2xl bottom-0 h-fit left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center p-5 gap-2 items-center z-10 bg-[#00000077]">
       {Object.keys(shaderParamsDefStore).map((name, i) => (
         <div key={i} className="w-23 xs:w-30 md:w-35 flex aspect-square">
           <Knob

@@ -307,7 +307,7 @@ void mainImage( out vec4 fragColor, in vec2 vUv )
         col *= color;
       }
       
-      float fog = exp( -uFog*t*t*90.0/uRMDmax )* (1.0 - uAmpSun); //-0.0015
+      float fog = exp( -uFog*t*t*30.0/uRMDmax )* (1.0 - uAmpSun); //-0.0015
       col *= fog;
       col += (1.0-fog)*vec3(0.5,0.6,0.7) * uColFond;
   }

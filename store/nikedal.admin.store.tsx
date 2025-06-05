@@ -16,7 +16,7 @@ export const initNikedalStore = {
   brightness: 0.01, // -1 to 1
   contrast: 0.25, // -1 to 1
   bloomIntensity: 10, // -10 to 50
-  camDist: 8,
+  camDist: -8,
   camRotX: 0,
   camRotY: 0,
   camRotZ: 0,
@@ -33,30 +33,6 @@ export const setNikedalParam = (param: Partial<typeof initNikedalStore>) => {
 };
 
 export const nikedalParamsTopStore = [
-  {
-    bloomIntensity: 15.684634434369535,
-    brightness: -0.49141437037918645,
-    compress: 0.052585622848492,
-    doBloom: 1,
-    doBox: 0,
-    doGlitch: 0,
-    doLine: 1,
-    fillMix: 0,
-    strokeW: 0.3316500504159382,
-    textSize: 0,
-  },
-  {
-    bloomIntensity: 16.910525168012164,
-    brightness: -0.060197474804820406,
-    compress: 0.9669927170557541,
-    doBloom: 1,
-    doBox: 0,
-    doGlitch: 0,
-    doLine: 0,
-    fillMix: 1,
-    strokeW: 0.3421253295186988,
-    textSize: 20,
-  },
   {
     bloomIntensity: 7.406996219564402,
     brightness: -0.9505097780369187,

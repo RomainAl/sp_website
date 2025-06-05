@@ -29,7 +29,7 @@ export const useAudioAdminStore = create(
     flashesTech: null,
     filter: null,
     nikedalAnalyser: null,
-    instrus: new Array(1),
+    instrus: new Array(2),
   }))
 );
 

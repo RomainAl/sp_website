@@ -1,5 +1,6 @@
 "use client";
-import { Nikedal } from "./nikedal";
+
+import { Nikedal } from "@/app/nikedal";
 
 export default function Home() {
   return <Nikedal />;

@@ -19,7 +19,7 @@ export default function Home() {
     };
   }, [audioContext, hack]);
   return (
-    <div className="h-dvh w-dvw">
+    <div className="h-dvh w-dvw  max-w-3xl m-auto">
       <HackMemo />
     </div>
   );

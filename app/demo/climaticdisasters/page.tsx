@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="h-dvh w-dvw"
+      className="h-dvh w-dvw  max-w-3xl m-auto"
       // onPan={(_, pointInfo) => {
       //   console.log(pointInfo);
       // }}

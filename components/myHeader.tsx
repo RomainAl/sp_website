@@ -111,10 +111,10 @@ export function MyHeader() {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link onClick={init} href={"/demo/climaticsdisasters"}>
+                <Link onClick={init} href={"/demo/climaticdisasters"}>
                   <p
                     className={cn("w-full text-center active:text-foreground", {
-                      "text-foreground": pathname.includes("climaticsdisasters"),
+                      "text-foreground": pathname.includes("climaticdisasters"),
                     })}
                   >
                     {"CLIMATIC DISASTERS"}

@@ -240,6 +240,7 @@ export const ExperienceMemo = memo(function Experience() {
                   center // Adds a -50%/-50% css transform (default: false) [ignored in transform mode]
                   distanceFactor={10}
                   position={[0.5, 0.5, 0.5]}
+                  zIndexRange={[0, 0]}
                 >
                   <p
                     key={i}
@@ -257,6 +258,7 @@ export const ExperienceMemo = memo(function Experience() {
                   center // Adds a -50%/-50% css transform (default: false) [ignored in transform mode]
                   distanceFactor={10}
                   position={[-0.5, -0.5, -0.5]}
+                  zIndexRange={[0, 0]}
                 >
                   <p
                     key={i}

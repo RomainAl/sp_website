@@ -28,10 +28,11 @@ export default function Home() {
     if (audioContext && climaticsdisasters) {
       climaticsdisasters.node.connect(audioContext.destination);
       audioContext.resume();
-      climaticsdisasters.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
+      climaticsdisasters.parameters.find((p) => p.name === "PLAY").value = 1.0;
     }
     return () => {
       // audioContext?.suspend();
+      if (climaticsdisasters && climaticsdisasters.parameters) climaticsdisasters.parameters.find((p) => p.name === "PLAY").value = 0.0;
       climaticsdisasters?.node.disconnect();
     };
   }, [audioContext, climaticsdisasters]);

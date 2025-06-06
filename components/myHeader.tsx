@@ -40,7 +40,7 @@ export function MyHeader() {
 
   return (
     <motion.div
-      className="absolute top-0 h-dvh w-dvw pointer-events-none"
+      className="absolute top-0 h-dvh w-dvw pointer-events-none z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 2 } }}
     >
@@ -59,7 +59,7 @@ export function MyHeader() {
             <div className="w-1/4 ml-auto flex justify-center pointer-events-auto">
               <Button
                 variant={"link"}
-                className="rounded-full p-0 size-12 md:size-16 font-black border-1 border-primary bg-[#22222299] hover:bg-card backdrop-blur-xs"
+                className="rounded-full p-0 size-12 md:size-16 font-black border-1 border-primary bg-[#222222BB] hover:bg-card backdrop-blur-xs"
               >
                 <Menu className="size-full" strokeWidth={3} />
               </Button>

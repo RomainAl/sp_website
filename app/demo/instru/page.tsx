@@ -18,18 +18,23 @@ export default function Home() {
   const instru = useAudioAdminStore((store) => store.instrus[intruNum]);
   const analyser = useAudioAdminStore((store) => store.audioAnalyser);
   const refOutports = useRef<HTMLParagraphElement>(null);
+  const instru0_drone = useAudioAdminStore((store) => store.instru0_drone);
   const { width = 0 } = useWindowSize();
   setSoundVisualizerParams(initSoundVisualizerParams);
 
   useEffect(() => {
-    if (!audioContext || !instru || !analyser) {
+    if (!audioContext || !instru || !analyser || !instru0_drone) {
       return;
     }
     console.log("LOG INSTRU");
-    analyser.disconnect();
     instru.node.connect(analyser);
-    analyser.connect(audioContext.destination);
+    instru.node.connect(audioContext.destination);
+    if (intruNum === 0) instru0_drone.node.connect(audioContext.destination);
     audioContext.resume();
+    if (intruNum === 0) {
+      instru0_drone.parameters.find((p) => p.name === "PLAY").value = 1.0;
+      instru0_drone.parameters.find((p) => p.name === "MASTER-G").value = 0.1;
+    }
     instru.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
     if (instru.outports.length < 1) {
       return;
@@ -53,11 +58,13 @@ export default function Home() {
       //   instru.messageEvent.removeAllSubscriptions();
       //   console.log(instru.node);
     };
-  }, [audioContext, instru, analyser]);
+  }, [audioContext, instru, analyser, instru0_drone, intruNum]);
 
   useUnmount(() => {
     analyser?.disconnect();
     instru?.node.disconnect();
+    if (intruNum === 0 && instru0_drone && instru0_drone.parameters) instru0_drone.parameters.find((p) => p.name === "PLAY").value = 0.0;
+    if (intruNum === 0) instru0_drone?.node.disconnect();
     // audioContext?.suspend();
     try {
       instru?.messageEvent?.removeAllSubscriptions();

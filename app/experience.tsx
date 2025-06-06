@@ -64,13 +64,13 @@ export const ExperienceMemo = memo(function Experience() {
         value *= 2;
         refBoxs.current[i]?.position.set(
           (i - NB / 2) * refState.current.compress,
-          value * refState.current.gainNik,
-          value * refState.current.gainNik
+          value * refState.current.gainNik * (2 * Math.round(Math.random()) - 1),
+          value * refState.current.gainNik * (2 * Math.round(Math.random()) - 1)
         );
         refCustoms.current[i]?.position.set(
           (i - NB / 2) * refState.current.compress,
-          -value * refState.current.gainNik,
-          -value * refState.current.gainNik
+          -value * refState.current.gainNik * (2 * Math.round(Math.random()) - 1),
+          -value * refState.current.gainNik * (2 * Math.round(Math.random()) - 1)
         );
         if (value > 0) {
           if (refTexts && refTexts.current && i < refTexts.current.length && refTexts.current[i] instanceof HTMLElement) {
@@ -82,9 +82,10 @@ export const ExperienceMemo = memo(function Experience() {
         }
       }
       meanVal /= analyser.frequencyBinCount;
+
       let scale_: number = 1;
-      if (meanVal > 0.25) {
-        scale_ = 20;
+      if (meanVal > 0.015) {
+        scale_ = 3;
       }
       Array.from({ length: NB }).map((_, i) => {
         const scale = props[i].scale * refState.current.scaleNik * scale_;
@@ -103,13 +104,14 @@ export const ExperienceMemo = memo(function Experience() {
       nikedal.node.connect(filter).connect(analyser);
       nikedal.node.connect(audioContext.destination);
       audioContext.resume();
-      nikedal.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
+      nikedal.parameters.find((p) => p.name === "PLAY").value = 1.0;
     }
   }, [audioContext, analyser, nikedal, filter]);
 
   useUnmount(() => {
     analyser?.disconnect();
     // audioContext?.suspend();
+    if (nikedal && nikedal.parameters) nikedal.parameters.find((p) => p.name === "PLAY").value = 0.0;
     nikedal?.node.disconnect();
   });
 

@@ -5,6 +5,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { setAdminAudio, useAudioAdminStore } from "@/store/audio.admin.store";
 import { setStart } from "@/store/demo.store";
 import { Play } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
@@ -18,8 +19,15 @@ export default function Home() {
     setClicked(true);
   };
   return (
-    <div className="h-dvh w-dvw max-w-3xl m-auto flex flex-col items-center justify-center gap-3 p-4">
-      <div className="bg-card p-6 rounded-lg shadow-md ring-1 ring-accent flex flex-col gap-3">
+    <div className="relative h-dvh w-dvw flex flex-col items-center justify-center gap-3 p-4">
+      <Image
+        src={"/fond02.jpg"}
+        width={3500}
+        height={1500}
+        alt="Picture of the performance"
+        className="absolute object-cover size-full z-0 blur-xs"
+      ></Image>
+      <div className="max-w-2xl p-6 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-3 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
         <h2 className="text-lg text-center text-primary font-semibold">FIN</h2>
         <p className="text-sm text-justify">
           Evidemment, il s&apos;agit d&apos;un petit échantillon de tableaux de <strong className="italic">smart.phonics</strong>. Et si leurs

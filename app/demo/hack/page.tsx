@@ -11,10 +11,11 @@ export default function Home() {
     if (audioContext && hack) {
       hack.node.connect(audioContext.destination);
       audioContext.resume();
-      hack.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
+      hack.parameters.find((p) => p.name === "PLAY").value = 1.0;
     }
     return () => {
       // audioContext?.suspend();
+      if (hack && hack.parameters) hack.parameters.find((p) => p.name === "PLAY").value = 0.0;
       hack?.node.disconnect();
     };
   }, [audioContext, hack]);

@@ -82,7 +82,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           )}
 
           <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
-          <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the author" />
+          <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the performance" />
         </div>
 
         <div className={cn("px-4 py-1 w-full max-h-1/9 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>

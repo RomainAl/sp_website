@@ -12,6 +12,7 @@ type audioStoreType = {
   hack: Device | null;
   climaticsdisasters: Device | null;
   flashesTech: Device | null;
+  instru0_drone: Device | null;
   filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
   instrus: Device[];
@@ -27,6 +28,7 @@ export const useAudioAdminStore = create(
     hack: null,
     verton: null,
     flashesTech: null,
+    instru0_drone: null,
     filter: null,
     nikedalAnalyser: null,
     instrus: new Array(2),
@@ -37,7 +39,7 @@ export const setAdminAudio = async () => {
   const ctx = new AudioContext();
   const filter = ctx.createBiquadFilter();
   filter.type = "highpass";
-  filter.frequency.setValueAtTime(400, ctx.currentTime);
+  filter.frequency.setValueAtTime(200, ctx.currentTime);
   const instrus = useAudioAdminStore.getState().instrus;
   let nikedal = null;
   try {
@@ -59,6 +61,14 @@ export const setAdminAudio = async () => {
   try {
     const path = nextConfig.basePath + "/flashesTech";
     flashesTech = await loadRNBO(path, ctx);
+  } catch (e) {
+    console.error(e);
+  }
+
+  let instru0_drone = null;
+  try {
+    const path = nextConfig.basePath + "/instru0_drone";
+    instru0_drone = await loadRNBO(path, ctx);
   } catch (e) {
     console.error(e);
   }
@@ -94,6 +104,7 @@ export const setAdminAudio = async () => {
     hack: hack,
     climaticsdisasters: climaticsdisasters,
     flashesTech: flashesTech,
+    instru0_drone: instru0_drone,
     filter: filter,
     instrus: instrus,
     nikedalAnalyser: ctx.createAnalyser(),

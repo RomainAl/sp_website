@@ -25,10 +25,11 @@ export default function Home() {
     if (audioContext && verton) {
       verton.node.connect(audioContext.destination);
       audioContext.resume();
-      verton.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
+      verton.parameters.find((p) => p.name === "PLAY").value = 1.0;
     }
     return () => {
       // audioContext?.suspend();
+      if (verton && verton.parameters) verton.parameters.find((p) => p.name === "PLAY").value = 0.0;
       verton?.node.disconnect();
     };
   }, [audioContext, verton]);
@@ -60,9 +61,9 @@ export default function Home() {
       type: "error",
       data: { title: `ERROR : ${err.message}`, content: err.explication },
       position: "bottom-center",
-      autoClose: Math.round(Math.random() * 5000 + 200),
+      autoClose: Math.round(Math.random() * 10000 + 200),
     });
-  }, 2000);
+  }, 3000);
 
   useUnmount(() => {
     api?.destroy();

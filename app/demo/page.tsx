@@ -6,6 +6,7 @@ import { setAdminAudio, useAudioAdminStore } from "@/store/audio.admin.store";
 import { setStart } from "@/store/demo.store";
 import { Play } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
@@ -22,9 +23,16 @@ export default function Home() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 2 } }}
-      className="h-dvh w-dvw max-w-3xl m-auto flex flex-col items-center justify-center gap-3 p-4"
+      className="relative h-dvh w-dvw flex flex-col items-center justify-center gap-3 p-4"
     >
-      <div className="bg-card p-6 rounded-lg shadow-md ring-1 ring-accent flex flex-col gap-3 overflow-auto">
+      <Image
+        src={"/fond01.jpg"}
+        width={3500}
+        height={1500}
+        alt="Picture of the performance"
+        className="absolute object-cover size-full top-0 left-0 z-0 blur-sm"
+      ></Image>
+      <div className="max-w-2xl p-6 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-3 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
         <h2 className="text-lg text-primary font-semibold">Démonstration de smart.phonics</h2>
         <p className="text-sm text-justify">
           <strong className="italic">smart.phonics</strong> utilise les smartphones du public comme dispositif numérique principal, accompagné

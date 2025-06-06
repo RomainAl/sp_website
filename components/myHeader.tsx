@@ -3,7 +3,16 @@
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { setAdminAudio, useAudioAdminStore } from "@/store/audio.admin.store";
+import {
+  setAudioClimaticsdisasters,
+  setAudioFlashesTech,
+  setAudioHack,
+  setAudioInstru0_drone,
+  setAudioInstrus,
+  setAudioNikedal,
+  setAudioVerton,
+  useAudioAdminStore,
+} from "@/store/audio.admin.store";
 import { Menu } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -16,12 +25,6 @@ export function MyHeader() {
   const nikedal = useAudioAdminStore((store) => store.nikedal);
   const [onLoad, setOnLoad] = useState(false);
 
-  const init = () => {
-    if (!nikedal) {
-      setAdminAudio();
-      setOnLoad(true);
-    }
-  };
   const showPlay =
     pathname === "/" ||
     pathname.includes("instru") ||
@@ -38,13 +41,23 @@ export function MyHeader() {
     pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal");
 
+  const init = async () => {
+    setOnLoad(true);
+    await setAudioNikedal();
+    await setAudioHack();
+    await setAudioInstrus();
+    await setAudioInstru0_drone();
+    await setAudioClimaticsdisasters();
+    await setAudioFlashesTech();
+    await setAudioVerton();
+  };
   return (
     <motion.div
       className="absolute top-0 h-dvh w-dvw pointer-events-none z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 2 } }}
     >
-      {showPlay && !nikedal && <PlayButton onLoad={onLoad} />}
+      {showPlay && !nikedal && <PlayButton onLoad={onLoad} init={init} />}
       <div className="absolute top-0 w-full z-10 flex flex-row p-5 items-center pointer-events-none">
         {showSP && (
           <Link

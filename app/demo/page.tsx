@@ -2,7 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { setAdminAudio, useAudioAdminStore } from "@/store/audio.admin.store";
+import {
+  setAudioClimaticsdisasters,
+  setAudioFlashesTech,
+  setAudioHack,
+  setAudioInstru0_drone,
+  setAudioInstrus,
+  setAudioNikedal,
+  setAudioVerton,
+  useAudioAdminStore,
+} from "@/store/audio.admin.store";
 import { setStart } from "@/store/demo.store";
 import { Play } from "lucide-react";
 import { motion } from "motion/react";
@@ -11,13 +20,22 @@ import { useState } from "react";
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
-  const nikedal = useAudioAdminStore((store) => store.nikedal);
-  const launch = () => {
-    if (!nikedal) {
-      setAdminAudio();
-    }
-    setStart(true);
+  const hack = useAudioAdminStore((store) => store.hack);
+  const launch = async () => {
     setClicked(true);
+    if (!hack) {
+      await setAudioNikedal();
+      await setAudioHack().then(() => {
+        setStart(true);
+      });
+      await setAudioInstrus();
+      await setAudioInstru0_drone();
+      await setAudioClimaticsdisasters();
+      await setAudioFlashesTech();
+      await setAudioVerton();
+    } else {
+      setStart(true);
+    }
   };
   return (
     <motion.div
@@ -43,7 +61,7 @@ export default function Home() {
         <p className="text-sm text-justify">
           <strong>NOTA :</strong> Il s&apos;agit d&apos;un petit échantillon de tableaux de <strong className="italic">smart.phonics</strong>. Et si
           leurs déclenchements ici sont automatisés et rapides, durant la performance, ils le sont par les artistes qui font vivre chaque tableau au
-          gré de leur écriture et improvisation.
+          gré de leur écriture et improvisation avec le public.
         </p>
         <p className="text-sm text-justify">
           <strong>Durée :</strong> ~ 3 min

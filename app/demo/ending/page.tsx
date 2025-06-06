@@ -31,8 +31,8 @@ export default function Home() {
         <h2 className="text-lg text-center text-primary font-semibold">FIN</h2>
         <p className="text-sm text-justify">
           Evidemment, il s&apos;agit d&apos;un petit échantillon de tableaux de <strong className="italic">smart.phonics</strong>. Et si leurs
-          déclenchements ici sont automatisés et rapides, en Live, ils le sont par les artistes qui font vivre chaque tableau au gré de leur écriture
-          et improvisation.
+          déclenchements ici sont automatisés et rapides, durant la performance, ils le sont par les artistes qui font vivre chaque tableau au gré de
+          leur écriture et improvisation avec le public.
         </p>
         <p className="text-sm text-justify">
           <strong>NOTA :</strong> <strong className="italic">smart.phonics</strong> est aussi accompagné d&apos;un écran de projection et d&apos;une

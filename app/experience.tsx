@@ -193,8 +193,8 @@ export const ExperienceMemo = memo(function Experience() {
         minPolarAngle={Math.PI / 2}
         maxPolarAngle={Math.PI / 2}
         smoothTime={1.0}
-        maxDistance={10}
-        minDistance={1}
+        maxDistance={15}
+        minDistance={2}
         azimuthRotateSpeed={0.4}
         dollySpeed={0.7}
         touches={{ one: ACTION.ACTION.DOLLY, two: ACTION.ACTION.TOUCH_ROTATE, three: 0 }} // 1 = ROTATE, 16 = DOLLY, 0 = NONE

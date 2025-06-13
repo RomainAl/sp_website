@@ -34,30 +34,6 @@ export const setNikedalParam = (param: Partial<typeof initNikedalStore>) => {
 
 export const nikedalParamsTopStore = [
   {
-    bloomIntensity: 7.406996219564402,
-    brightness: -0.9505097780369187,
-    compress: 0.8838022262178261,
-    doBloom: 1,
-    doBox: 0,
-    doGlitch: 1,
-    doLine: 1,
-    fillMix: 1,
-    strokeW: 2.21066733896917,
-    textSize: 20,
-  },
-  {
-    bloomIntensity: 10.41989097958744,
-    brightness: -0.49171401807116477,
-    compress: 0.7106341908923572,
-    doBloom: 1,
-    doBox: 1,
-    doGlitch: 0,
-    doLine: 0,
-    fillMix: 1,
-    strokeW: 1.3782950752971799,
-    textSize: 0,
-  },
-  {
     bloomIntensity: 18.519141878469487,
     brightness: -0.24531892886720685,
     compress: 0.9331830340266277,

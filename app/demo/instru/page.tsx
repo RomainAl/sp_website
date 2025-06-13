@@ -33,7 +33,7 @@ export default function Home() {
     audioContext.resume();
     if (intruNum === 0) {
       instru0_drone.parameters.find((p) => p.name === "PLAY").value = 1.0;
-      instru0_drone.parameters.find((p) => p.name === "MASTER-G").value = 0.1;
+      instru0_drone.parameters.find((p) => p.name === "MASTER-G").value = 0.15;
     }
     instru.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
     if (instru.outports.length < 1) {

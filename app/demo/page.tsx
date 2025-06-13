@@ -24,11 +24,11 @@ export default function Home() {
   const launch = async () => {
     setClicked(true);
     if (!hack) {
-      await setAudioNikedal();
       await setAudioHack().then(() => {
         setStart(true);
       });
       await setAudioInstrus();
+      await setAudioNikedal();
       await setAudioInstru0_drone();
       await setAudioClimaticsdisasters();
       await setAudioFlashesTech();
@@ -54,14 +54,14 @@ export default function Home() {
         <h2 className="text-lg text-primary font-semibold">Démonstration de smart.phonics</h2>
         <p className="text-sm text-justify">
           <strong className="italic">smart.phonics</strong> utilise les smartphones du public comme dispositif numérique principal, accompagné
-          d&apos;un écran de projection et d&apos;une diffusion sonore avec lesquels les artistes, au plateau, jouent aussi. Cette démonstration en
-          ligne donne simplement un aperçu de l&apos;expérience du spectateur sur son téléphone lors de la performance.
+          d&apos;un écran de projection et d&apos;une diffusion sonore avec lesquels les artistes, au plateau, jouent également. Cette démonstration
+          en ligne donne simplement un aperçu de l&apos;expérience du spectateur lors de la performance.
         </p>
 
         <p className="text-sm text-justify">
           <strong>NOTA :</strong> Il s&apos;agit d&apos;un petit échantillon de tableaux de <strong className="italic">smart.phonics</strong>. Et si
-          leurs déclenchements ici sont automatisés et rapides, durant la performance, ils le sont par les artistes qui font vivre chaque tableau au
-          gré de leur écriture et improvisation avec le public.
+          leurs déclenchements, ici, sont automatisés et rapides, durant la performance, ils le sont, en live, par les artistes qui font vivre chaque
+          tableau selon la narration de la performance.
         </p>
         <p className="text-sm text-justify">
           <strong>Durée :</strong> ~ 3 min

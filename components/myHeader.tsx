@@ -3,27 +3,22 @@
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import {
-  setAudioClimaticsdisasters,
-  setAudioFlashesTech,
-  setAudioHack,
-  setAudioInstru0_drone,
-  setAudioInstrus,
-  setAudioNikedal,
-  setAudioVerton,
-  useAudioAdminStore,
-} from "@/store/audio.admin.store";
+import { setSetAudio, useAudioAdminStore } from "@/store/audio.admin.store";
 import { Menu } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect } from "react";
 import { PlayButton } from "./playButton";
-export function MyHeader() {
-  const pathname = usePathname();
 
+export function MyHeader() {
+  console.log("RENDER HEADER");
+  const pathname = usePathname();
+  const setAudio = useAudioAdminStore((store) => store.setAudio);
   const nikedal = useAudioAdminStore((store) => store.nikedal);
-  const [onLoad, setOnLoad] = useState(false);
+  useEffect(() => {
+    if (!nikedal) setSetAudio(pathname);
+  }, [pathname, nikedal]);
 
   const showPlay =
     pathname === "/" ||
@@ -36,28 +31,24 @@ export function MyHeader() {
   const showSP =
     pathname === "/" ||
     pathname === "/demo" ||
-    pathname.includes("ending") ||
+    pathname.includes("fin") ||
     pathname.includes("flashes") ||
     pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal");
 
-  const init = async () => {
-    setOnLoad(true);
-    await setAudioNikedal();
-    await setAudioHack();
-    await setAudioInstrus();
-    await setAudioInstru0_drone();
-    await setAudioClimaticsdisasters();
-    await setAudioFlashesTech();
-    await setAudioVerton();
-  };
+  const init = nikedal
+    ? () => null
+    : async () => {
+        setAudio();
+      };
+
   return (
     <motion.div
       className="absolute top-0 h-dvh w-dvw pointer-events-none z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 2 } }}
     >
-      {showPlay && !nikedal && <PlayButton onLoad={onLoad} init={init} />}
+      {showPlay && !nikedal && <PlayButton />}
       <div className="absolute top-0 w-full z-10 flex flex-row p-5 items-center pointer-events-none">
         {showSP && (
           <Link
@@ -81,25 +72,34 @@ export function MyHeader() {
           <DropdownMenuContent>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/"}>
-                <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname === "/" })}>{"ACCUEIL"}</p>
+                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname === "/" })}>{"ACCUEIL"}</p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link href={"/presentation"}>
-                <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("presentation") })}>
+                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("presentation") })}>
                   {"PRESENTATION"}
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/demo"}>
-                <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("demo") })}>{"DEMONSTRATION"}</p>
+                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("demo") })}>
+                  {"DEMONSTRATION"}
+                </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/list"}>
-                <p className={cn("w-full text-center active:text-foreground", { "text-foreground": pathname.includes("list") })}>
-                  {"EXEMPLE DE PAGES"}
+                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("list") })}>
+                  {"ECHANTILLONS"}
+                </p>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link onClick={init} href={"/contact"}>
+                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("list") })}>
+                  {"CONTACT"}
                 </p>
               </Link>
             </DropdownMenuItem>

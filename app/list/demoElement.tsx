@@ -7,7 +7,7 @@ export const DemoElement = ({ name, desc }: { name: string; desc: string[] }) =>
   const router = useRouter();
   return (
     <div
-      className="relative w-full max-w-sm max-h-[100] sm:max-h-none cursor-pointer rounded-2xl overflow-hidden flex justify-center items-center ring-3 ring-accent"
+      className="relative w-full max-w-sm max-h-[150] sm:max-h-none cursor-pointer rounded-2xl overflow-hidden flex justify-center items-center ring-3 ring-accent"
       onClick={() => {
         router.push(`/demo/${name.replace("-n_", "?n=")}`);
       }}

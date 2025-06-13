@@ -4,6 +4,7 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/componen
 import { useEffect, useState } from "react";
 import { useIsMounted, useUnmount } from "usehooks-ts";
 import { InstaComponent } from "./instaComponent";
+
 export default function Home() {
   const [api, setApi] = useState<CarouselApi>();
   const [currentI, setCurrentI] = useState(0);

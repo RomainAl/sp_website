@@ -22,63 +22,63 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       router.push("/demo/instru");
       router.prefetch("/demo/nikedal3D");
     },
-    start && nikedal ? 5000 : null
+    start && nikedal ? 10000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/nikedal3D");
       router.prefetch("/demo/vertov");
     },
-    start && nikedal ? 30000 : null
+    start && nikedal ? 35000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/vertov");
       router.prefetch("/demo/hack");
     },
-    start && nikedal ? 70000 : null
+    start && nikedal ? 75000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/hack");
       router.prefetch("/demo/flashes");
     },
-    start && nikedal ? 90000 : null
+    start && nikedal ? 95000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/flashes");
       router.prefetch("/demo/climaticdisasters");
     },
-    start && nikedal ? 95000 : null
+    start && nikedal ? 100000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/climaticdisasters");
       router.prefetch("/demo/verton");
     },
-    start && nikedal ? 125000 : null
+    start && nikedal ? 130000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/verton");
       router.prefetch("/demo/instru?n=1");
     },
-    start && nikedal ? 150000 : null
+    start && nikedal ? 155000 : null
   );
   useTimeout(
     () => {
       router.push("/demo/instru?n=1");
-      router.prefetch("/demo/ending");
+      router.prefetch("/demo/fin");
     },
-    start && nikedal ? 180000 : null
+    start && nikedal ? 185000 : null
   );
   useTimeout(
     () => {
       setStart(false);
-      router.push("/demo/ending");
+      router.push("/demo/fin");
     },
-    start && nikedal ? 210000 : null
+    start && nikedal ? 215000 : null
   );
 
   useUnmount(() => setStart(false));

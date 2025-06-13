@@ -63,14 +63,14 @@ export default function Home() {
       position: "bottom-center",
       autoClose: Math.round(Math.random() * 10000 + 200),
     });
-  }, 3000);
+  }, verton && 3000);
 
   useUnmount(() => {
     api?.destroy();
   });
 
   return (
-    <div className={cn("size-full max-w-2xl m-auto", { invert: invert, "bg-blue-500": invert })}>
+    <div className={cn("size-full max-w-2xl m-auto", { invert: invert, "bg-blue-500": invert, "opacity-40": !verton })}>
       <Carousel plugins={elonSpeed ? [plugin_speed.current] : [plugin.current]} setApi={setApi} opts={{ loop: true }} orientation="vertical">
         <CarouselContent className="h-dvh w-dvw max-w-2xl -ml-2 -mt-2">
           {Array.from({ length: 2 }).map((_, index) => (

@@ -8,7 +8,6 @@ import { Play } from "lucide-react";
 export function PlayButton() {
   const setAudio = useAudioAdminStore((store) => store.setAudio);
   const onLoad = useAudioAdminStore((store) => store.onLoad);
-  console.log(onLoad);
   return (
     <Button
       onClick={

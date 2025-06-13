@@ -13,7 +13,7 @@ type audioStoreType = {
   nikedal: Device | null;
   verton: Device | null;
   hack: Device | null;
-  climaticsdisasters: Device | null;
+  climaticdisasters: Device | null;
   flashesTech: Device | null;
   instru0_drone: Device | null;
   filter: BiquadFilterNode | null;
@@ -29,7 +29,7 @@ export const useAudioAdminStore = create(
       await setAudioHack();
       await setAudioInstrus();
       await setAudioInstru0_drone();
-      await setAudioClimaticsdisasters();
+      await setAudioClimaticdisasters();
       await setAudioFlashesTech();
       await setAudioVerton();
       setOnLoad(0);
@@ -39,7 +39,7 @@ export const useAudioAdminStore = create(
     audioAnalyser: null,
     merger: null,
     nikedal: null,
-    climaticsdisasters: null,
+    climaticdisasters: null,
     hack: null,
     verton: null,
     flashesTech: null,
@@ -64,7 +64,7 @@ export const setSetAudio = (path: string) => {
         await setAudioHack();
         await setAudioInstrus();
         await setAudioInstru0_drone();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
         setOnLoad(0);
@@ -79,7 +79,7 @@ export const setSetAudio = (path: string) => {
         await setAudioInstrus();
         await setAudioNikedal();
         await setAudioInstru0_drone();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
         setOnLoad(0);
@@ -94,7 +94,7 @@ export const setSetAudio = (path: string) => {
         await setAudioInstrus();
         await setAudioNikedal();
         await setAudioInstru0_drone();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
         setOnLoad(0);
@@ -103,13 +103,13 @@ export const setSetAudio = (path: string) => {
     case "/demo/climaticdisasters":
       setAudio = async () => {
         setOnLoad(1);
-        await setAudioClimaticsdisasters();
         await setAudioHack();
         await setAudioInstrus();
         await setAudioNikedal();
         await setAudioInstru0_drone();
         await setAudioFlashesTech();
         await setAudioVerton();
+        await setAudioClimaticdisasters();
         setOnLoad(0);
       };
       break;
@@ -117,7 +117,7 @@ export const setSetAudio = (path: string) => {
       setAudio = async () => {
         setOnLoad(1);
         await setAudioFlashesTech();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioHack();
         await setAudioInstrus();
         await setAudioNikedal();
@@ -132,7 +132,7 @@ export const setSetAudio = (path: string) => {
         await setAudioInstrus();
         await setAudioInstru0_drone();
         await setAudioFlashesTech();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioHack();
         await setAudioNikedal();
         await setAudioVerton();
@@ -145,7 +145,7 @@ export const setSetAudio = (path: string) => {
         await setAudioNikedal();
         await setAudioInstrus();
         await setAudioFlashesTech();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioHack();
         await setAudioInstru0_drone();
         await setAudioVerton();
@@ -159,7 +159,7 @@ export const setSetAudio = (path: string) => {
         await setAudioNikedal();
         await setAudioInstrus();
         await setAudioFlashesTech();
-        await setAudioClimaticsdisasters();
+        await setAudioClimaticdisasters();
         await setAudioHack();
         await setAudioInstru0_drone();
         setOnLoad(0);
@@ -294,21 +294,21 @@ export const setAudioHack = async () => {
   }
 };
 
-export const setAudioClimaticsdisasters = async () => {
+export const setAudioClimaticdisasters = async () => {
   const ctx = useAudioAdminStore.getState().audioContext;
-  const climaticsdisasters = useAudioAdminStore.getState().climaticsdisasters;
+  const climaticdisasters = useAudioAdminStore.getState().climaticdisasters;
 
-  if (ctx && climaticsdisasters) return;
+  if (ctx && climaticdisasters) return;
 
   if (!ctx) {
     setAudioBase();
-    await setAudioClimaticsdisasters();
+    await setAudioClimaticdisasters();
   } else {
-    let climaticsdisasters = null;
+    let climaticdisasters = null;
     try {
-      const path = nextConfig.basePath + "/climaticsdisasters";
-      climaticsdisasters = await loadRNBO(path, ctx);
-      useAudioAdminStore.setState({ climaticsdisasters });
+      const path = nextConfig.basePath + "/climaticdisasters";
+      climaticdisasters = await loadRNBO(path, ctx);
+      useAudioAdminStore.setState({ climaticdisasters });
       console.log("Device loaded");
     } catch (e) {
       console.error(e);
@@ -384,10 +384,10 @@ export const setAdminAudio = async () => {
   } catch (e) {
     console.error(e);
   }
-  let climaticsdisasters = null;
+  let climaticdisasters = null;
   try {
-    const path = nextConfig.basePath + "/climaticsdisasters";
-    climaticsdisasters = await loadRNBO(path, ctx);
+    const path = nextConfig.basePath + "/climaticdisasters";
+    climaticdisasters = await loadRNBO(path, ctx);
   } catch (e) {
     console.error(e);
   }
@@ -406,7 +406,7 @@ export const setAdminAudio = async () => {
     nikedal: nikedal,
     verton: verton,
     hack: hack,
-    climaticsdisasters: climaticsdisasters,
+    climaticdisasters: climaticdisasters,
     flashesTech: flashesTech,
     instru0_drone: instru0_drone,
     filter: filter,

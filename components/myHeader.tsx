@@ -24,7 +24,6 @@ export function MyHeader() {
     pathname === "/" ||
     pathname.includes("instru") ||
     pathname.includes("verton") ||
-    pathname.includes("flashes") ||
     pathname.includes("hack") ||
     pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal");
@@ -39,7 +38,7 @@ export function MyHeader() {
   const init = nikedal
     ? () => null
     : async () => {
-        setAudio();
+        setTimeout(setAudio, 2000);
       };
 
   return (

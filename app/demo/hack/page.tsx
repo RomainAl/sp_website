@@ -1,6 +1,7 @@
 "use client";
 
 import { HackMemo } from "@/components/hack";
+import { cn } from "@/lib/utils";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { useEffect } from "react";
 
@@ -20,7 +21,7 @@ export default function Home() {
     };
   }, [audioContext, hack]);
   return (
-    <div className="h-dvh w-dvw  max-w-3xl m-auto">
+    <div className={cn("h-dvh w-dvw max-w-3xl m-auto", { "opacity-50": !hack })}>
       <HackMemo />
     </div>
   );

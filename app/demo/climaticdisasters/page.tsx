@@ -5,6 +5,7 @@ import { initShaderStore, setShaderParam, shaderParamsDefStore } from "@/store/s
 import { PerformanceMonitor } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { memo, Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 import { ExperienceMemo } from "./experience";
@@ -21,23 +22,35 @@ export default function Home() {
     1 // far
   );
   const audioContext = useAudioAdminStore((store) => store.audioContext);
-  const climaticsdisasters = useAudioAdminStore((store) => store.climaticsdisasters);
+  const climaticdisasters = useAudioAdminStore((store) => store.climaticdisasters);
   // const pointId = useRef(0);
 
   useEffect(() => {
-    if (audioContext && climaticsdisasters) {
-      climaticsdisasters.node.connect(audioContext.destination);
+    if (audioContext && climaticdisasters) {
+      climaticdisasters.node.connect(audioContext.destination);
       audioContext.resume();
-      climaticsdisasters.parameters.find((p) => p.name === "PLAY").value = 1.0;
+      climaticdisasters.parameters.find((p) => p.name === "PLAY").value = 1.0;
     }
     return () => {
       // audioContext?.suspend();
-      if (climaticsdisasters && climaticsdisasters.parameters) climaticsdisasters.parameters.find((p) => p.name === "PLAY").value = 0.0;
-      climaticsdisasters?.node.disconnect();
+      if (climaticdisasters && climaticdisasters.parameters) climaticdisasters.parameters.find((p) => p.name === "PLAY").value = 0.0;
+      climaticdisasters?.node.disconnect();
     };
-  }, [audioContext, climaticsdisasters]);
+  }, [audioContext, climaticdisasters]);
 
-  if (!climaticsdisasters) return null;
+  if (!climaticdisasters)
+    return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 2 } }} className="size-full">
+        <Image
+          priority={true}
+          className="size-full object-cover z-0 blur-sm contrast-200 brightness-75 opacity-50"
+          src={`/demo_climaticdisasters.jpg`}
+          width={1000}
+          height={500}
+          alt={`Picture of intru demo`}
+        />
+      </motion.div>
+    );
 
   return (
     <motion.div

@@ -6,6 +6,9 @@ import { cn } from "@/lib/utils";
 // import { Slider } from "@/components/ui/slider";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { initSoundVisualizerParams, setSoundVisualizerParams } from "@/store/soundVisu.user.store";
+import { ChevronUp, MoveHorizontal } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useUnmount, useWindowSize } from "usehooks-ts";
@@ -20,6 +23,7 @@ export default function Home() {
   const refOutports = useRef<HTMLParagraphElement>(null);
   const instru0_drone = useAudioAdminStore((store) => store.instru0_drone);
   const { width = 0 } = useWindowSize();
+  const refTuto = useRef<HTMLDivElement>(null);
   setSoundVisualizerParams(initSoundVisualizerParams);
 
   useEffect(() => {
@@ -73,36 +77,77 @@ export default function Home() {
     }
   });
 
-  if (!instru) return null;
+  if (!instru)
+    return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 2 } }} className="size-full">
+        <Image
+          priority={true}
+          className="size-full object-cover z-0 blur-lg opacity-50"
+          src={`/demo_instru-n_0.jpg`}
+          width={1000}
+          height={500}
+          alt={`Picture of intru demo`}
+        />
+      </motion.div>
+    );
 
   return (
-    <>
-      <div className="flex h-dvh w-dvw max-w-2xl m-auto flex-col items-center justify-center gap-7">
-        {instru?.parameters.length < 10 && (
-          <div className="flex w-2/3 flex-col rounded-full border-3 border-accent bg-background shadow transition-colors">
-            <SoundwaveCanvas width={width} height={width / 3} analyser={analyser} />
-          </div>
-        )}
-        <div className="flex w-full flex-row flex-wrap items-center justify-center gap-4">
-          {instru?.parameters.map(
-            (param) =>
-              param.name !== "MASTER-G" &&
-              param.name !== "OFF-ON" && (
-                <div
-                  key={param.name}
-                  className={cn("aspect-square w-2/3", {
-                    "w-1/3": instru?.parameters.length - 2 > 1,
-                    "w-1/5": instru?.parameters.length - 2 >= 10,
-                  })}
-                >
-                  <Knob_RNBO indexI={intruNum} nameP={param.name} paramsNb={instru?.parameters.length - 2} />
-                </div>
-              )
-          )}
+    <div className="flex h-dvh w-dvw max-w-2xl m-auto flex-col items-center justify-center gap-7">
+      {instru?.parameters.length < 10 && (
+        <div className="flex w-2/3 flex-col rounded-full border-3 border-accent bg-background shadow transition-colors">
+          <SoundwaveCanvas width={width} height={width / 3} analyser={analyser} />
         </div>
-        <p className="text-xl text-primary" ref={refOutports}></p>
+      )}
+      <div className="flex w-full flex-row flex-wrap items-center justify-center gap-4">
+        {instru?.parameters.map(
+          (param) =>
+            param.name !== "MASTER-G" &&
+            param.name !== "OFF-ON" && (
+              <div
+                key={param.name}
+                className={cn("relative aspect-square w-2/3", {
+                  "w-1/3": instru?.parameters.length - 2 > 1,
+                  "w-1/5": instru?.parameters.length - 2 >= 10,
+                })}
+              >
+                {intruNum === 0 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, transition: { duration: 3 } }}
+                    exit={{ opacity: 0 }}
+                    ref={refTuto}
+                    className="absolute size-full flex flex-row justify-between items-center bg-[#00000099] border border-accent backdrop-blur-xs z-50 rounded-2xl"
+                    onClick={() => {
+                      refTuto.current!.style.display = "none";
+                    }}
+                  >
+                    <ChevronUp
+                      strokeWidth={0.85}
+                      size={60}
+                      className="text-foreground -rotate-90 -ml-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+                    />
+                    <div className="flex flex-col text-center">
+                      <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
+                      <div className="flex flex-row justify-between">
+                        <p className="text-foreground">Gauche</p>
+                        <MoveHorizontal />
+                        <p className="text-foreground">Droite</p>
+                      </div>
+                    </div>
+                    <ChevronUp
+                      strokeWidth={0.85}
+                      size={60}
+                      className="text-foreground rotate-90 -mr-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+                    />
+                  </motion.div>
+                )}
+                <Knob_RNBO indexI={intruNum} nameP={param.name} paramsNb={instru?.parameters.length - 2} />
+              </div>
+            )
+        )}
       </div>
-    </>
+      <p className="text-xl text-primary" ref={refOutports}></p>
+    </div>
   );
 }
 

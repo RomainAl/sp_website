@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { flash, setFlashesSpeed, setFlashesTime, setFlashesTrig, setStreamWebcam, useWebrtcUserStore } from "@/store/webrtc.user.store";
-import { Phone } from "lucide-react";
+import { Phone, TriangleAlert } from "lucide-react";
 import { memo, useEffect, useRef } from "react";
-import { useInterval, useUnmount } from "usehooks-ts";
+import { useInterval, useMediaQuery, useUnmount } from "usehooks-ts";
 
 export default function Home() {
   console.log("RENDU FLASHES");
@@ -20,6 +20,8 @@ export default function Home() {
   const timeout2 = useRef<NodeJS.Timeout | null>(null);
   const audioContext = useAudioAdminStore((store) => store.audioContext);
   const flashesTech = useAudioAdminStore((store) => store.flashesTech);
+  const matches = useMediaQuery("(min-width: 1024px)");
+  const setAudio = useAudioAdminStore((store) => store.setAudio);
 
   useInterval(
     () => {
@@ -100,6 +102,13 @@ export default function Home() {
 
   return (
     <div className="h-dvh w-dvw">
+      {!stream && matches && (
+        <div className="absolute bottom-0 w-full p-10 gap-3 flex flex-row text-primary items-center justify-center">
+          <TriangleAlert />
+          <p className="text-center">Vous ne semblez pas sur un smartphone, nous ne pourront donc contrôler le flash !</p>
+          <TriangleAlert />
+        </div>
+      )}
       {!stream || !stream.active ? (
         <div ref={refDiv} className="size-full flex items-center justify-center">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 size-20 md:size-30 rounded-full border-1 border-accent-foreground pointer-events-auto">
@@ -109,6 +118,7 @@ export default function Home() {
               className="size-full focus:outline-2 focus:outline-2-offset-2 focus:outline-primary z-10"
               size={"circle"}
               onClick={() => {
+                if (!flashesTech) setAudio();
                 setStreamWebcam(1);
               }}
             >
@@ -134,7 +144,7 @@ const FooterMemo = memo(function Footer() {
   console.log("RENDER FOOTER");
 
   return (
-    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
+    <div className="absolute rounded-t-2xl  bottom-0 left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
       <div className="w-25 xs:w-40 md:w-45">
         <Knob
           Kname={"FLASH_TIME"}

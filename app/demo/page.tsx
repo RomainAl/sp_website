@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import {
-  setAudioClimaticsdisasters,
+  setAudioClimaticdisasters,
   setAudioFlashesTech,
   setAudioHack,
   setAudioInstru0_drone,
@@ -30,7 +30,7 @@ export default function Home() {
       await setAudioInstrus();
       await setAudioNikedal();
       await setAudioInstru0_drone();
-      await setAudioClimaticsdisasters();
+      await setAudioClimaticdisasters();
       await setAudioFlashesTech();
       await setAudioVerton();
     } else {
@@ -60,8 +60,8 @@ export default function Home() {
 
         <p className="text-sm text-justify">
           <strong>NOTA :</strong> Il s&apos;agit d&apos;un petit échantillon de tableaux de <strong className="italic">smart.phonics</strong>. Et si
-          leurs déclenchements, ici, sont automatisés et rapides, durant la performance, ils le sont, en live, par les artistes qui font vivre chaque
-          tableau selon la narration de la performance.
+          leurs déclenchements, ici, sont automatisés et rapides, en live, ils le sont par les artistes qui font vivre chaque tableau selon la
+          narration de la performance.
         </p>
         <p className="text-sm text-justify">
           <strong>Durée :</strong> ~ 3 min

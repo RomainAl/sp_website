@@ -14,11 +14,12 @@ export const initInstaUserStore = {
       description: `smart.phonics est une performance musicale et visuelle hybride, utilisant les smartphones du public comme dispositif numérique principal. Ainsi, tour à tour, elle peut prendre la forme d’un live électronique AV  et d’une création digitale participative, tous deux augmentés de ces téléphones intelligents qui sont autant d’écrans, d’enceintes, de microphones, d’instruments de musique électronique, de pinceaux numériques, etc.
       \nÀ la fois spectateur et co-créateur, le public s'interface avec les artistes, sur scène, via un site Web modifié en temps réel tout au long de la performance. Ainsi connectés, ils donnent vie, ensemble, à une création sonore et visuelle, collective et immersive.
       \nLes smartphones, archétypes technologiques de notre époque, sont désormais omniprésents et connectent les individus autant qu’ils les isolent. Scroller, swiper, liker sont aujourd’hui devenus des gestes anodins  et la caresse micro-timée d’un pouce sur un écran tactile impacte les rapports sociaux. smart.phonics interroge ces nouvelles pratiques, cette avalanche d’échanges, de contenus, de vidéos et de sons. Tel un internaute qui passe d’un site à l’autre au gré de ses recherches, de ses pensées, la performance procède d’une écriture par tableaux successifs, visuels et sonores.
-      \nAlternant images de fiction ou d’actualité, pages Web sonores interactives, créations visuelles génératives et collectives, sons électroniques créés et spatialisés par les smartphones et les artistes au plateau, smart.phonics propose un récit possible de l’histoire commune que nous entretenons avec les nouvelles technologies.\n
-      \nDurée de la performance : 50 minutes, jauge de ± 150 personnes, public à partir de 13 ans\n`,
+      \nAlternant images de fiction ou d’actualité, pages Web sonores interactives, créations visuelles génératives et collectives, sons électroniques créés et spatialisés par les smartphones et les artistes au plateau, smart.phonics propose un récit possible de l’histoire commune que nous entretenons avec les nouvelles technologies.
+      \nDurée de la performance : 50 minutes
+      \nJauge de ± 150 personnes, public à partir de 13 ans\n`,
       im: "ImageSma.jpg",
       hashtag:
-        "#web #digitalarts #electronicmusic #collaborativeart #glitches #technomusic #videoart #whales #technology #socialnetworks #climaticdisasters #sequencing #storms #hires #hacking #cats",
+        "#web #digitalarts #electronicmusic #hacking #cats #collaborativeart #glitches #technomusic #whales #socialnetworks #climaticdisasters",
     },
     {
       name: "Romain AL.",

@@ -53,8 +53,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
       </div>
 
       <div className={cn("size-full ring-2 ring-accent rounded-none flex flex-col justify-between bg-card")}>
-        <div className="flex flex-row gap-4 items-center text-sm px-4 py-2.5 h-30 ring-2 ring-accent ">
-          <div className="size-20">
+        <div className="flex flex-row gap-4 items-center text-sm px-4 py-2.5 h-30 ring-2 ring-accent max-h-1/9">
+          <div className="size-18">
             <InstaAvatarJpgMemo name={vidMeta.name.substring(0, 3)} />
           </div>
           <div className="flex flex-col gap-0">
@@ -71,7 +71,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           </div>
         </div>
 
-        <div className="w-full overflow-y-scroll">
+        <div className="w-full overflow-auto flex-1 flex flex-col">
           {index === 0 && (
             <div>
               <div ref={refSpinner} className="w-full aspect-video flex items-center justify-center">
@@ -81,11 +81,11 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             </div>
           )}
 
-          <p className="text-sm text-justify whitespace-pre-wrap p-4">{vidMeta.description}</p>
+          <p className="text-sm text-justify whitespace-pre-wrap p-4 flex-1 flex items-center">{vidMeta.description}</p>
           <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the performance" />
         </div>
 
-        <div className={cn("px-4 py-1 w-full max-h-1/9 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>
+        <div className={cn("px-4 py-1 w-full max-h-1/11 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>
           <p className="text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden">{vidMeta.hashtag}</p>
           <InstaComLike index={index} />
         </div>

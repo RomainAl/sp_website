@@ -18,7 +18,7 @@ export default function Home() {
         className="absolute object-cover size-full z-0 blur-xs"
       ></Image>
       <div className="max-w-2xl p-6 rounded-lg shadow-md text-center ring-2 ring-accent flex flex-col gap-3 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
-        <h2 className="text-lg text-primary font-semibold">CONTACT :</h2>
+        <h2 className="text-sm text-primary font-semibold">CONTACT :</h2>
         <p className="text-sm">romainal@gmail.com</p>
         <p className="text-sm">+336 58 65 29 20</p>
       </div>

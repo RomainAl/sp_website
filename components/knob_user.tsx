@@ -112,7 +112,11 @@ export function Knob({
   };
 
   return (
-    <div ref={refDiv} onClick={handleClick} className={"flex size-full touch-none flex-col items-center justify-center"}>
+    <div
+      ref={refDiv}
+      onClick={handleClick}
+      className={"flex size-full touch-none flex-col items-center justify-center ring-2 ring-accent rounded-2xl"}
+    >
       <p
         className={cn("m-auto text-sm font-black text-foreground select-none text-center", {
           "text-xl": paramsNb && paramsNb <= 10,

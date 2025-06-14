@@ -62,7 +62,7 @@ export function MyHeader() {
             <div className="w-1/4 ml-auto flex justify-center pointer-events-auto">
               <Button
                 variant={"link"}
-                className="rounded-full p-0 size-12 md:size-16 font-black border-1 border-primary bg-[#222222BB] hover:bg-card backdrop-blur-xs"
+                className="rounded-full p-0 size-12 md:size-16 font-black bg-[#222222BB] hover:bg-card backdrop-blur-xs border-1 border-primary"
               >
                 <Menu className="size-full" strokeWidth={3} />
               </Button>
@@ -71,33 +71,35 @@ export function MyHeader() {
           <DropdownMenuContent>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/"}>
-                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname === "/" })}>{"ACCUEIL"}</p>
+                <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname === "/" })}>{"ACCUEIL"}</p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link href={"/presentation"}>
-                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("presentation") })}>
+                <p
+                  className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("presentation") })}
+                >
                   {"PRESENTATION"}
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/demo"}>
-                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("demo") })}>
+                <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("demo") })}>
                   {"DEMONSTRATION"}
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/list"}>
-                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("list") })}>
+                <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("list") })}>
                   {"ECHANTILLONS"}
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/contact"}>
-                <p className={cn("w-full text-center font-bold active:text-foreground", { "text-foreground": pathname.includes("list") })}>
+                <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("contact") })}>
                   {"CONTACT"}
                 </p>
               </Link>

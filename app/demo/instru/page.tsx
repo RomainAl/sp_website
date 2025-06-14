@@ -94,11 +94,41 @@ export default function Home() {
   return (
     <div className="flex h-dvh w-dvw max-w-2xl m-auto flex-col items-center justify-center gap-7">
       {instru?.parameters.length < 10 && (
-        <div className="flex w-2/3 flex-col rounded-full border-3 border-accent bg-background shadow transition-colors">
+        <div className="flex w-2/3 flex-col rounded-full ring-2 ring-accent bg-background shadow transition-colors">
           <SoundwaveCanvas width={width} height={width / 3} analyser={analyser} />
         </div>
       )}
-      <div className="flex w-full flex-row flex-wrap items-center justify-center gap-4">
+      <div className="relative flex w-full flex-row flex-wrap items-center justify-center gap-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 3 } }}
+          exit={{ opacity: 0 }}
+          ref={refTuto}
+          className="absolute size-full flex flex-row justify-center items-center bg-[#00000099] backdrop-blur-xs z-50 rounded-2xl"
+          onClick={() => {
+            refTuto.current!.style.display = "none";
+          }}
+        >
+          <ChevronUp
+            strokeWidth={0.85}
+            size={60}
+            className="text-foreground -rotate-90 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+          />
+          <div className="flex flex-col text-center">
+            <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
+            <div className="flex flex-row justify-between">
+              <p className="text-foreground">Gauche</p>
+              <MoveHorizontal />
+              <p className="text-foreground">Droite</p>
+            </div>
+            <p className="text-foreground">sur le bouton rotatif</p>
+          </div>
+          <ChevronUp
+            strokeWidth={0.85}
+            size={60}
+            className="text-foreground rotate-90  hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+          />
+        </motion.div>
         {instru?.parameters.map(
           (param) =>
             param.name !== "MASTER-G" &&
@@ -110,37 +140,6 @@ export default function Home() {
                   "w-1/5": instru?.parameters.length - 2 >= 10,
                 })}
               >
-                {intruNum === 0 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1, transition: { duration: 3 } }}
-                    exit={{ opacity: 0 }}
-                    ref={refTuto}
-                    className="absolute size-full flex flex-row justify-between items-center bg-[#00000099] border border-accent backdrop-blur-xs z-50 rounded-2xl"
-                    onClick={() => {
-                      refTuto.current!.style.display = "none";
-                    }}
-                  >
-                    <ChevronUp
-                      strokeWidth={0.85}
-                      size={60}
-                      className="text-foreground -rotate-90 -ml-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
-                    />
-                    <div className="flex flex-col text-center">
-                      <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
-                      <div className="flex flex-row justify-between">
-                        <p className="text-foreground">Gauche</p>
-                        <MoveHorizontal />
-                        <p className="text-foreground">Droite</p>
-                      </div>
-                    </div>
-                    <ChevronUp
-                      strokeWidth={0.85}
-                      size={60}
-                      className="text-foreground rotate-90 -mr-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
-                    />
-                  </motion.div>
-                )}
                 <Knob_RNBO indexI={intruNum} nameP={param.name} paramsNb={instru?.parameters.length - 2} />
               </div>
             )

@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} relative dark antialiased overflow-hidden h-dvh w-dvw`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} relative dark antialiased overflow-hidden overscroll-none h-dvh w-dvw`}>
         <MyHeader />
         <ToastG />
         {children}

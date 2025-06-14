@@ -1,6 +1,7 @@
 "use client";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useInstaUserStore } from "@/store/insta.user.store";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { useIsMounted, useUnmount } from "usehooks-ts";
 import { InstaComponent } from "./instaComponent";
@@ -14,7 +15,7 @@ export default function Home() {
   });
 
   return (
-    <div className="h-dvh max-w-3xl m-auto">
+    <motion.div className="h-dvh max-w-3xl m-auto" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 2 } }}>
       <Carousel setApi={setApi} opts={{ loop: true }}>
         <CarouselContent className="h-dvh w-dvw max-w-3xl -ml-2 -mt-2">
           {vidMeta.map((_, index) => (
@@ -24,6 +25,6 @@ export default function Home() {
           ))}
         </CarouselContent>
       </Carousel>
-    </div>
+    </motion.div>
   );
 }

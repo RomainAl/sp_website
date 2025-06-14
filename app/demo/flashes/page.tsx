@@ -144,7 +144,7 @@ const FooterMemo = memo(function Footer() {
   console.log("RENDER FOOTER");
 
   return (
-    <div className="absolute rounded-t-2xl  bottom-0 left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10 bg-[#00000077]">
+    <div className="absolute rounded-t-2xl  bottom-0 left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center items-center gap-7 p-5 z-10">
       <div className="w-25 xs:w-40 md:w-45">
         <Knob
           Kname={"FLASH_TIME"}

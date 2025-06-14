@@ -116,12 +116,12 @@ export default function Home() {
           />
           <div className="flex flex-col text-center">
             <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
+            <p className="text-foreground">sur le bouton rotatif</p>
             <div className="flex flex-row justify-between">
               <p className="text-foreground">Gauche</p>
               <MoveHorizontal />
               <p className="text-foreground">Droite</p>
             </div>
-            <p className="text-foreground">sur le bouton rotatif</p>
           </div>
           <ChevronUp
             strokeWidth={0.85}

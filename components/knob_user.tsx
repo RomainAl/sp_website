@@ -115,7 +115,7 @@ export function Knob({
     <div
       ref={refDiv}
       onClick={handleClick}
-      className={"flex size-full touch-none flex-col items-center justify-center ring-2 ring-accent rounded-2xl"}
+      className={"flex size-full touch-none flex-col items-center justify-center ring-2 ring-accent rounded-2xl bg-[#00000077]  backdrop-blur-xs"}
     >
       <p
         className={cn("m-auto text-sm font-black text-foreground select-none text-center", {

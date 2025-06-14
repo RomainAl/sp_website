@@ -53,8 +53,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
       </div>
 
       <div className={cn("size-full ring-2 ring-accent rounded-none flex flex-col justify-between bg-card")}>
-        <div className="flex flex-row gap-4 items-center text-sm px-4 py-2.5 h-30 ring-2 ring-accent max-h-1/9">
-          <div className="size-18">
+        <div className="flex flex-row gap-4 items-center text-sm px-4 h-30 ring-2 ring-accent max-h-1/9">
+          <div className="h-11/12">
             <InstaAvatarJpgMemo name={vidMeta.name.substring(0, 3)} />
           </div>
           <div className="flex flex-col gap-0">

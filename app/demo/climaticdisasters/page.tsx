@@ -91,7 +91,7 @@ const FooterMemo = memo(function Footer() {
     }
   };
   return (
-    <div className="absolute rounded-t-2xl bottom-0 h-fit left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center p-5 gap-2 items-center z-10 bg-[#00000077]">
+    <div className="absolute rounded-t-2xl bottom-0 h-fit left-1/2 -translate-x-1/2 w-fit max-w-lg flex flex-row justify-center p-5 gap-2 items-center z-10">
       {Object.keys(shaderParamsDefStore).map((name, i) => (
         <div key={i} className="w-23 xs:w-30 md:w-35 flex aspect-square">
           <Knob

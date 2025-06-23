@@ -46,7 +46,7 @@ export const useAudioAdminStore = create(
     instru0_drone: null,
     filter: null,
     nikedalAnalyser: null,
-    instrus: new Array(2),
+    instrus: new Array(3),
   }))
 );
 

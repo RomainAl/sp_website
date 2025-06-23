@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 // import { Slider } from "@/components/ui/slider";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { initSoundVisualizerParams, setSoundVisualizerParams } from "@/store/soundVisu.user.store";
-import { ChevronUp, MoveHorizontal } from "lucide-react";
+import { ChevronUp, MousePointerClick } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -39,7 +39,7 @@ export default function Home() {
       instru0_drone.parameters.find((p) => p.name === "PLAY").value = 1.0;
       instru0_drone.parameters.find((p) => p.name === "MASTER-G").value = 0.15;
     }
-    instru.parameters.find((p) => p.name === "OFF-ON").value = 1.0;
+    instru.parameters.find((p) => p.name.includes("OFF")).value = 1.0;
     if (instru.outports.length < 1) {
       return;
     } else {
@@ -99,40 +99,38 @@ export default function Home() {
         </div>
       )}
       <div className="relative flex w-full flex-row flex-wrap items-center justify-center gap-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 3 } }}
-          exit={{ opacity: 0 }}
-          ref={refTuto}
-          className="absolute size-full flex flex-row justify-center items-center bg-[#00000099] backdrop-blur-xs z-50 rounded-2xl"
-          onClick={() => {
-            refTuto.current!.style.display = "none";
-          }}
-        >
-          <ChevronUp
-            strokeWidth={0.85}
-            size={60}
-            className="text-foreground -rotate-90 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
-          />
-          <div className="flex flex-col text-center">
-            <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
-            <p className="text-foreground">sur le bouton rotatif</p>
-            <div className="flex flex-row justify-between">
-              <p className="text-foreground">Gauche</p>
-              <MoveHorizontal />
-              <p className="text-foreground">Droite</p>
+        {intruNum === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 3 } }}
+            exit={{ opacity: 0 }}
+            ref={refTuto}
+            className="absolute h-full w-2/3 flex flex-row justify-center items-center bg-[#00000099] backdrop-blur-xs z-50 ring-2 ring-accent rounded-2xl"
+            onClick={() => {
+              refTuto.current!.style.display = "none";
+            }}
+          >
+            <ChevronUp
+              strokeWidth={0.85}
+              size={60}
+              className="text-foreground -rotate-90 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+            />
+            <div className="flex flex-col justify-center items-center gap-2">
+              <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
+              <p className="text-foreground">sur le bouton rotatif</p>
+              <MousePointerClick size={40} />
             </div>
-          </div>
-          <ChevronUp
-            strokeWidth={0.85}
-            size={60}
-            className="text-foreground rotate-90  hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
-          />
-        </motion.div>
+            <ChevronUp
+              strokeWidth={0.85}
+              size={60}
+              className="text-foreground rotate-90  hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
+            />
+          </motion.div>
+        )}
         {instru?.parameters.map(
           (param) =>
             param.name !== "MASTER-G" &&
-            param.name !== "OFF-ON" && (
+            !param.name.includes("OFF") && (
               <div
                 key={param.name}
                 className={cn("relative aspect-square w-2/3", {

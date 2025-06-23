@@ -62,13 +62,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useTimeout(
     () => {
       router.push("/demo/verton");
-      router.prefetch("/demo/instru?n=1");
+      router.prefetch("/demo/instru?n=2");
     },
     start && nikedal ? 155000 : null
   );
   useTimeout(
     () => {
-      router.push("/demo/instru?n=1");
+      router.push("/demo/instru?n=2");
       router.prefetch("/demo/fin");
     },
     start && nikedal ? 185000 : null

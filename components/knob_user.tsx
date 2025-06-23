@@ -87,7 +87,14 @@ export function Knob({
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length > 0 && myDiv && divRect) {
         const touch = e.touches[0];
-        const param = Math.min(Math.max((touch.clientX - divRect.left) / divRect.width, 0), 1);
+        let param = Math.min(Math.max((touch.clientX - divRect.left) / divRect.width, 0), 1);
+        const yy = (touch.clientY - divRect.top) / divRect.height;
+        if (yy >= 0.6)
+          if (param > 0.5) {
+            param = Math.min(Math.max(param + (yy - 0.6), 0), 1);
+          } else {
+            param = Math.min(Math.max(param - (yy - 0.6), 0), 1);
+          }
         aa.set(param);
       }
     };
@@ -106,7 +113,14 @@ export function Knob({
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     const divRect = refDiv.current?.getBoundingClientRect();
     if (divRect) {
-      const param = Math.min(Math.max((e.clientX - divRect.left) / divRect.width, 0), 1);
+      let param = Math.min(Math.max((e.clientX - divRect.left) / divRect.width, 0), 1);
+      const yy = (e.clientY - divRect.top) / divRect.height;
+      if (yy >= 0.6)
+        if (param > 0.5) {
+          param = Math.min(Math.max(param + (yy - 0.6), 0), 1);
+        } else {
+          param = Math.min(Math.max(param - (yy - 0.6), 0), 1);
+        }
       aa.set(param);
     }
   };

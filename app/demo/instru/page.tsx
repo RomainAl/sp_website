@@ -116,8 +116,8 @@ export default function Home() {
               className="text-foreground -rotate-90 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
             />
             <div className="flex flex-col justify-center items-center gap-2">
-              <p className="text-foreground font-bold">CLIQUEZ / GLISSEZ</p>
-              <p className="text-foreground">sur le bouton rotatif</p>
+              <p className="text-foreground font-bold text-center">CLIQUEZ / GLISSEZ</p>
+              <p className="text-foreground text-center">sur le bouton rotatif</p>
               <MousePointerClick size={40} />
             </div>
             <ChevronUp

@@ -12,7 +12,7 @@ export default function Home() {
       <DemoElement name={"nikedal3D"} desc={["Cryptographie", "blabla"]} />
       <DemoElement name={"vertov"} desc={["Vertov", "blabla"]} />
       <DemoElement name={"flashes"} desc={["Techno Flash", "blabla"]} />
-      <DemoElement name={"climaticdisasters"} desc={["Climatic Disasters", "blabla"]} />
+      <DemoElement name={"climaticdisasters"} desc={["Metal Forest", "blabla"]} />
       <DemoElement name={"instru-n_1"} desc={["Electronic 3 knobs", "blabla"]} />
       <DemoElement name={"verton"} desc={["Crazy X", "blabla"]} />
       <DemoElement name={"instru-n_2"} desc={["Electronic 5 knobs", "blabla"]} />

@@ -54,7 +54,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 
       <div className={cn("size-full ring-2 ring-accent rounded-none flex flex-col justify-between bg-card")}>
         <div className="flex flex-row gap-4 items-center text-sm px-4 h-30 ring-2 ring-accent max-h-1/9">
-          <div className="h-11/12">
+          <div className="h-11/12 aspect-square">
             <InstaAvatarJpgMemo name={vidMeta.name.substring(0, 3)} />
           </div>
           <div className="flex flex-col gap-0">
@@ -64,9 +64,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 {"╰┈➤ " + vidMeta.linkname}
               </Link>
             )}
-            {index == 0 && <p className="text-xs italic text-center">{"Contenu suggéré"}</p>}
-            {index == 2 && <p className="text-xs italic text-center">{"Story pour toi"}</p>}
-            <p className="text-xs italic text-center">{`il y a ${vidMeta.name.length} jours`}</p>
+            {index == 0 && <p className="text-xxs xs:text-xs italic text-center">{"Contenu suggéré"}</p>}
+            {index == 2 && <p className="text-xxs xs:text-xs italic text-center">{"Story pour toi"}</p>}
+            <p className="text-xxs xs:text-xs italic text-center">{`il y a ${vidMeta.name.length} jours`}</p>
           </div>
         </div>
 
@@ -85,9 +85,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               <p className="text-primary font-bold italic w-full">RÉSUMÉ :</p>
               <p>
                 <strong className="italic">smart.phonics</strong> est une performance musicale et visuelle hybride, utilisant les smartphones du
-                public comme dispositif numérique principal. Ainsi, tour à tour, elle peut prendre la forme d’un live électronique AV et d’une
-                création digitale participative, tous deux augmentés de ces téléphones intelligents qui sont autant d’écrans, d’enceintes, de
-                microphones, d’instruments de musique électronique, de pinceaux numériques, etc.
+                public comme dispositif numérique principal. Ainsi, tour à tour, elle peut prendre la forme d&apos;un live électronique AV et
+                d’&apos;une création digitale participative, tous deux augmentés de ces téléphones intelligents qui sont autant d’écrans, d’enceintes,
+                de microphones, d&apos;instruments de musique électronique, de pinceaux numériques, etc.
                 <br />À la fois spectateur et co-créateur, le public s&apos;interface avec les artistes, sur scène, via un site Web modifié en temps
                 réel tout au long de la performance. Ainsi connectés, ils donnent vie, ensemble, à une création sonore et visuelle, collective et
                 immersive.
@@ -100,14 +100,16 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               </p>
               <p className="text-primary italic font-bold w-full">SYNOPSIS :</p>
               <p>
-                Les smartphones, archétypes technologiques de notre époque, sont désormais omniprésents et connectent les individus autant qu’ils les
-                isolent. Scroller, swiper, liker sont aujourd’hui devenus des gestes anodins et la caresse micro-timée d’un pouce sur un écran tactile
-                impacte les rapports sociaux. smart.phonics interroge ces nouvelles pratiques, cette avalanche d’échanges, de contenus, de vidéos et
-                de sons. Tel un internaute qui passe d’un site à l’autre au gré de ses recherches, de ses pensées, la performance procède d’une
-                écriture par tableaux successifs, visuels et sonores. <br />
-                Alternant images de fiction ou d’actualité, pages Web sonores interactives, créations visuelles génératives et collectives, sons
-                électroniques créés et spatialisés par les smartphones et les artistes au plateau, smart.phonics propose un récit possible de
-                l’histoire commune que nous entretenons avec les nouvelles technologies. <br />
+                Les smartphones, archétypes technologiques de notre époque, sont désormais omniprésents et connectent les individus autant qu&apos;ils
+                les isolent. Scroller, swiper, liker sont aujourd’hui devenus des gestes anodins et la caresse micro-timée d&apos;un pouce sur un
+                écran tactile impacte les rapports sociaux. <strong className="italic">smart.phonics</strong> interroge ces nouvelles pratiques, cette
+                avalanche d&apos;échanges, de contenus, de vidéos et de sons. Tel un internaute qui passe d&apos;un site à l&apos;autre au gré de ses
+                recherches, de ses pensées, la performance procède d&apos;une écriture par tableaux successifs, visuels et sonores. <br />
+                Alternant images de fiction ou d&apos;actualité, pages Web sonores interactives, créations visuelles génératives et collectives, sons
+                électroniques créés et spatialisés par les smartphones et les artistes au plateau, <strong className="italic">
+                  smart.phonics
+                </strong>{" "}
+                propose un récit possible de l&apos;histoire commune que nous entretenons avec les nouvelles technologies. <br />
                 <br />
               </p>
             </div>
@@ -167,7 +169,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
         </div>
 
         <div className={cn("px-4 py-1 w-full max-h-1/11 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>
-          <p className="text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden">{vidMeta.hashtag}</p>
+          <p className="text-xxs xs:text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden">{vidMeta.hashtag}</p>
           <InstaComLike index={index} />
         </div>
       </div>

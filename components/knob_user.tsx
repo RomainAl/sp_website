@@ -13,6 +13,7 @@ export function Knob({
   unit,
   color,
   duration,
+  Kdisplayname,
 }: {
   Kname: string;
   Kmax: number;
@@ -24,6 +25,7 @@ export function Knob({
   unit?: string;
   color?: string;
   duration?: number;
+  Kdisplayname?: string;
 }) {
   console.log("RENDER KNOB");
   // const al_out = useMidiStore((store) => store.al_out);
@@ -129,7 +131,7 @@ export function Knob({
     <div
       ref={refDiv}
       onClick={handleClick}
-      className={"flex size-full touch-none flex-col items-center justify-center ring-2 ring-accent rounded-2xl bg-[#00000077]  backdrop-blur-xs"}
+      className={"flex size-full touch-none flex-col items-center justify-center ring-2 ring-accent rounded-2xl bg-[#00000077] backdrop-blur-xs"}
     >
       <p
         className={cn("m-auto text-sm font-black text-foreground select-none text-center", {
@@ -138,7 +140,7 @@ export function Knob({
           "text-foreground": color === "white",
         })}
       >
-        {Kname}
+        {Kdisplayname ? Kdisplayname : Kname}
       </p>
       <div className="relative w-3/4 select-none">
         <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} fill="none" strokeWidth={stroke}>

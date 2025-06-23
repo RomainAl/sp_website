@@ -16,7 +16,7 @@ export default function Home() {
     }
     return () => {
       // audioContext?.suspend();
-      if (hack && hack.parameters) hack.parameters.find((p) => p.name === "PLAY").value = 0.0;
+      // if (hack && hack.parameters) hack.parameters.find((p) => p.name === "PLAY").value = 0.0;
       hack?.node.disconnect();
     };
   }, [audioContext, hack]);

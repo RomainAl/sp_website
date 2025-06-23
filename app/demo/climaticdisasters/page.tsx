@@ -96,6 +96,7 @@ const FooterMemo = memo(function Footer() {
         <div key={i} className="w-23 xs:w-30 md:w-35 flex aspect-square">
           <Knob
             Kname={name}
+            Kdisplayname={i === 0 ? "Destroy" : i === 1 ? "Trees" : "Camera"}
             Kmin={shaderParamsDefStore[name as keyof typeof shaderParamsDefStore][0]}
             Kmax={shaderParamsDefStore[name as keyof typeof shaderParamsDefStore][1]}
             Kinitval={initShaderStore[name as keyof typeof shaderParamsDefStore]}

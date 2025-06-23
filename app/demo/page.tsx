@@ -16,26 +16,33 @@ import { setStart } from "@/store/demo.store";
 import { Play } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
   const hack = useAudioAdminStore((store) => store.hack);
+  const onLoad = useAudioAdminStore((store) => store.onLoad);
+
+  useEffect(() => {
+    if (clicked && !onLoad) setStart(true);
+  }, [onLoad, clicked]);
+
   const launch = async () => {
     setClicked(true);
-    if (!hack) {
-      await setAudioHack().then(() => {
+    if (!onLoad)
+      if (!hack) {
+        await setAudioHack().then(() => {
+          setStart(true);
+        });
+        await setAudioInstrus();
+        await setAudioNikedal();
+        await setAudioInstru0_drone();
+        await setAudioClimaticdisasters();
+        await setAudioFlashesTech();
+        await setAudioVerton();
+      } else {
         setStart(true);
-      });
-      await setAudioInstrus();
-      await setAudioNikedal();
-      await setAudioInstru0_drone();
-      await setAudioClimaticdisasters();
-      await setAudioFlashesTech();
-      await setAudioVerton();
-    } else {
-      setStart(true);
-    }
+      }
   };
   return (
     <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { setDismissToasts } from "@/store/shared.store";
 import { useEffect, useState } from "react";
 import { useIsMounted, useUnmount } from "usehooks-ts";
 import { InstaComponent } from "./instaComponent";
@@ -23,6 +24,7 @@ export default function Home() {
 
   useUnmount(() => {
     api?.destroy();
+    setDismissToasts();
   });
 
   return (

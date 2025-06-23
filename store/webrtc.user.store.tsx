@@ -91,14 +91,14 @@ export const flash = (onFlash: boolean) => {
     (track as any).applyConstraints({ advanced: [{ torch: onFlash }] }).catch(() => {
       setDismissToasts();
 
-      setToast({
-        type: "error",
-        data: {
-          content: "Impossible d'allumer ta torche !",
-        },
-        autoClose: 30,
-        pauseOnFocusLoss: false,
-      });
+      // setToast({
+      //   type: "error",
+      //   data: {
+      //     content: "Impossible d'allumer ta torche !",
+      //   },
+      //   autoClose: 30,
+      //   pauseOnFocusLoss: false,
+      // });
     });
   }
 };

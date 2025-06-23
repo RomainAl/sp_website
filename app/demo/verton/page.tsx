@@ -3,7 +3,7 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/componen
 import { cn } from "@/lib/utils";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { errorMess } from "@/store/elon.store";
-import { setToast } from "@/store/shared.store";
+import { setDismissToasts, setToast } from "@/store/shared.store";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
 import { useInterval, useIsMounted, useUnmount } from "usehooks-ts";
@@ -67,6 +67,7 @@ export default function Home() {
 
   useUnmount(() => {
     api?.destroy();
+    setDismissToasts();
   });
 
   return (

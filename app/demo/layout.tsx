@@ -69,16 +69,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useTimeout(
     () => {
       router.push("/demo/instru?n=2");
-      router.prefetch("/demo/fin");
+      router.prefetch("/demo/hack");
     },
     start && nikedal ? 185000 : null
+  );
+  useTimeout(
+    () => {
+      router.push("/demo/hack");
+      router.prefetch("/demo/fin");
+    },
+    start && nikedal ? 215000 : null
   );
   useTimeout(
     () => {
       setStart(false);
       router.push("/demo/fin");
     },
-    start && nikedal ? 215000 : null
+    start && nikedal ? 220000 : null
   );
 
   useUnmount(() => setStart(false));

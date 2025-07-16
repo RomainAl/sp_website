@@ -105,7 +105,7 @@ export default function Home() {
       {!stream && matches && (
         <div className="absolute bottom-0 w-full p-10 gap-3 flex flex-row text-primary items-center justify-center">
           <TriangleAlert />
-          <p className="text-center">Vous ne semblez pas sur un smartphone, nous ne pourront donc contrôler le flash !</p>
+          <p className="text-center">Vous ne semblez pas sur un smartphone, impossible donc de contrôler le flash !</p>
           <TriangleAlert />
         </div>
       )}

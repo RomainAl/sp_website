@@ -3,6 +3,7 @@ import { createDevice, Device } from "@rnbo/js";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { setStart } from "./demo.store";
+import { vibrate } from "./webrtc.user.store";
 
 type audioStoreType = {
   setAudio: () => void;
@@ -25,6 +26,7 @@ export const useAudioAdminStore = create(
   devtools<audioStoreType>(() => ({
     setAudio: async () => {
       setOnLoad(1);
+      vibrate(50);
       await setAudioNikedal();
       await setAudioHack();
       await setAudioInstrus();
@@ -32,6 +34,7 @@ export const useAudioAdminStore = create(
       await setAudioClimaticdisasters();
       await setAudioFlashesTech();
       await setAudioVerton();
+      vibrate(50);
       setOnLoad(0);
     },
     onLoad: 0,
@@ -60,6 +63,7 @@ export const setSetAudio = (path: string) => {
     case "/":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioNikedal();
         await setAudioHack();
         await setAudioInstrus();
@@ -67,12 +71,14 @@ export const setSetAudio = (path: string) => {
         await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioHack().then(() => {
           setStart(true);
         });
@@ -82,12 +88,14 @@ export const setSetAudio = (path: string) => {
         await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo/fin":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioHack().then(() => {
           setStart(true);
         });
@@ -97,12 +105,14 @@ export const setSetAudio = (path: string) => {
         await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo/climaticdisasters":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioHack();
         await setAudioInstrus();
         await setAudioNikedal();
@@ -110,12 +120,14 @@ export const setSetAudio = (path: string) => {
         await setAudioFlashesTech();
         await setAudioVerton();
         await setAudioClimaticdisasters();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo/flashes":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioFlashesTech();
         await setAudioClimaticdisasters();
         await setAudioHack();
@@ -123,12 +135,14 @@ export const setSetAudio = (path: string) => {
         await setAudioNikedal();
         await setAudioInstru0_drone();
         await setAudioVerton();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo/instru":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioInstrus();
         await setAudioInstru0_drone();
         await setAudioFlashesTech();
@@ -136,12 +150,14 @@ export const setSetAudio = (path: string) => {
         await setAudioHack();
         await setAudioNikedal();
         await setAudioVerton();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo/nikedal3D":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioNikedal();
         await setAudioInstrus();
         await setAudioFlashesTech();
@@ -149,12 +165,14 @@ export const setSetAudio = (path: string) => {
         await setAudioHack();
         await setAudioInstru0_drone();
         await setAudioVerton();
+        vibrate(50);
         setOnLoad(0);
       };
       break;
     case "/demo/verton":
       setAudio = async () => {
         setOnLoad(1);
+        vibrate(50);
         await setAudioVerton();
         await setAudioNikedal();
         await setAudioInstrus();
@@ -162,6 +180,7 @@ export const setSetAudio = (path: string) => {
         await setAudioClimaticdisasters();
         await setAudioHack();
         await setAudioInstru0_drone();
+        vibrate(50);
         setOnLoad(0);
       };
       break;

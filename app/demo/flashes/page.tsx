@@ -4,7 +4,7 @@ import { Knob } from "@/components/knob_user";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
-import { flash, setFlashesSpeed, setFlashesTime, setFlashesTrig, setStreamWebcam, useWebrtcUserStore } from "@/store/webrtc.user.store";
+import { flash, setFlashesSpeed, setFlashesTime, setFlashesTrig, setStreamWebcam, useWebrtcUserStore, vibrate } from "@/store/webrtc.user.store";
 import { Phone, TriangleAlert } from "lucide-react";
 import { memo, useEffect, useRef } from "react";
 import { useInterval, useMediaQuery, useUnmount } from "usehooks-ts";
@@ -22,6 +22,12 @@ export default function Home() {
   const flashesTech = useAudioAdminStore((store) => store.flashesTech);
   const matches = useMediaQuery("(min-width: 1024px)");
   const setAudio = useAudioAdminStore((store) => store.setAudio);
+
+  useEffect(() => {
+    vibrate([100, 50, 100, 50, 1000]);
+  }, []);
+
+  useInterval(() => vibrate([100, 50, 100, 50, 1000]), !stream || !stream.active ? 5000 : null);
 
   useInterval(
     () => {

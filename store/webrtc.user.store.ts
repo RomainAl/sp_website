@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
-import { setDismissToasts, setToast } from "./shared.store";
+import { setToast } from "./shared.store";
 
 type webrtcUserStoreType = {
   webcamStream: MediaStream | null;
@@ -84,13 +84,12 @@ export const vibrate = (pattern: number | number[]) => {
 export const flash = (onFlash: boolean) => {
   const stream = useWebrtcUserStore.getState().webcamStream;
   const duration = useWebrtcUserStore.getState().flashes_time;
-  vibrate(duration ?? 50);
+  vibrate(duration ? duration * 500 : 100);
   if (stream) {
     const track = stream.getVideoTracks()[0];
 
     (track as any).applyConstraints({ advanced: [{ torch: onFlash }] }).catch(() => {
-      setDismissToasts();
-
+      // setDismissToasts();
       // setToast({
       //   type: "error",
       //   data: {

@@ -1,12 +1,26 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isWakeLocked, setIsWakeLocked] = useState(false);
   const wakeLockSentinel = useRef<WakeLockSentinel | null>(null);
+  // Dans votre composant
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+
+    // Lance le compteur seulement si le wake lock est actif
+    interval = setInterval(() => {
+      setCounter((prev) => prev + 1);
+    }, 1000);
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, []);
 
   // Fonction pour demander le verrouillage de l'écran
   const requestWakeLock = async () => {
@@ -16,13 +30,17 @@ export default function Home() {
         setIsWakeLocked(true);
         console.log("Verrouillage de l'écran acquis !");
         alert("verrouillé");
-        // Écouter l'événement de libération du verrou (par exemple, si l'utilisateur change d'onglet)
-        wakeLockSentinel.current.addEventListener("release", () => {
-          setIsWakeLocked(false);
-          wakeLockSentinel.current = null;
-          console.log("Verrouillage de l'écran relâché.");
-          alert("déverrouillé");
-        });
+
+        // Écouter l'événement de libération du verrou
+        if (wakeLockSentinel.current) {
+          // Vérification de sécurité
+          wakeLockSentinel.current.addEventListener("release", () => {
+            setIsWakeLocked(false); // Mis à jour l'état quand le navigateur relâche le verrou
+            wakeLockSentinel.current = null; // Important pour éviter les fuites de mémoire
+            console.log("Verrouillage de l'écran relâché par événement 'release'.");
+            alert("déverrouillé par release event");
+          });
+        }
       } catch (err: unknown) {
         setIsWakeLocked(false);
         if (err instanceof Error) {
@@ -42,54 +60,67 @@ export default function Home() {
     if (wakeLockSentinel.current) {
       await wakeLockSentinel.current.release();
       wakeLockSentinel.current = null;
-      setIsWakeLocked(false);
       console.log("Verrouillage de l'écran libéré manuellement.");
     }
+    setIsWakeLocked(false);
   };
 
-  // Gérer la visibilité de la page pour réacquérir le verrou si nécessaire
   useEffect(() => {
+    // Pas de dépendances liées à l'état du wake lock ici pour éviter les boucles.
+    // Cet effet est pour gérer le nettoyage du DOM listener.
     const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible" && !isWakeLocked) {
-        // Optionnel: Réacquérir le verrou si la page redevient visible
-        // Attention: Cela peut nécessiter une nouvelle interaction utilisateur selon les navigateurs
-        requestWakeLock(); // Décommentez si vous voulez que le verrou soit réactivé automatiquement
-      } else if (document.visibilityState === "hidden" && isWakeLocked) {
-        // Le verrou est automatiquement relâché quand la page est cachée
-        // Vous n'avez pas besoin de le relâcher explicitement ici, mais c'est une bonne pratique de mettre à jour l'état
-        setIsWakeLocked(false);
-        wakeLockSentinel.current = null;
+      if (document.visibilityState === "hidden") {
+        // Le navigateur relâche le verrou si la page est cachée.
+        // On met à jour l'état local en conséquence.
+        if (isWakeLocked) {
+          // Utilisez un callback pour l'état pour éviter de dépendre de isWakeLocked
+          setIsWakeLocked(false);
+          wakeLockSentinel.current = null;
+          console.log("Verrouillage de l'écran relâché par changement de visibilité.");
+          alert("déverrouillé par visibilité"); // Pour diagnostic
+        }
       }
+      // Pas de réacquisition automatique ici, car ça nécessite une interaction utilisateur
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
-      // S'assurer de libérer le verrou lors du démontage du composant
+      // Important : Ne pas libérer le wakeLockSentinel ici,
+      // car il est déjà géré par l'événement 'release' attaché au sentinel lui-même
+      // ou par la fonction releaseWakeLock.
+      // C'est potentiellement la cause de votre problème si le sentinel est libéré trop tôt ici.
+      // Laissez le sentinel être géré par son propre événement 'release' ou le bouton de désactivation.
+      // Si vous le libérez ici, et que le composant est re-rendu, il sera relâché.
       if (wakeLockSentinel.current) {
-        wakeLockSentinel.current.release();
-        wakeLockSentinel.current = null;
+        console.log("Tentative de libération du Wake Lock par cleanup - devrait être gérée ailleurs.");
+        // wakeLockSentinel.current.release(); // <-- DÉCOMMENTEZ SEULEMENT SI VOUS VOULEZ QU'IL SOIT LIBÉRÉ AU DEMONTAGE DU COMPOSANT
+        // wakeLockSentinel.current = null;
       }
     };
-  }, [isWakeLocked]); // Dépendance à isWakeLocked pour réagir aux changements d'état
+  }, []); //
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 2 } }}
-      className="relative h-dvh w-dvw flex flex-col items-center justify-center gap-3 p-4"
-    >
+    <div className="relative h-dvh w-dvw flex flex-col items-center justify-center gap-3 p-4">
       <div>
         <h1>Contrôle du Verrouillage de l&apos;Écran</h1>
         <p>Statut du verrouillage : {isWakeLocked ? "Actif" : "Inactif"}</p>
         <Button onClick={isWakeLocked ? releaseWakeLock : requestWakeLock}>
           {isWakeLocked ? "Désactiver le verrouillage" : "Activer le verrouillage"}
         </Button>
+        <Button
+          onClick={() => {
+            navigator.wakeLock.request("screen");
+          }}
+        >
+          Test
+        </Button>
         <p>
           Note: Le verrouillage de l&apos;écran est automatiquement relâché si vous quittez la page, changez d&apos;onglet ou minimisez le navigateur.
         </p>
+        <p>Compteur d&apos;activité : {counter} secondes</p>
       </div>
-    </motion.div>
+    </div>
   );
 }

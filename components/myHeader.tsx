@@ -16,6 +16,7 @@ export function MyHeader() {
   const pathname = usePathname();
   const setAudio = useAudioAdminStore((store) => store.setAudio);
   const nikedal = useAudioAdminStore((store) => store.nikedal);
+
   useEffect(() => {
     if (!nikedal) setSetAudio(pathname);
   }, [pathname, nikedal]);
@@ -35,11 +36,9 @@ export function MyHeader() {
     pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal");
 
-  const init = nikedal
-    ? () => null
-    : async () => {
-        setTimeout(setAudio, 2000);
-      };
+  const init = () => {
+    if (!nikedal) setTimeout(setAudio, 2000);
+  };
 
   return (
     <motion.div

@@ -2,9 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 // import { MyHeader } from "@/components/myHeader";
-import { MyHeader } from "@/components/myHeader";
 import "./globals.css";
-import ToastG from "./toastG";
+import Layout_mine from "./layout_mine";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,9 +37,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable} relative dark antialiased overflow-hidden overscroll-none h-dvh w-dvw`}>
-        <MyHeader />
-        <ToastG />
-        {children}
+        <Layout_mine>{children}</Layout_mine>
       </body>
     </html>
   );

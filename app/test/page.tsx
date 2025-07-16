@@ -65,41 +65,41 @@ export default function Home() {
     setIsWakeLocked(false);
   };
 
-  useEffect(() => {
-    // Pas de dépendances liées à l'état du wake lock ici pour éviter les boucles.
-    // Cet effet est pour gérer le nettoyage du DOM listener.
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "hidden") {
-        // Le navigateur relâche le verrou si la page est cachée.
-        // On met à jour l'état local en conséquence.
-        if (isWakeLocked) {
-          // Utilisez un callback pour l'état pour éviter de dépendre de isWakeLocked
-          setIsWakeLocked(false);
-          wakeLockSentinel.current = null;
-          console.log("Verrouillage de l'écran relâché par changement de visibilité.");
-          alert("déverrouillé par visibilité"); // Pour diagnostic
-        }
-      }
-      // Pas de réacquisition automatique ici, car ça nécessite une interaction utilisateur
-    };
+  // useEffect(() => {
+  //   // Pas de dépendances liées à l'état du wake lock ici pour éviter les boucles.
+  //   // Cet effet est pour gérer le nettoyage du DOM listener.
+  //   const handleVisibilityChange = () => {
+  //     if (document.visibilityState === "hidden") {
+  //       // Le navigateur relâche le verrou si la page est cachée.
+  //       // On met à jour l'état local en conséquence.
+  //       if (isWakeLocked) {
+  //         // Utilisez un callback pour l'état pour éviter de dépendre de isWakeLocked
+  //         setIsWakeLocked(false);
+  //         wakeLockSentinel.current = null;
+  //         console.log("Verrouillage de l'écran relâché par changement de visibilité.");
+  //         alert("déverrouillé par visibilité"); // Pour diagnostic
+  //       }
+  //     }
+  //     // Pas de réacquisition automatique ici, car ça nécessite une interaction utilisateur
+  //   };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+  //   document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      // Important : Ne pas libérer le wakeLockSentinel ici,
-      // car il est déjà géré par l'événement 'release' attaché au sentinel lui-même
-      // ou par la fonction releaseWakeLock.
-      // C'est potentiellement la cause de votre problème si le sentinel est libéré trop tôt ici.
-      // Laissez le sentinel être géré par son propre événement 'release' ou le bouton de désactivation.
-      // Si vous le libérez ici, et que le composant est re-rendu, il sera relâché.
-      if (wakeLockSentinel.current) {
-        console.log("Tentative de libération du Wake Lock par cleanup - devrait être gérée ailleurs.");
-        // wakeLockSentinel.current.release(); // <-- DÉCOMMENTEZ SEULEMENT SI VOUS VOULEZ QU'IL SOIT LIBÉRÉ AU DEMONTAGE DU COMPOSANT
-        // wakeLockSentinel.current = null;
-      }
-    };
-  }, []); //
+  //   return () => {
+  //     document.removeEventListener("visibilitychange", handleVisibilityChange);
+  //     // Important : Ne pas libérer le wakeLockSentinel ici,
+  //     // car il est déjà géré par l'événement 'release' attaché au sentinel lui-même
+  //     // ou par la fonction releaseWakeLock.
+  //     // C'est potentiellement la cause de votre problème si le sentinel est libéré trop tôt ici.
+  //     // Laissez le sentinel être géré par son propre événement 'release' ou le bouton de désactivation.
+  //     // Si vous le libérez ici, et que le composant est re-rendu, il sera relâché.
+  //     if (wakeLockSentinel.current) {
+  //       console.log("Tentative de libération du Wake Lock par cleanup - devrait être gérée ailleurs.");
+  //       // wakeLockSentinel.current.release(); // <-- DÉCOMMENTEZ SEULEMENT SI VOUS VOULEZ QU'IL SOIT LIBÉRÉ AU DEMONTAGE DU COMPOSANT
+  //       // wakeLockSentinel.current = null;
+  //     }
+  //   };
+  // }, []); //
 
   return (
     <div className="relative h-dvh w-dvw flex flex-col items-center justify-center gap-3 p-4">

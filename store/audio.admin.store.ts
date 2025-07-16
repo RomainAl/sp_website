@@ -62,126 +62,151 @@ export const setSetAudio = (path: string) => {
   switch (path) {
     case "/":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioNikedal();
-        await setAudioHack();
-        await setAudioInstrus();
-        await setAudioInstru0_drone();
-        await setAudioClimaticdisasters();
-        await setAudioFlashesTech();
-        await setAudioVerton();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioNikedal();
+          await setAudioHack();
+          await setAudioInstrus();
+          await setAudioInstru0_drone();
+          await setAudioClimaticdisasters();
+          await setAudioFlashesTech();
+          await setAudioVerton();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioHack().then(() => {
-          setStart(true);
-        });
-        await setAudioInstrus();
-        await setAudioNikedal();
-        await setAudioInstru0_drone();
-        await setAudioClimaticdisasters();
-        await setAudioFlashesTech();
-        await setAudioVerton();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioHack().then(() => {
+            setStart(true);
+          });
+          await setAudioInstrus();
+          await setAudioNikedal();
+          await setAudioInstru0_drone();
+          await setAudioClimaticdisasters();
+          await setAudioFlashesTech();
+          await setAudioVerton();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo/fin":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioHack().then(() => {
-          setStart(true);
-        });
-        await setAudioInstrus();
-        await setAudioNikedal();
-        await setAudioInstru0_drone();
-        await setAudioClimaticdisasters();
-        await setAudioFlashesTech();
-        await setAudioVerton();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioHack().then(() => {
+            setStart(true);
+          });
+          await setAudioInstrus();
+          await setAudioNikedal();
+          await setAudioInstru0_drone();
+          await setAudioClimaticdisasters();
+          await setAudioFlashesTech();
+          await setAudioVerton();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo/climaticdisasters":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioHack();
-        await setAudioInstrus();
-        await setAudioNikedal();
-        await setAudioInstru0_drone();
-        await setAudioFlashesTech();
-        await setAudioVerton();
-        await setAudioClimaticdisasters();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioClimaticdisasters();
+          await setAudioNikedal();
+          await setAudioHack();
+          await setAudioInstrus();
+          await setAudioInstru0_drone();
+          await setAudioFlashesTech();
+          await setAudioVerton();
+
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo/flashes":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioFlashesTech();
-        await setAudioClimaticdisasters();
-        await setAudioHack();
-        await setAudioInstrus();
-        await setAudioNikedal();
-        await setAudioInstru0_drone();
-        await setAudioVerton();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioFlashesTech();
+          await setAudioNikedal();
+          await setAudioClimaticdisasters();
+          await setAudioHack();
+          await setAudioInstrus();
+          await setAudioInstru0_drone();
+          await setAudioVerton();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo/instru":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioInstrus();
-        await setAudioInstru0_drone();
-        await setAudioFlashesTech();
-        await setAudioClimaticdisasters();
-        await setAudioHack();
-        await setAudioNikedal();
-        await setAudioVerton();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioInstrus();
+          await setAudioInstru0_drone();
+          await setAudioNikedal();
+          await setAudioFlashesTech();
+          await setAudioClimaticdisasters();
+          await setAudioHack();
+          await setAudioVerton();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo/nikedal3D":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioNikedal();
-        await setAudioInstrus();
-        await setAudioFlashesTech();
-        await setAudioClimaticdisasters();
-        await setAudioHack();
-        await setAudioInstru0_drone();
-        await setAudioVerton();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioNikedal();
+          await setAudioInstrus();
+          await setAudioFlashesTech();
+          await setAudioClimaticdisasters();
+          await setAudioHack();
+          await setAudioInstru0_drone();
+          await setAudioVerton();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
     case "/demo/verton":
       setAudio = async () => {
-        setOnLoad(1);
-        vibrate(50);
-        await setAudioVerton();
-        await setAudioNikedal();
-        await setAudioInstrus();
-        await setAudioFlashesTech();
-        await setAudioClimaticdisasters();
-        await setAudioHack();
-        await setAudioInstru0_drone();
-        vibrate(50);
-        setOnLoad(0);
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioVerton();
+          await setAudioNikedal();
+          await setAudioInstrus();
+          await setAudioFlashesTech();
+          await setAudioClimaticdisasters();
+          await setAudioHack();
+          await setAudioInstru0_drone();
+          vibrate(50);
+          setOnLoad(0);
+        }
       };
       break;
   }

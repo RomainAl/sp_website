@@ -8,12 +8,9 @@ import { Play } from "lucide-react";
 export function PlayButton() {
   const setAudio = useAudioAdminStore((store) => store.setAudio);
   const onLoad = useAudioAdminStore((store) => store.onLoad);
-  const handleClick = () => {
-    if (!onLoad) setAudio();
-  };
   return (
     <Button
-      onClick={handleClick}
+      onClick={setAudio}
       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto"
     >
       <span className="absolute z-0 size-full animate-ping rounded-full bg-primary"></span>

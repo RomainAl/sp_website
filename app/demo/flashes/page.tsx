@@ -67,9 +67,9 @@ export default function Home() {
   useEffect(() => {
     const unsubscribeFlash = useWebrtcUserStore.subscribe(
       (state) => state.flashes_trig,
-      (value) => {
+      async (value) => {
         if (value !== 0) {
-          flash(true);
+          await flash(true);
           const flashes_t = flashes_time * flashes_speed;
           if (myVideoRef.current) myVideoRef.current.style.filter = "invert(1)";
           if (refDiv.current) refDiv.current.style.backgroundColor = "white";
@@ -82,8 +82,8 @@ export default function Home() {
             clearTimeout(timeout2.current);
             timeout2.current = null;
           }
-          timeout1.current = setTimeout(() => {
-            flash(false);
+          timeout1.current = setTimeout(async () => {
+            await flash(false);
           }, flashes_t);
 
           timeout2.current = setTimeout(() => {

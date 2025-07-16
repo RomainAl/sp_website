@@ -81,14 +81,29 @@ export const vibrate = (pattern: number | number[]) => {
 };
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-export const flash = (onFlash: boolean) => {
+export const flash = async (onFlash: boolean) => {
   const stream = useWebrtcUserStore.getState().webcamStream;
   const duration = useWebrtcUserStore.getState().flashes_time;
   vibrate(duration ? duration * 500 : 100);
   if (stream) {
     const track = stream.getVideoTracks()[0];
-
-    (track as any).applyConstraints({ advanced: [{ torch: onFlash }] }).catch(() => {
+    if (!track) {
+      console.warn("Pas de piste vidéo trouvée dans le stream.");
+      return;
+    }
+    try {
+      const capabilities = track.getCapabilities();
+      if ("torch" in capabilities && capabilities.torch) {
+        await (track as any).applyConstraints({ advanced: [{ torch: onFlash }] });
+        console.log(`Torche ${onFlash ? "allumée" : "éteinte"}.`);
+      } else {
+        console.warn("La contrainte 'torch' n'est pas supportée par ce navigateur/appareil.");
+      }
+    } catch (error: unknown) {
+      console.error(`Erreur lors du contrôle de la torche:`, error);
+      if (error instanceof Error) {
+        console.error(`Nom de l'erreur: ${error.name}, Message: ${error.message}`);
+      }
       // setDismissToasts();
       // setToast({
       //   type: "error",
@@ -98,7 +113,9 @@ export const flash = (onFlash: boolean) => {
       //   autoClose: 30,
       //   pauseOnFocusLoss: false,
       // });
-    });
+    }
+  } else {
+    console.warn("Aucun stream de webcam disponible.");
   }
 };
 

@@ -27,7 +27,8 @@ export function MyHeader() {
     pathname.includes("verton") ||
     pathname.includes("hack") ||
     pathname.includes("climaticdisasters") ||
-    pathname.includes("nikedal");
+    pathname.includes("nikedal") ||
+    pathname.includes("sampler");
   const showSP =
     pathname === "/" ||
     pathname === "/demo" ||

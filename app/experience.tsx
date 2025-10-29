@@ -31,7 +31,7 @@ export const ExperienceMemo = memo(function Experience() {
   const analyser = useAudioAdminStore((store) => store.nikedalAnalyser);
   const nikedal = useAudioAdminStore((store) => store.nikedal);
   const filter = useAudioAdminStore((store) => store.filter);
-  const times = useRef<Uint8Array>(null);
+  const times = useRef<Uint8Array<ArrayBuffer> | null>(null);
   const refBoxs = useRef<(THREE.Group | null)[]>([]);
   const refCustoms = useRef<(THREE.Group | null)[]>([]);
   const refTexts = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -39,8 +39,8 @@ export const ExperienceMemo = memo(function Experience() {
   const refHtmls = useRef<(HTMLDivElement | null)[]>([]);
   const refHtmls2 = useRef<(HTMLDivElement | null)[]>([]);
   const refState = useRef(useNikedalStore.getState());
-  const refBoxsInstances = useRef<MyInstancedMesh | null>(null);
-  const refLinesInstances = useRef<MyInstancedMesh | null>(null);
+  const refBoxsInstances = useRef<MyInstancedMesh>(null);
+  const refLinesInstances = useRef<MyInstancedMesh>(null);
   const refTotal = useRef<THREE.Group>(null);
   const refCam = useRef<CameraControls>(null);
   const delta_sum = useRef<number>(0);

@@ -1,7 +1,6 @@
 import nextConfig from "@/next.config";
 import { createDevice, Device } from "@rnbo/js";
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
 import { setStart } from "./demo.store";
 import { vibrate } from "./webrtc.user.store";
 
@@ -20,38 +19,39 @@ type audioStoreType = {
   filter: BiquadFilterNode | null;
   nikedalAnalyser: AnalyserNode | null;
   instrus: Device[];
+  sampler: Device | null;
 };
 
-export const useAudioAdminStore = create(
-  devtools<audioStoreType>(() => ({
-    setAudio: async () => {
-      setOnLoad(1);
-      vibrate(50);
-      await setAudioNikedal();
-      await setAudioHack();
-      await setAudioInstrus();
-      await setAudioInstru0_drone();
-      await setAudioClimaticdisasters();
-      await setAudioFlashesTech();
-      await setAudioVerton();
-      vibrate(50);
-      setOnLoad(0);
-    },
-    onLoad: 0,
-    audioContext: null,
-    audioAnalyser: null,
-    merger: null,
-    nikedal: null,
-    climaticdisasters: null,
-    hack: null,
-    verton: null,
-    flashesTech: null,
-    instru0_drone: null,
-    filter: null,
-    nikedalAnalyser: null,
-    instrus: new Array(3),
-  }))
-);
+export const useAudioAdminStore = create<audioStoreType>(() => ({
+  setAudio: async () => {
+    setOnLoad(1);
+    vibrate(50);
+    await setAudioNikedal();
+    await setAudioHack();
+    await setAudioInstrus();
+    await setAudioInstru0_drone();
+    await setAudioClimaticdisasters();
+    await setAudioFlashesTech();
+    await setAudioVerton();
+    await setAudioSampler();
+    vibrate(50);
+    setOnLoad(0);
+  },
+  onLoad: 0,
+  audioContext: null,
+  audioAnalyser: null,
+  merger: null,
+  nikedal: null,
+  climaticdisasters: null,
+  hack: null,
+  verton: null,
+  flashesTech: null,
+  instru0_drone: null,
+  filter: null,
+  nikedalAnalyser: null,
+  instrus: new Array(3),
+  sampler: null,
+}));
 
 export const setOnLoad = (onLoad: number) => {
   useAudioAdminStore.setState({ onLoad });
@@ -73,6 +73,7 @@ export const setSetAudio = (path: string) => {
           await setAudioClimaticdisasters();
           await setAudioFlashesTech();
           await setAudioVerton();
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -93,6 +94,7 @@ export const setSetAudio = (path: string) => {
           await setAudioClimaticdisasters();
           await setAudioFlashesTech();
           await setAudioVerton();
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -113,6 +115,7 @@ export const setSetAudio = (path: string) => {
           await setAudioClimaticdisasters();
           await setAudioFlashesTech();
           await setAudioVerton();
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -131,7 +134,7 @@ export const setSetAudio = (path: string) => {
           await setAudioInstru0_drone();
           await setAudioFlashesTech();
           await setAudioVerton();
-
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -150,6 +153,7 @@ export const setSetAudio = (path: string) => {
           await setAudioInstrus();
           await setAudioInstru0_drone();
           await setAudioVerton();
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -168,6 +172,7 @@ export const setSetAudio = (path: string) => {
           await setAudioClimaticdisasters();
           await setAudioHack();
           await setAudioVerton();
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -186,6 +191,7 @@ export const setSetAudio = (path: string) => {
           await setAudioHack();
           await setAudioInstru0_drone();
           await setAudioVerton();
+          await setAudioSampler();
           vibrate(50);
           setOnLoad(0);
         }
@@ -197,6 +203,26 @@ export const setSetAudio = (path: string) => {
         if (!onLoad) {
           setOnLoad(1);
           vibrate(50);
+          await setAudioVerton();
+          await setAudioNikedal();
+          await setAudioInstrus();
+          await setAudioFlashesTech();
+          await setAudioClimaticdisasters();
+          await setAudioHack();
+          await setAudioInstru0_drone();
+          await setAudioSampler();
+          vibrate(50);
+          setOnLoad(0);
+        }
+      };
+      break;
+    case "/demo/sampler":
+      setAudio = async () => {
+        const onLoad = useAudioAdminStore.getState().onLoad;
+        if (!onLoad) {
+          setOnLoad(1);
+          vibrate(50);
+          await setAudioSampler();
           await setAudioVerton();
           await setAudioNikedal();
           await setAudioInstrus();
@@ -243,6 +269,28 @@ export const setAudioNikedal = async () => {
       const path = nextConfig.basePath + "/nikedal";
       nikedal = await loadRNBO(path, ctx);
       useAudioAdminStore.setState({ nikedal });
+      console.log("Device loaded");
+    } catch (e) {
+      console.error(e);
+    }
+  }
+};
+
+export const setAudioSampler = async () => {
+  const ctx = useAudioAdminStore.getState().audioContext;
+  const sampler = useAudioAdminStore.getState().sampler;
+
+  if (ctx && sampler) return;
+
+  if (!ctx) {
+    setAudioBase();
+    await setAudioSampler();
+  } else {
+    let sampler = null;
+    try {
+      const path = nextConfig.basePath + "/sampler";
+      sampler = await loadRNBO(path, ctx);
+      useAudioAdminStore.setState({ sampler });
       console.log("Device loaded");
     } catch (e) {
       console.error(e);

@@ -61,7 +61,6 @@ export default function Home() {
     stream?.getTracks().forEach((track) => {
       track.stop();
     });
-    setFlashesTrig(0);
   });
 
   useEffect(() => {

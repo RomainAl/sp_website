@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
 
 type instaUserStoreType = {
   vidMeta: { name: string; link: string; linkname: string; im: string; hashtag: string }[];
@@ -32,4 +31,4 @@ export const initInstaUserStore = {
   ],
 };
 
-export const useInstaUserStore = create(devtools<instaUserStoreType>(() => ({ ...initInstaUserStore })));
+export const useInstaUserStore = create<instaUserStoreType>(() => ({ ...initInstaUserStore }));

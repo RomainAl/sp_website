@@ -17,6 +17,7 @@ export default function Home() {
       <DemoElement name={"verton"} desc={["Crazy X", "blabla"]} />
       <DemoElement name={"instru-n_2"} desc={["Electronic 5 knobs", "blabla"]} />
       <DemoElement name={"hack"} desc={["Hack", "blabla"]} />
+      <DemoElement name={"sampler"} desc={["Sampler", "blabla"]} />
     </motion.div>
   );
 }

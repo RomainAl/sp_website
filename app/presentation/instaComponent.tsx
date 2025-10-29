@@ -18,7 +18,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
   const { width = 0 } = useWindowSize();
   useEffect(() => {
     const options = {
-      id: 1081556604,
+      id: 1127073081,
       loop: true,
       autoplay: false,
       muted: false,

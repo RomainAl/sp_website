@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
 
 export type admin2userDataType = {
   goto?: string;
@@ -56,17 +55,15 @@ export const peerOptionsStore = {
   },
 };
 
-export const useToastStore = create(devtools<toastStoreType>(() => ({})));
+export const useToastStore = create<toastStoreType>(() => ({}));
 
 export const setToast = (toast: toastStoreType) => {
   useToastStore.setState(toast, true);
 };
 
-export const useToastParamsStore = create(
-  devtools<toastParamsStoreType>(() => ({
-    stopToasts: false,
-  }))
-);
+export const useToastParamsStore = create<toastParamsStoreType>(() => ({
+  stopToasts: false,
+}));
 
 export const setDismissToasts = () => {
   useToastParamsStore.setState({ dismissToasts: Date.now() });

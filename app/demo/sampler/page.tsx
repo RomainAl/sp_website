@@ -88,7 +88,7 @@ export default function Home() {
         <Image
           priority={true}
           className="size-full object-cover z-0 blur-lg opacity-50"
-          src={`/demo_instru-n_0.jpg`}
+          src={`/demo_sampler.jpg`}
           width={1000}
           height={500}
           alt={`Picture of intru demo`}
@@ -121,7 +121,7 @@ export default function Home() {
         <SoundwaveCanvas width={width} height={width / 3} analyser={analyser} />
       </div>
 
-      <div className="relative flex w-full flex-row flex-wrap items-center justify-center gap-3">
+      <div className="relative flex flex-row flex-wrap items-center justify-between w-4/5 gap-3 -mb-2 p-0">
         <div className={cn("relative aspect-square w-1/4 pointer-events-none", { "pointer-events-auto": stream })}>
           <Knob_button_RNBO nameP={"REC"} />
         </div>
@@ -133,10 +133,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex w-4/5 flex-row justify-evenly items-center gap-2 pb-4 -mt-2">
+      <div className="flex w-4/5 flex-row justify-evenly items-center gap-2">
         <p className="text-xl font-bold">SPEED</p>
         <Slider
-          className="bg-primary w-1/2 flex-1"
+          className="w-1/2 flex-1"
           defaultValue={[sampler.parameters.find((p) => p.name === "SPEED").initialValue]}
           max={sampler.parameters.find((p) => p.name === "SPEED").max}
           min={sampler.parameters.find((p) => p.name === "SPEED").min}
@@ -146,8 +146,8 @@ export default function Home() {
           }}
         ></Slider>
       </div>
-      <div className="relative flex w-full flex-row items-center justify-evenly gap-4">
-        <div className="relative flex w-1/3 flex-col items-center justify-center gap-4">
+      <div className="relative flex justify-between w-4/5 flex-row items-center">
+        <div className="relative flex w-3/7 flex-col items-center justify-center gap-4">
           <div className={cn("relative aspect-square w-full")}>
             <Knob_RNBO nameP={"TRANSP"} />
           </div>
@@ -155,7 +155,7 @@ export default function Home() {
             <Knob_RNBO nameP={"MIX"} />
           </div>
         </div>
-        <div className="relative flex w-1/3 flex-col items-center justify-center gap-4">
+        <div className="relative flex w-3/7 flex-col items-center justify-center gap-4">
           <div className={cn("relative aspect-square w-full")}>
             <Knob_RNBO nameP={"FEED"} />
           </div>

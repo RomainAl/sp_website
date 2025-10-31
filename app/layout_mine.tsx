@@ -19,6 +19,7 @@ export default function Layout_mine({ children }: { children: React.ReactNode })
           <Smartphone className="animate-pulse text-primary" size={50} />
         </div>
       </div> */}
+      {/* <ScrollTrigger /> */}
       <MyHeader />
       <ToastG />
       {children}

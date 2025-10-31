@@ -68,21 +68,19 @@ export function Knob_button({ Kname, Kinitval, setVal, midiCC, color, children }
   return (
     <div ref={refDiv} onClick={handleClick} className={cn("flex size-full touch-none flex-col items-center justify-center")}>
       <div className="absolute top-0 left-0 size-full flex justify-center items-center z-40">{children}</div>
-      <div className="relative w-3/4">
-        {Kname.includes("_count") && (
-          <div className="absolute top-0 size-full flex items-center justify-center">
-            <p>{count}</p>
-          </div>
-        )}
-        <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} strokeWidth={stroke}>
-          <path
-            ref={refPath}
-            fill="none"
-            d={`M${startCircle.x} ${startCircle.y} A 50 50 0 1 1 ${stopCircle.x} ${stopCircle.y}`}
-            className="stroke-accent"
-          />
-        </svg>
-      </div>
+      {Kname.includes("_count") && (
+        <div className="absolute top-0 size-full flex items-center justify-center">
+          <p>{count}</p>
+        </div>
+      )}
+      <svg viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`} strokeWidth={stroke}>
+        <path
+          ref={refPath}
+          fill="none"
+          d={`M${startCircle.x} ${startCircle.y} A 50 50 0 1 1 ${stopCircle.x} ${stopCircle.y}`}
+          className="stroke-accent"
+        />
+      </svg>
     </div>
   );
 }

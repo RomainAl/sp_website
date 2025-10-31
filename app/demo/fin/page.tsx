@@ -61,14 +61,14 @@ export default function Home() {
           diffusion sonore avec lesquels les artistes, au plateau, jouent également.
         </p>
         <div className="w-1/2 m-auto mt-2 flex flex-row justify-evenly">
-          <Button onClick={launch} className="z-50 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">
+          <Button onClick={launch} className="z-40 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">
             {!clicked ? (
               <RotateCcw strokeWidth={1} stroke="var(--foreground)" className="size-full" />
             ) : (
               <Spinner size="medium" className="text-foreground size-9"></Spinner>
             )}
           </Button>
-          <Button asChild className="z-50 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">
+          <Button asChild className="z-40 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">
             <Link href={"/presentation"}>
               <House strokeWidth={1} stroke="var(--foreground)" className="size-full" />
             </Link>

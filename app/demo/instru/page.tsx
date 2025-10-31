@@ -105,7 +105,7 @@ export default function Home() {
             animate={{ opacity: 1, transition: { duration: 3 } }}
             exit={{ opacity: 0 }}
             ref={refTuto}
-            className="absolute h-full w-2/3 flex flex-row justify-center items-center bg-[#00000099] backdrop-blur-xs z-50 ring-2 ring-accent rounded-2xl"
+            className="absolute h-full w-2/3 flex flex-row justify-center items-center bg-[#00000099] backdrop-blur-xs z-40 ring-2 ring-accent rounded-2xl"
             onClick={() => {
               refTuto.current!.style.display = "none";
             }}

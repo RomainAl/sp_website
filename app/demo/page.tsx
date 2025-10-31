@@ -74,7 +74,7 @@ export default function Home() {
           <strong>Durée :</strong> ~ 3 min
         </p>
         <div className="size-fit m-auto mt-2">
-          <Button onClick={launch} className="relative z-50 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">
+          <Button onClick={launch} className="relative z-40 size-12 md:size-16 rounded-full border-1 border-accent-foreground pointer-events-auto">
             <span className="absolute z-0 size-full animate-ping rounded-full bg-primary"></span>
             {!clicked ? (
               <Play fill="var(--foreground)" stroke="var(--foreground)" className="size-full" />

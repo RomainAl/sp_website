@@ -29,12 +29,7 @@ export const useWebrtcUserStore = create(
           autoGainControl: true,
           volume: 1,
         },
-        video: {
-          width: { ideal: 320 },
-          height: { ideal: 180 },
-          frameRate: { ideal: 10 },
-          facingMode: "user",
-        },
+        video: false,
       },
       {
         audio: false,

@@ -134,7 +134,7 @@ export function Knob({
       className={"flex size-full touch-none flex-col items-center justify-center ring-2 ring-accent rounded-2xl bg-[#00000077] backdrop-blur-xs"}
     >
       <p
-        className={cn("m-auto text-sm font-black text-foreground select-none text-center", {
+        className={cn("m-auto text-sm font-bold text-foreground select-none text-center", {
           "text-xl": paramsNb && paramsNb <= 10,
           "text-xs font-medium text-primary": paramsNb && paramsNb >= 100,
           "text-foreground": color === "white",

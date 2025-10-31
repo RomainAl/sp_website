@@ -1,21 +1,15 @@
 import { cn } from "@/lib/utils";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { PropsWithChildren, useEffect, useMemo, useRef, useState } from "react";
 
-export function Knob_button({
-  Kname,
-  Kinitval,
-  setVal,
-  paramsNb,
-  midiCC,
-  color,
-}: {
+type Props = {
   Kname: string;
   Kinitval: number;
   setVal: (val: number, name?: string) => void;
-  paramsNb?: number;
   midiCC?: number;
   color?: string;
-}) {
+};
+
+export function Knob_button({ Kname, Kinitval, setVal, midiCC, color, children }: PropsWithChildren<Props>) {
   console.log("RENDER KNOB BUTTON");
 
   const [count, setCount] = useState(0);
@@ -41,7 +35,14 @@ export function Knob_button({
 
   const handleClick = () => {
     if (refPath.current) {
-      if (Kname.includes("_trig")) {
+      if (Kname.includes("_trig10")) {
+        refPath.current.style.fill = color === "white" ? "var(--foreground)" : "var(--primary)";
+        setCount((count) => count + 1);
+        setVal(count + 1, Kname);
+        setTimeout(() => {
+          if (refPath.current) refPath.current.style.fill = "none";
+        }, 10000);
+      } else if (Kname.includes("_trig")) {
         refPath.current.style.fill = color === "white" ? "var(--foreground)" : "var(--primary)";
         setCount((count) => count + 1);
         setVal(count + 1, Kname);
@@ -66,15 +67,7 @@ export function Knob_button({
 
   return (
     <div ref={refDiv} onClick={handleClick} className={cn("flex size-full touch-none flex-col items-center justify-center")}>
-      <p
-        className={cn("m-auto text-sm font-black text-foreground", {
-          "text-xl": paramsNb && paramsNb <= 10,
-          "text-xs font-medium text-primary": paramsNb && paramsNb >= 100,
-          "text-foreground": color === "white",
-        })}
-      >
-        {Kname}
-      </p>
+      <div className="absolute top-0 left-0 size-full flex justify-center items-center z-40">{children}</div>
       <div className="relative w-3/4">
         {Kname.includes("_count") && (
           <div className="absolute top-0 size-full flex items-center justify-center">

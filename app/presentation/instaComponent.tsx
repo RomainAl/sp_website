@@ -93,8 +93,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 immersive.
                 <br />
                 <br />
-                <strong>Durée de la performance :</strong> ~ 50 min <br />
-                Public de ± 150 personnes (à partir de 13 ans)
+                <strong>Durée de la performance :</strong> ~ 1h <br />
+                Public à partir de 13 ans
                 <br />
                 <br />
               </p>

@@ -9,6 +9,7 @@ import {
   setAudioInstru0_drone,
   setAudioInstrus,
   setAudioNikedal,
+  setAudioSampler,
   setAudioVerton,
   useAudioAdminStore,
 } from "@/store/audio.admin.store";
@@ -40,6 +41,7 @@ export default function Home() {
         await setAudioClimaticdisasters();
         await setAudioFlashesTech();
         await setAudioVerton();
+        await setAudioSampler();
       } else {
         setStart(true);
       }

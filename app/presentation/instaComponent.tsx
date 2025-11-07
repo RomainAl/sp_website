@@ -127,7 +127,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">TAI YANG & AL.</DialogTitle>
-                      <DialogDescription className="text-xs">
+                      <DialogDescription className="text-justify">
                         TAI YANG & AL. est une expérience immersive, où l&apos;image, mathématiquement générée en live, les sons et les mots résonnent
                         ensemble pour questionner l&apos;aspect vibratoire de la nature, et le rapport entre l&apos;humain et le cosmos.
                       </DialogDescription>
@@ -145,7 +145,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">@TABLÉE</DialogTitle>
-                      <DialogDescription className="text-xs">
+                      <DialogDescription className="text-justify">
                         Performance participative pour une tablée de 1 à 30 personnes qui propose une rencontre entre convives autour d’une table
                         sonorisée via leurs smartphones personnels. Ce moment convivial, au décor intimiste, devient petit à petit une pièce sonore,
                         visuelle et scénographique à laquelle le public s’intègre comme paramètre.
@@ -169,9 +169,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">CIRCLES</DialogTitle>
-                      <DialogDescription>
+                      <DialogDescription className="text-justify">
                         Cinq tableaux de la peintre Fabienne VERDIER lentement transformés, “vectorialisés”, “3Difiés” et animés en direct (en
-                        collaboration avec le flûtiste Joce MIENNIEL)
+                        collaboration avec le flûtiste Joce MIENNIEL).
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"./al_Circles.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -187,7 +187,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">ONJ & AL.</DialogTitle>
-                      <DialogDescription>Performance cinématographique et numérique improvisée.</DialogDescription>
+                      <DialogDescription className="text-justify">Performance cinématographique et numérique improvisée.</DialogDescription>
                     </DialogHeader>
                     <Image src={"./al_ONJ.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
@@ -202,8 +202,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">COAX - Brazil Mashup</DialogTitle>
-                      <DialogDescription>
-                        Création immersive à 360 degré alliant musique (10 musiciens) et vidéoprojections (5 écrans) encerclant le public.
+                      <DialogDescription className="text-justify">
+                        Création immersive à 360 degrés alliant musique (10 musiciens) et vidéoprojections (5 écrans) encerclant le public.
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"./al_CBM.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -222,9 +222,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">D_PHASE</DialogTitle>
-                      <DialogDescription>
-                        Film documentaire expérimental (∼30min) sur le projet DSYNC (CNRS / IRCAM) avec le MILESDAVISQUINTETORCHESTRA! de Sylvain
-                        DARRIFOUCQ
+                      <DialogDescription className="text-justify">
+                        Film documentaire expérimental (∼30min) sur le projet scientifique DSYNC (CNRS / IRCAM) de Clément CANONNE avec le
+                        MILESDAVISQUINTETORCHESTRA! de Sylvain DARRIFOURCQ.
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"./al_D_PHASE.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -245,12 +245,12 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">Dans le laboratoire de Dracula</DialogTitle>
-                      <DialogDescription>
+                      <DialogDescription className="text-justify">
                         Film documentaire (∼25min) autour d’ateliers menés par des musiciens de l’Orchestre National de Jazz auprès de résidents de La
                         Cerisaie, foyer d’hébergement pour adultes handicapés.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_Dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"./al_dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"http://vimeo.com/libertad/docula"} className="text-primary italic hover:underline" target="_blank">
                         {"╰┈➤ voir la video"}
@@ -268,9 +268,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
-                      <DialogDescription className="text-xs">
+                      <DialogDescription className="text-justify">
                         Film documentaire (∼10min) autour de la création lyrique &quot;Tomber Sans Bruit&quot; d’Elise Dabrowski inspiré du drame
-                        industriel et social d’un grand groupe français, leader de l’habillement : Vivarte. (La Halle, André, Caroll...) qui a
+                        industriel et social d’un grand groupe français, leader de l’habillement : Vivarte (La Halle, André, Caroll...) qui a
                         licenciée en France 20 000 personnes en 20 ans jusqu’en 2020.
                       </DialogDescription>
                     </DialogHeader>
@@ -327,31 +327,3 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
     </div>
   );
 };
-
-// function DialogDemo() {
-//   const { width = 0 } = useWindowSize();
-//   console.log(width);
-//   return (
-//     <Dialog>
-//       <DialogTrigger asChild>
-//         <Button variant="outline">Edit Profile</Button>
-//       </DialogTrigger>
-//       <DialogContent className="w-dvw">
-//         <DialogHeader>
-//           <DialogTitle className="text-primary">smart.phonics - teaser #1</DialogTitle>
-//           <DialogDescription>Make changes to your profile here. Click save when youre done.</DialogDescription>
-//         </DialogHeader>
-//         <div className="w-1/2 border-2 border-amber-300 flex justify-center items-center">
-//           <Vimeo
-//             video={1081556604}
-//             autoplay={false}
-//             background={false}
-//             controls={true}
-//             muted={false}
-//             // transparent={false}
-//           />
-//         </div>
-//       </DialogContent>
-//     </Dialog>
-//   );
-// }

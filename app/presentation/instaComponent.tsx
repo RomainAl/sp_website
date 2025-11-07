@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { useInstaUserStore } from "@/store/insta.user.store";
@@ -81,60 +83,209 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           )}
 
           {index === 0 && (
-            <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-1">
-              <p className="text-primary font-bold italic w-full">RÉSUMÉ :</p>
+            <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
-                <strong className="italic">smart.phonics</strong> est une performance musicale et visuelle hybride, utilisant les smartphones du
-                public comme dispositif numérique principal. Ainsi, tour à tour, elle peut prendre la forme d&apos;un live électronique AV et
-                d’&apos;une création digitale participative, tous deux augmentés de ces téléphones intelligents qui sont autant d’écrans, d’enceintes,
-                de microphones, d&apos;instruments de musique électronique, de pinceaux numériques, etc.
-                <br />À la fois spectateur et co-créateur, le public s&apos;interface avec les artistes, sur scène, via un site Web modifié en temps
-                réel tout au long de la performance. Ainsi connectés, ils donnent vie, ensemble, à une création sonore et visuelle, collective et
-                immersive.
+                Live audiovisuel augmenté de vos smartphones,
+                <br />
+                par <strong>Romain AL.</strong> & <strong>Nicolas CANOT</strong>
+                <br />
+                <br />
+                <strong className="italic">smart.phonics</strong> est une performance hybride où musique live, création visuelle et smartphones du
+                public s&apos;entrelacent pour donner vie à une expérience collective inédite.
+                <br />
+                <br />
+                Ici, les téléphones du public (via un simple site Web) deviennent instruments, écrans et extensions de la scène : tantôt générateurs
+                sonores, tantôt créateurs d’images, ils transforment la salle en un espace immersif et interactif.
+                <br />
+                <br />
+                <strong className="italic">smart.phonics</strong> interroge notre relation aux technologies qui rythment nos vies connectées,
+                questionne les usages quotidiens du smartphone et des réseaux sociaux, et propose un récit visuel et sonore participatif, à la croisée
+                du concert et de l&apos;art numérique.
                 <br />
                 <br />
                 <strong>Durée de la performance :</strong> ~ 1h <br />
                 Public à partir de 13 ans
-                <br />
-                <br />
-              </p>
-              <p className="text-primary italic font-bold w-full">SYNOPSIS :</p>
-              <p>
-                Les smartphones, archétypes technologiques de notre époque, sont désormais omniprésents et connectent les individus autant qu&apos;ils
-                les isolent. Scroller, swiper, liker sont aujourd’hui devenus des gestes anodins et la caresse micro-timée d&apos;un pouce sur un
-                écran tactile impacte les rapports sociaux. <strong className="italic">smart.phonics</strong> interroge ces nouvelles pratiques, cette
-                avalanche d&apos;échanges, de contenus, de vidéos et de sons. Tel un internaute qui passe d&apos;un site à l&apos;autre au gré de ses
-                recherches, de ses pensées, la performance procède d&apos;une écriture par tableaux successifs, visuels et sonores. <br />
-                Alternant images de fiction ou d&apos;actualité, pages Web sonores interactives, créations visuelles génératives et collectives, sons
-                électroniques créés et spatialisés par les smartphones et les artistes au plateau, <strong className="italic">
-                  smart.phonics
-                </strong>{" "}
-                propose un récit possible de l&apos;histoire commune que nous entretenons avec les nouvelles technologies. <br />
-                <br />
               </p>
             </div>
           )}
 
           {index === 1 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
-              <p>
+              <div>
                 Ingénieur-chercheur en mathématiques appliquées à l&apos;imagerie 3D radar et médicale, et guitariste classique,{" "}
                 <strong>Romain AL.</strong> s&apos;est reconverti en artiste visuel auprès de musiciens, collectifs et orchestres gravitant
                 essentiellement autour du monde des musiques improvisées et expérimentales.
                 <br />
                 <br />
-                Réalisateur et développeur numérique, il compose notamment des performances audiovisuelles hybrides telles que le trio “art et
-                science” <strong>TAI YANG</strong>, l&apos;installation/performance participative via les smartphones du public{" "}
-                <strong>@TABLÉE</strong>, le spectacle <strong>CIRCLES</strong> (variations sur 5 tableaux de Fabienne VERDIER), la création
-                vidéoprojetée EUROPA Oslo pour l&apos;<strong>Orchestre National de Jazz</strong>, etc.
+                Réalisateur et développeur numérique, il compose notamment des performances audiovisuelles hybrides telles que le trio{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      TAI YANG
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">TAI YANG & AL.</DialogTitle>
+                      <DialogDescription className="text-xs">
+                        TAI YANG & AL. est une expérience immersive, où l&apos;image, mathématiquement générée en live, les sons et les mots résonnent
+                        ensemble pour questionner l&apos;aspect vibratoire de la nature, et le rapport entre l&apos;humain et le cosmos.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_TYAL.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                  </DialogContent>
+                </Dialog>
+                , l&apos;installation/performance participative via les smartphones du public{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      @TABLÉE
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">@TABLÉE</DialogTitle>
+                      <DialogDescription className="text-xs">
+                        Performance participative pour une tablée de 1 à 30 personnes qui propose une rencontre entre convives autour d’une table
+                        sonorisée via leurs smartphones personnels. Ce moment convivial, au décor intimiste, devient petit à petit une pièce sonore,
+                        visuelle et scénographique à laquelle le public s’intègre comme paramètre.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_TABLEE.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"https://vimeo.com/libertad/attablee06"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la video"}
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+                ,{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      CIRCLES
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">CIRCLES</DialogTitle>
+                      <DialogDescription>
+                        Cinq tableaux de la peintre Fabienne VERDIER lentement transformés, “vectorialisés”, “3Difiés” et animés en direct (en
+                        collaboration avec le flûtiste Joce MIENNIEL)
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_Circles.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                  </DialogContent>
+                </Dialog>{" "}
+                (variations sur 5 tableaux de <strong>Fabienne VERDIER</strong>), la création vidéoprojetée{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      EUROPA Oslo
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">ONJ & AL.</DialogTitle>
+                      <DialogDescription>Performance cinématographique et numérique improvisée.</DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_ONJ.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                  </DialogContent>
+                </Dialog>{" "}
+                pour l&apos;<strong>Orchestre National de Jazz</strong>, le projet collectif{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      COAX - Brazil Mashup
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">COAX - Brazil Mashup</DialogTitle>
+                      <DialogDescription>
+                        Création immersive à 360 degré alliant musique (10 musiciens) et vidéoprojections (5 écrans) encerclant le public.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_CBM.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                  </DialogContent>
+                </Dialog>
+                , etc.
                 <br />
                 <br />
-                Il confectionne aussi beaucoup de films musicaux: documentaire expérimental <strong>D_PHASE</strong>, documentaire pour l&apos;
-                <strong>ONJ - Dans le laboratoire de Dracula</strong>, teaser pour <strong>Elise DABROWSKI</strong> - Tomber sans bruit, clip pour{" "}
-                <strong>Sylvain DARRIFOURCQ</strong> - In Love With, live-streams artistiques pour le festival <strong>SONS D’HIVER</strong> -
-                Germination & Abacaxi de <strong>Julien DESPREZ</strong>, etc.
+                Il confectionne aussi beaucoup de films musicaux&nbsp;: documentaire expérimental{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      D_PHASE
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">D_PHASE</DialogTitle>
+                      <DialogDescription>
+                        Film documentaire expérimental (∼30min) sur le projet DSYNC (CNRS / IRCAM) avec le MILESDAVISQUINTETORCHESTRA! de Sylvain
+                        DARRIFOUCQ
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_D_PHASE.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"https://vimeo.com/libertad/dphase"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la video"}
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>{" "}
+                , documentaire{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      Dans le laboratoire de Dracula
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">Dans le laboratoire de Dracula</DialogTitle>
+                      <DialogDescription>
+                        Film documentaire (∼25min) autour d’ateliers menés par des musiciens de l’Orchestre National de Jazz auprès de résidents de La
+                        Cerisaie, foyer d’hébergement pour adultes handicapés.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_Dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"http://vimeo.com/libertad/docula"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la video"}
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>{" "}
+                pour l&apos;<strong>ONJ</strong>, documentaire{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10">
+                      Tomber sans bruit
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
+                      <DialogDescription className="text-xs">
+                        Film documentaire (∼10min) autour de la création lyrique &quot;Tomber Sans Bruit&quot; d’Elise Dabrowski inspiré du drame
+                        industriel et social d’un grand groupe français, leader de l’habillement : Vivarte. (La Halle, André, Caroll...) qui a
+                        licenciée en France 20 000 personnes en 20 ans jusqu’en 2020.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"./al_TSB.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"http://vimeo.com/libertad/tsb03"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la video"}
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>{" "}
+                pour <strong>Elise DABROWSKI</strong>, clip &quot;In Love With&quot; pour <strong>Sylvain DARRIFOURCQ</strong>, live-streams
+                artistiques pour le festival <strong>SONS D’HIVER</strong> - Germination & Abacaxi de <strong>Julien DESPREZ</strong>, etc.
                 <br />
-              </p>
+              </div>
             </div>
           )}
 
@@ -187,7 +338,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 //       </DialogTrigger>
 //       <DialogContent className="w-dvw">
 //         <DialogHeader>
-//           <DialogTitle>smart.phonics - teaser #1</DialogTitle>
+//           <DialogTitle className="text-primary">smart.phonics - teaser #1</DialogTitle>
 //           <DialogDescription>Make changes to your profile here. Click save when youre done.</DialogDescription>
 //         </DialogHeader>
 //         <div className="w-1/2 border-2 border-amber-300 flex justify-center items-center">

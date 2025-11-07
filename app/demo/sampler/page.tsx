@@ -98,7 +98,7 @@ export default function Home() {
 
   return (
     <div className="relative h-dvh w-dvw max-w-2xl m-auto flex flex-col items-center justify-evenly">
-      {!stream && (
+      {(!stream || !stream.active) && (
         <div className="absolute size-full bg-[#000000AA] backdrop-blur-xs flex items-center justify-center z-50">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 size-20 md:size-30 rounded-full border-1 border-accent-foreground pointer-events-auto">
             <span className="absolute z-0 size-full animate-ping rounded-full bg-primary pointer-events-none"></span>

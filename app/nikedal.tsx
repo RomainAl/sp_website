@@ -1,3 +1,4 @@
+import { RendererCleaner } from "@/components/renderCleaner";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { initNikedalStore, nikedalParamsTopStore, setNikedalParam } from "@/store/nikedal.admin.store";
@@ -52,6 +53,7 @@ export const Nikedal = () => {
           position: [initNikedalStore.camDist, 0, 0],
         }}
       >
+        <RendererCleaner />
         <ExperienceMemo />
         <PerformanceMonitor onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} />
       </Canvas>

@@ -22,6 +22,14 @@ export const initInstaUserStore = {
       hashtag: "#Artiste visuel #Développeur Web #VJ #Réalisateur #3D #Photographe #Shader",
     },
     {
+      name: "smart.phonics",
+      link: "",
+      linkname: "",
+      im: "",
+      hashtag:
+        "#web #digitalarts #electronicmusic #hacking #cats #collaborativeart #glitches #technomusic #whales #socialnetworks #climaticdisasters",
+    },
+    {
       name: "Nicolas CANOT",
       link: "",
       linkname: "",

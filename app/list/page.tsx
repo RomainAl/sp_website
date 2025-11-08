@@ -4,7 +4,7 @@ import { DemoElement } from "./demoElement";
 export default function Home() {
   return (
     <motion.div
-      className="flex h-dvh w-dvw flex-wrap gap-3 overflow-auto justify-evenly items-center p-3"
+      className="relative flex h-dvh w-dvw flex-wrap gap-3 overflow-auto justify-evenly items-center p-3"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 2 } }}
     >

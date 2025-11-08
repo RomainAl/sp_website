@@ -66,9 +66,10 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 {"╰┈➤ " + vidMeta.linkname}
               </Link>
             )}
-            {index == 0 && <p className="text-xxs xs:text-xs italic text-center">{"Contenu suggéré"}</p>}
-            {index == 2 && <p className="text-xxs xs:text-xs italic text-center">{"Story pour toi"}</p>}
-            <p className="text-xxs xs:text-xs italic text-center">{`il y a ${vidMeta.name.length} jours`}</p>
+            {index === 0 && <p className="text-xxs xs:text-xs italic text-center">{"Contenu suggéré"}</p>}
+            {index === 2 && <p className="text-xxs xs:text-xs italic text-center">{"Visuels suggérés"}</p>}
+            {index === 3 && <p className="text-xxs xs:text-xs italic text-center">{"Story pour toi"}</p>}
+            <p className="text-xxs xs:text-xs italic text-center">{`il y a ${Math.round(vidMeta.hashtag.length / 10)} jours`}</p>
           </div>
         </div>
 
@@ -85,7 +86,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           {index === 0 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
-                Live audiovisuel augmenté de vos smartphones,
+                Live audiovisuel augmenté de vos smartphones
                 <br />
                 par <strong>Romain AL.</strong> & <strong>Nicolas CANOT</strong>
                 <br />
@@ -124,7 +125,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       TAI YANG
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
+                  <DialogContent className="sm:max-w-[550px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">TAI YANG & AL.</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -142,7 +143,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       @TABLÉE
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
+                  <DialogContent className="sm:max-w-[550px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">@TABLÉE</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -154,7 +155,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <Image src={"./al_TABLEE.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"https://vimeo.com/libertad/attablee06"} className="text-primary italic hover:underline" target="_blank">
-                        {"╰┈➤ voir la video"}
+                        {"╰┈➤ voir la vidéo"}
                       </Link>
                     </DialogFooter>
                   </DialogContent>
@@ -166,7 +167,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       CIRCLES
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
+                  <DialogContent className="sm:max-w-[550px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">CIRCLES</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -184,7 +185,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       EUROPA Oslo
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
+                  <DialogContent className="sm:max-w-[550px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">ONJ & AL.</DialogTitle>
                       <DialogDescription className="text-justify">Performance cinématographique et numérique improvisée.</DialogDescription>
@@ -199,7 +200,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       COAX - Brazil Mashup
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
+                  <DialogContent className="sm:max-w-[550px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">COAX - Brazil Mashup</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -230,7 +231,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <Image src={"./al_D_PHASE.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"https://vimeo.com/libertad/dphase"} className="text-primary italic hover:underline" target="_blank">
-                        {"╰┈➤ voir la video"}
+                        {"╰┈➤ voir la vidéo"}
                       </Link>
                     </DialogFooter>
                   </DialogContent>
@@ -253,7 +254,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <Image src={"./al_dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"http://vimeo.com/libertad/docula"} className="text-primary italic hover:underline" target="_blank">
-                        {"╰┈➤ voir la video"}
+                        {"╰┈➤ voir la vidéo"}
                       </Link>
                     </DialogFooter>
                   </DialogContent>
@@ -265,7 +266,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       Tomber sans bruit
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
+                  <DialogContent className="sm:max-w-[550px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -277,7 +278,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <Image src={"./al_TSB.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"http://vimeo.com/libertad/tsb03"} className="text-primary italic hover:underline" target="_blank">
-                        {"╰┈➤ voir la video"}
+                        {"╰┈➤ voir la vidéo"}
                       </Link>
                     </DialogFooter>
                   </DialogContent>
@@ -290,6 +291,19 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           )}
 
           {index === 2 && (
+            <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
+              <Image src={"./sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos01.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos02.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos03.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos04.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos06.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"./sp_photos07.jpg"} width={1280} height={720} alt="Photos of the performance" />
+            </div>
+          )}
+
+          {index === 3 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 À l’origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
@@ -316,11 +330,13 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               </p>
             </div>
           )}
-          <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the performance" />
+          {vidMeta.im && <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the performance" />}
         </div>
 
         <div className={cn("px-4 py-1 w-full max-h-1/11 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>
-          <p className="text-xxs xs:text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden">{vidMeta.hashtag}</p>
+          <p className="text-xxs xs:text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden flex items-center">
+            {vidMeta.hashtag}
+          </p>
           <InstaComLike index={index} />
         </div>
       </div>

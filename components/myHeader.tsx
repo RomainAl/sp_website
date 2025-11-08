@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { PlayButton } from "./playButton";
 
 export function MyHeader() {
-  console.log("RENDER HEADER");
+  // console.log("RENDER HEADER");
   const pathname = usePathname();
   const setAudio = useAudioAdminStore((store) => store.setAudio);
   const nikedal = useAudioAdminStore((store) => store.nikedal);
@@ -29,13 +29,7 @@ export function MyHeader() {
     pathname.includes("climaticdisasters") ||
     pathname.includes("nikedal") ||
     pathname.includes("sampler");
-  const showSP =
-    pathname === "/" ||
-    pathname === "/demo" ||
-    pathname.includes("fin") ||
-    pathname.includes("flashes") ||
-    pathname.includes("climaticdisasters") ||
-    pathname.includes("nikedal");
+  const showSP = pathname === "/" || pathname.includes("flashes") || pathname.includes("climaticdisasters") || pathname.includes("nikedal");
 
   const init = () => {
     if (!nikedal) setTimeout(setAudio, 2000);

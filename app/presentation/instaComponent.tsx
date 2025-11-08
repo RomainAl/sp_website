@@ -1,41 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { useInstaUserStore } from "@/store/insta.user.store";
-import Player from "@vimeo/player";
+import MuxPlayer from "@mux/mux-player-react";
+import "@mux/mux-player/themes/minimal";
 import { ChevronUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { useWindowSize } from "usehooks-ts";
 import { InstaAvatarJpgMemo } from "../../components/userAvatar";
 import { InstaComLike } from "./instaComLike";
 
 export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPrev: () => void; goNext: () => void }) => {
   const vidMeta = useInstaUserStore((store) => store.vidMeta[index]);
-  const playerRef = useRef<HTMLDivElement>(null);
-  const player = useRef<Player>(null);
-  const refSpinner = useRef<HTMLDivElement>(null);
-  const { width = 0 } = useWindowSize();
-  useEffect(() => {
-    const options = {
-      id: 1127073081,
-      loop: true,
-      autoplay: false,
-      muted: false,
-      controls: true,
-      width: Math.min(width, 768) - 20,
-    };
-
-    if (playerRef.current !== null) {
-      player.current = new Player(playerRef.current, options);
-      player.current.on("loaded", () => {
-        if (refSpinner.current) refSpinner.current.style.display = "none";
-        if (playerRef.current) playerRef.current.style.display = "block";
-      });
-    }
-  }, [width]);
 
   return (
     <div className={cn("relative flex size-full flex-col justify-center items-center")}>
@@ -76,10 +52,19 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
         <div className="w-full overflow-auto flex-1 flex flex-col">
           {index === 0 && (
             <div>
-              <div ref={refSpinner} className="w-full aspect-video flex items-center justify-center">
-                <Spinner size="xlarge" />
-              </div>
-              <div className="size-fit m-auto pt-1 hidden" ref={playerRef}></div>
+              <MuxPlayer
+                className="mt-1"
+                poster="/sp_photos00.jpg"
+                disableCookies
+                theme="minimal"
+                playbackId="YSDUx26zKBmlENVACbM89sIUBZNDuznxef2cj2vA42A"
+                metadata={{
+                  video_id: "Teaser01",
+                  video_title: "Teaser smart.phonics",
+                  viewer_user_id: "Romain AL.",
+                }}
+                style={{ aspectRatio: 16 / 9 }}
+              />
             </div>
           )}
 
@@ -87,24 +72,24 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 Live audiovisuel augmenté de vos smartphones
-                <br/>
+                <br />
                 par <strong>Romain AL.</strong> & <strong>Nicolas CANOT</strong>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <strong className="italic">smart.phonics</strong> est une performance hybride où musique live, création visuelle et smartphones du
                 public s&apos;entrelacent pour donner vie à une expérience collective inédite.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 Ici, les téléphones du public (via un simple site Web) deviennent instruments, écrans et extensions de la scène : tantôt générateurs
                 sonores, tantôt créateurs d’images, ils transforment la salle en un espace immersif et interactif.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <strong className="italic">smart.phonics</strong> interroge notre relation aux technologies qui rythment nos vies connectées,
                 questionne les usages quotidiens du smartphone et des réseaux sociaux, et propose un récit visuel et sonore participatif, à la croisée
                 du concert et de l&apos;art numérique.
-                <br/>
-                <br/>
-                <strong>Durée de la performance :</strong> ~ 1h <br/>
+                <br />
+                <br />
+                <strong>Durée de la performance :</strong> ~ 1h <br />
                 Public à partir de 13 ans
               </p>
             </div>
@@ -116,8 +101,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 Ingénieur-chercheur en mathématiques appliquées à l&apos;imagerie 3D radar et médicale, et guitariste classique,{" "}
                 <strong>Romain AL.</strong> s&apos;est reconverti en artiste visuel auprès de musiciens, collectifs et orchestres gravitant
                 essentiellement autour du monde des musiques improvisées et expérimentales.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 Réalisateur et développeur numérique, il compose notamment des performances audiovisuelles hybrides telles que le trio{" "}
                 <Dialog>
                   <DialogTrigger asChild>
@@ -211,8 +196,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   </DialogContent>
                 </Dialog>
                 , etc.
-                <br/>
-                <br/>
+                <br />
+                <br />
                 Il confectionne aussi beaucoup de films musicaux&nbsp;: documentaire expérimental{" "}
                 <Dialog>
                   <DialogTrigger asChild>
@@ -285,7 +270,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 </Dialog>{" "}
                 pour Elise DABROWSKI, clip &quot;In Love With&quot; pour Sylvain DARRIFOURCQ, live-streams artistiques pour le festival SONS D’HIVER -
                 Germination & Abacaxi de Julien DESPREZ, etc.
-                <br/>
+                <br />
               </div>
             </div>
           )}
@@ -312,24 +297,24 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 À l’origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
                 travail de la matière et des espaces du son. Son travail se focalise ainsi depuis plusieurs années sur les créations musicales et
                 sonores électroniques, électroacoustiques ou génératives, ainsi que les installations d’art numérique et les formes sonores
-                improvisées. <br/>
-                <br/>
+                improvisées. <br />
+                <br />
                 Il se produit seul ou en collaboration avec des artistes plasticiens, instrumentistes improvisateurs ou chorégraphes. Ses performances
                 et installations ont été présentées à de nombreuses reprises en France, en Europe ou au-delà (Angleterre, Portugal, Canada, Pologne,
-                Russie ou Roumanie). <br/>
-                <br/>
+                Russie ou Roumanie). <br />
+                <br />
                 Qu&apos;elle soit destinée à une interprétation au concert ou à une diffusion sur bandes (pour la danse contemporaine, les arts
                 visuels, etc), sa musique se caractérise par un certain minimalisme formel opposé à un maximalisme du son : une écriture où prime
                 l&apos;économie des techniques de composition, opposée à une exploitation maximale des concepts sonores mis en jeu (musique
-                polytempique, polymétrique, spatialisée sous casques, selon les cas). <br/>
-                <br/>
+                polytempique, polymétrique, spatialisée sous casques, selon les cas). <br />
+                <br />
                 Il est également concepteur, réalisateur en informatique musicale, designer d’installations et de performances sonores numériques poue
                 de nombreux artistes ou compagnies. En 2023 et 2024, il participe au projet Street Art (ensemble Les Apaches / Paris) en composant
                 quatre variations sur des œuvres de Steve Reich (création théâtre de l’Athénée, reprise au Musée d’Orsay / Paris, février 2024).{" "}
-                <br/>
-                <br/>
+                <br />
+                <br />
                 Nicolas CANOT est membre de <strong>Futurs Composés</strong> - Réseau national de la création musicale.
-                <br/>
+                <br />
               </p>
             </div>
           )}

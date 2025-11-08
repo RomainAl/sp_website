@@ -73,28 +73,28 @@ export function MyHeader() {
                 <p
                   className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("presentation") })}
                 >
-                  {"PRESENTATION"}
+                  PRESENTATION
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/demo"}>
                 <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("demo") })}>
-                  {"DEMONSTRATION"}
+                  DEMONSTRATION
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/list"}>
                 <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("list") })}>
-                  {"ECHANTILLONS"}
+                  ECHANTILLONS
                 </p>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/contact"}>
                 <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("contact") })}>
-                  {"CONTACTS / INFOS"}
+                  INFOS
                 </p>
               </Link>
             </DropdownMenuItem>

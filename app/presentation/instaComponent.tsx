@@ -42,15 +42,13 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 {"╰┈➤ " + vidMeta.linkname}
               </Link>
             )}
-            {index === 0 && <p className="text-xxs xs:text-xs italic text-center">{"Contenu suggéré"}</p>}
-            {index === 2 && <p className="text-xxs xs:text-xs italic text-center">{"Reels"}</p>}
-            {index === 3 && <p className="text-xxs xs:text-xs italic text-center">{"Story pour toi"}</p>}
+            {vidMeta.alias && <p className="text-xxs xs:text-xs italic text-center">{vidMeta.alias}</p>}
             <p className="text-xxs xs:text-xs italic text-center">{`il y a ${Math.round(vidMeta.hashtag.length / 10)} jours`}</p>
           </div>
         </div>
 
         <div className="w-full overflow-auto flex-1 flex flex-col">
-          {index === 0 && (
+          {vidMeta.index === 0 && (
             <div>
               <MuxPlayer
                 className="mt-1"
@@ -68,7 +66,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             </div>
           )}
 
-          {index === 0 && (
+          {vidMeta.index === 0 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 Live audiovisuel augmenté de vos smartphones
@@ -95,7 +93,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             </div>
           )}
 
-          {index === 1 && (
+          {vidMeta.index === 1 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <div>
                 Ingénieur-chercheur en mathématiques appliquées à l&apos;imagerie 3D radar et médicale, et guitariste classique,{" "}
@@ -275,7 +273,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             </div>
           )}
 
-          {index === 2 && (
+          {vidMeta.index === 2 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
               <Image src={"/sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos01.jpg"} width={1280} height={720} alt="Photos of the performance" />
@@ -291,7 +289,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             </div>
           )}
 
-          {index === 3 && (
+          {vidMeta.index === 3 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 À l’origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
@@ -318,6 +316,59 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               </p>
             </div>
           )}
+
+          {vidMeta.index === 4 && (
+            <div className="relative flex flex-col flex-1 justify-evenly gap-2 overflow-auto">
+              <div className="text-sm p-4 flex flex-col gap-0 text-center z-10">
+                <h2 className="text-sm text-primary font-bold">Productions :</h2>
+                <p className="text-foreground font-bold">
+                  Les Transitives / LÜDICKE <span className="text-foreground text-xs font-normal">- Co-production</span>
+                  <br />
+                  Césaré <span className="text-foreground text-xs font-normal">- Co-production</span>
+                  <br />
+                  MMC <span className="text-foreground text-xs font-normal">- Partenaire institutionnel</span>
+                </p>
+              </div>
+
+              <div className="text-sm p-4 flex flex-col gap-0 text-center  z-10">
+                <h2 className="text-sm text-primary font-bold">Soutiens / Accueils en résidence :</h2>
+                <p className="text-foreground font-bold">
+                  La Cartonnerie
+                  <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Reims)</span>
+                  <br />
+                  Césaré
+                  <br /> <span className="text-foreground text-xs font-normal">(Centre National de Création Musicale, Reims)</span>
+                  <br />
+                  L’Autre Canal
+                  <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Nancy)</span> <br />
+                  Théâtre de Vanves
+                  <br /> <span className="text-foreground text-xs font-normal">(Scène Conventionnée, Vanves)</span> <br />
+                  Le Logelloù
+                  <br /> <span className="text-foreground text-xs font-normal">(Centre d’Exploration et de Création Artistique, Penvénan)</span>
+                  <br />
+                  Bords² Scènes
+                  <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Vitry-Le-François)</span>
+                  <br />
+                </p>
+              </div>
+
+              <div className="text-sm p-4 flex flex-col gap-0 text-center  z-10">
+                <h2 className="text-sm text-primary font-bold">Remerciements :</h2>
+                <p className="text-foreground font-bold">
+                  Julien Roncaglia <br /> Leslie Seuqram <br />
+                  Caroline G. <br />
+                  Jérémy Nattier <br />
+                  Léo C.M. <br />
+                  Malena Al. <br />
+                  Aurélie Arnaud <br />
+                  Timothée Scherr <br />
+                  Fabien Leroux <br />
+                  Émeric Jeansen
+                </p>
+              </div>
+            </div>
+          )}
+
           {vidMeta.im && <Image src={vidMeta.im} width={1280} height={720} alt="Picture of the performance" />}
         </div>
 
@@ -325,7 +376,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           <p className="text-xxs xs:text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden flex items-center">
             {vidMeta.hashtag}
           </p>
-          <InstaComLike index={index} />
+          <InstaComLike index={vidMeta.index} />
         </div>
       </div>
     </div>

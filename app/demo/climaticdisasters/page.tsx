@@ -1,5 +1,6 @@
 "use client";
 import { Knob } from "@/components/knob_user";
+import { RendererCleaner } from "@/components/renderCleaner";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { initShaderStore, setShaderParam, shaderParamsDefStore } from "@/store/shader.admin.store";
 import { PerformanceMonitor } from "@react-three/drei";
@@ -60,6 +61,7 @@ export default function Home() {
       // }}
     >
       <Canvas gl={{ antialias: true }} dpr={dpr} flat orthographic camera={camera}>
+        <RendererCleaner />
         <Suspense fallback={<div>LOADING...</div>}>
           {/* <color args={["#555555"]} attach="background" /> */}
           <ExperienceMemo />

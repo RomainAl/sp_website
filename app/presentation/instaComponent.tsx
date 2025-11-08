@@ -67,7 +67,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               </Link>
             )}
             {index === 0 && <p className="text-xxs xs:text-xs italic text-center">{"Contenu suggéré"}</p>}
-            {index === 2 && <p className="text-xxs xs:text-xs italic text-center">{"Visuels suggérés"}</p>}
+            {index === 2 && <p className="text-xxs xs:text-xs italic text-center">{"Reels"}</p>}
             {index === 3 && <p className="text-xxs xs:text-xs italic text-center">{"Story pour toi"}</p>}
             <p className="text-xxs xs:text-xs italic text-center">{`il y a ${Math.round(vidMeta.hashtag.length / 10)} jours`}</p>
           </div>
@@ -87,24 +87,24 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 Live audiovisuel augmenté de vos smartphones
-                <br />
+                <br/>
                 par <strong>Romain AL.</strong> & <strong>Nicolas CANOT</strong>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <strong className="italic">smart.phonics</strong> est une performance hybride où musique live, création visuelle et smartphones du
                 public s&apos;entrelacent pour donner vie à une expérience collective inédite.
-                <br />
-                <br />
+                <br/>
+                <br/>
                 Ici, les téléphones du public (via un simple site Web) deviennent instruments, écrans et extensions de la scène : tantôt générateurs
                 sonores, tantôt créateurs d’images, ils transforment la salle en un espace immersif et interactif.
-                <br />
-                <br />
+                <br/>
+                <br/>
                 <strong className="italic">smart.phonics</strong> interroge notre relation aux technologies qui rythment nos vies connectées,
                 questionne les usages quotidiens du smartphone et des réseaux sociaux, et propose un récit visuel et sonore participatif, à la croisée
                 du concert et de l&apos;art numérique.
-                <br />
-                <br />
-                <strong>Durée de la performance :</strong> ~ 1h <br />
+                <br/>
+                <br/>
+                <strong>Durée de la performance :</strong> ~ 1h <br/>
                 Public à partir de 13 ans
               </p>
             </div>
@@ -116,8 +116,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 Ingénieur-chercheur en mathématiques appliquées à l&apos;imagerie 3D radar et médicale, et guitariste classique,{" "}
                 <strong>Romain AL.</strong> s&apos;est reconverti en artiste visuel auprès de musiciens, collectifs et orchestres gravitant
                 essentiellement autour du monde des musiques improvisées et expérimentales.
-                <br />
-                <br />
+                <br/>
+                <br/>
                 Réalisateur et développeur numérique, il compose notamment des performances audiovisuelles hybrides telles que le trio{" "}
                 <Dialog>
                   <DialogTrigger asChild>
@@ -133,7 +133,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                         ensemble pour questionner l&apos;aspect vibratoire de la nature, et le rapport entre l&apos;humain et le cosmos.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_TYAL.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_TYAL.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
                 </Dialog>
                 , l&apos;installation/performance participative via les smartphones du public{" "}
@@ -152,7 +152,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                         visuelle et scénographique à laquelle le public s’intègre comme paramètre.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_TABLEE.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_TABLEE.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"https://vimeo.com/libertad/attablee06"} className="text-primary italic hover:underline" target="_blank">
                         {"╰┈➤ voir la vidéo"}
@@ -175,10 +175,10 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                         collaboration avec le flûtiste Joce MIENNIEL).
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_Circles.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_Circles.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
                 </Dialog>{" "}
-                (variations sur 5 tableaux de <strong>Fabienne VERDIER</strong>), la création vidéoprojetée{" "}
+                (variations sur 5 tableaux de Fabienne VERDIER), la création vidéoprojetée{" "}
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button variant="biodial" className="p-0 -my-10">
@@ -190,10 +190,10 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       <DialogTitle className="text-primary">ONJ & AL.</DialogTitle>
                       <DialogDescription className="text-justify">Performance cinématographique et numérique improvisée.</DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_ONJ.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_ONJ.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
                 </Dialog>{" "}
-                pour l&apos;<strong>Orchestre National de Jazz</strong>, le projet collectif{" "}
+                pour l&apos;Orchestre National de Jazz, le projet collectif{" "}
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button variant="biodial" className="p-0 -my-10">
@@ -207,12 +207,12 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                         Création immersive à 360 degrés alliant musique (10 musiciens) et vidéoprojections (5 écrans) encerclant le public.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_CBM.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_CBM.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
                 </Dialog>
                 , etc.
-                <br />
-                <br />
+                <br/>
+                <br/>
                 Il confectionne aussi beaucoup de films musicaux&nbsp;: documentaire expérimental{" "}
                 <Dialog>
                   <DialogTrigger asChild>
@@ -228,7 +228,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                         MILESDAVISQUINTETORCHESTRA! de Sylvain DARRIFOURCQ.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_D_PHASE.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_D_PHASE.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"https://vimeo.com/libertad/dphase"} className="text-primary italic hover:underline" target="_blank">
                         {"╰┈➤ voir la vidéo"}
@@ -251,7 +251,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                         Cerisaie, foyer d’hébergement pour adultes handicapés.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"http://vimeo.com/libertad/docula"} className="text-primary italic hover:underline" target="_blank">
                         {"╰┈➤ voir la vidéo"}
@@ -259,7 +259,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>{" "}
-                pour l&apos;<strong>ONJ</strong>, documentaire{" "}
+                pour l&apos;ONJ, documentaire{" "}
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button variant="biodial" className="p-0 -my-10">
@@ -270,12 +270,12 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <DialogHeader>
                       <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
                       <DialogDescription className="text-justify">
-                        Film documentaire (∼10min) autour de la création lyrique &quot;Tomber Sans Bruit&quot; d’Elise Dabrowski inspiré du drame
+                        Film documentaire (∼10min) autour de la création lyrique &quot;Tomber Sans Bruit&quot; d’Elise DABROWKI inspiré du drame
                         industriel et social d’un grand groupe français, leader de l’habillement : Vivarte (La Halle, André, Caroll...) qui a
                         licenciée en France 20 000 personnes en 20 ans jusqu’en 2020.
                       </DialogDescription>
                     </DialogHeader>
-                    <Image src={"./al_TSB.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <Image src={"/al_TSB.jpg"} width={1280} height={720} alt="Picture of the performance" />
                     <DialogFooter className="text-center">
                       <Link href={"http://vimeo.com/libertad/tsb03"} className="text-primary italic hover:underline" target="_blank">
                         {"╰┈➤ voir la vidéo"}
@@ -283,23 +283,26 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>{" "}
-                pour <strong>Elise DABROWSKI</strong>, clip &quot;In Love With&quot; pour <strong>Sylvain DARRIFOURCQ</strong>, live-streams
-                artistiques pour le festival <strong>SONS D’HIVER</strong> - Germination & Abacaxi de <strong>Julien DESPREZ</strong>, etc.
-                <br />
+                pour Elise DABROWSKI, clip &quot;In Love With&quot; pour Sylvain DARRIFOURCQ, live-streams artistiques pour le festival SONS D’HIVER -
+                Germination & Abacaxi de Julien DESPREZ, etc.
+                <br/>
               </div>
             </div>
           )}
 
           {index === 2 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
-              <Image src={"./sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos01.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos02.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos03.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos04.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos06.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"./sp_photos07.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos01.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos11.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos02.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos08.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos03.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos04.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos09.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos06.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos10.jpg"} width={1280} height={720} alt="Photos of the performance" />
             </div>
           )}
 
@@ -309,24 +312,24 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 À l’origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
                 travail de la matière et des espaces du son. Son travail se focalise ainsi depuis plusieurs années sur les créations musicales et
                 sonores électroniques, électroacoustiques ou génératives, ainsi que les installations d’art numérique et les formes sonores
-                improvisées. <br />
-                <br />
+                improvisées. <br/>
+                <br/>
                 Il se produit seul ou en collaboration avec des artistes plasticiens, instrumentistes improvisateurs ou chorégraphes. Ses performances
                 et installations ont été présentées à de nombreuses reprises en France, en Europe ou au-delà (Angleterre, Portugal, Canada, Pologne,
-                Russie ou Roumanie). <br />
-                <br />
+                Russie ou Roumanie). <br/>
+                <br/>
                 Qu&apos;elle soit destinée à une interprétation au concert ou à une diffusion sur bandes (pour la danse contemporaine, les arts
                 visuels, etc), sa musique se caractérise par un certain minimalisme formel opposé à un maximalisme du son : une écriture où prime
                 l&apos;économie des techniques de composition, opposée à une exploitation maximale des concepts sonores mis en jeu (musique
-                polytempique, polymétrique, spatialisée sous casques, selon les cas). <br />
-                <br />
+                polytempique, polymétrique, spatialisée sous casques, selon les cas). <br/>
+                <br/>
                 Il est également concepteur, réalisateur en informatique musicale, designer d’installations et de performances sonores numériques poue
                 de nombreux artistes ou compagnies. En 2023 et 2024, il participe au projet Street Art (ensemble Les Apaches / Paris) en composant
                 quatre variations sur des œuvres de Steve Reich (création théâtre de l’Athénée, reprise au Musée d’Orsay / Paris, février 2024).{" "}
-                <br />
-                <br />
+                <br/>
+                <br/>
                 Nicolas CANOT est membre de <strong>Futurs Composés</strong> - Réseau national de la création musicale.
-                <br />
+                <br/>
               </p>
             </div>
           )}

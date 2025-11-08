@@ -32,7 +32,7 @@ export function MyHeader() {
   const showSP = pathname === "/" || pathname.includes("flashes") || pathname.includes("climaticdisasters") || pathname.includes("nikedal");
 
   const init = () => {
-    if (!nikedal) setTimeout(setAudio, 2000);
+    if (!nikedal) setTimeout(setAudio, 1000);
   };
 
   return (
@@ -94,7 +94,7 @@ export function MyHeader() {
             <DropdownMenuItem asChild>
               <Link onClick={init} href={"/contact"}>
                 <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname.includes("contact") })}>
-                  {"CONTACT"}
+                  {"CONTACTS / INFOS"}
                 </p>
               </Link>
             </DropdownMenuItem>

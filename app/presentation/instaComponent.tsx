@@ -306,7 +306,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
-                      <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
+                      <DialogTitle className="text-primary">Germination - Pomme de terre</DialogTitle>
                       <DialogDescription className="text-justify">
                         Clip live-streamé : filmé, monté, joué et diffusé en temps réel pour la plateforme numérique du festival SONS D&apos;HIVER
                         (∼30min).

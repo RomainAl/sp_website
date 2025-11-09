@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // import { Slider } from "@/components/ui/slider";
 import { useAudioAdminStore } from "@/store/audio.admin.store";
 import { setStreamWebcam, useWebrtcUserStore } from "@/store/webrtc.user.store";
-import { Mic, Mic2, Play, Repeat } from "lucide-react";
+import { Mic, Mic2, Play, Repeat, TriangleAlert } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useEffect } from "react";
@@ -164,7 +164,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <p className="text-xl text-primary" ref={refOutports}></p> */}
+      <p className="text-sm font-bold text-destructive animate-pulse flex flex-row gap-2 items-center">
+        <TriangleAlert /> Page en cours de conception...
+      </p>
     </div>
   );
 }

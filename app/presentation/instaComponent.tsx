@@ -2,17 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { useInstaUserStore } from "@/store/insta.user.store";
+import MuxPlayerElement from "@mux/mux-player";
 import MuxPlayer from "@mux/mux-player-react";
 import "@mux/mux-player/themes/minimal";
 import { ChevronUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import { InstaAvatarJpgMemo } from "../../components/userAvatar";
 import { InstaComLike } from "./instaComLike";
 
 export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPrev: () => void; goNext: () => void }) => {
   const vidMeta = useInstaUserStore((store) => store.vidMeta[index]);
-
+  const refMux = useRef<MuxPlayerElement>(null);
   return (
     <div className={cn("relative flex size-full flex-col justify-center items-center")}>
       <div className="absolute size-full flex flex-row justify-between items-center z-40 pointer-events-none">
@@ -49,14 +51,18 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 
         <div className="w-full overflow-auto flex-1 flex flex-col">
           {vidMeta.index === 0 && (
-            <div>
+            <div
+              onClick={() => {
+                // refMux.current?.play();
+              }}
+            >
               <MuxPlayer
+                ref={refMux}
                 className="mt-1"
                 poster="/sp_photos00.jpg"
                 disableCookies
                 theme="minimal"
                 playbackId="YSDUx26zKBmlENVACbM89sIUBZNDuznxef2cj2vA42A"
-                title="Teaser #1"
                 metadata={{
                   video_id: "Teaser01",
                   video_title: "Teaser smart.phonics",
@@ -394,36 +400,23 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center  z-10">
                 <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Soutiens / Accueils en résidence :</h2>
                 <p className="text-foreground font-bold">
-                  La Cartonnerie
-                  <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Reims)</span>
+                  La Cartonnerie <span className="text-foreground text-xs font-normal">(SMAC, Reims)</span>
                   <br />
-                  Césaré
-                  <br /> <span className="text-foreground text-xs font-normal">(Centre National de Création Musicale, Reims)</span>
+                  Césaré <span className="text-foreground text-xs font-normal">(CNCM, Reims)</span>
                   <br />
-                  L’Autre Canal
-                  <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Nancy)</span> <br />
-                  Théâtre de Vanves
-                  <br /> <span className="text-foreground text-xs font-normal">(Scène Conventionnée, Vanves)</span> <br />
-                  Le Logelloù
-                  <br /> <span className="text-foreground text-xs font-normal">(Centre d’Exploration et de Création Artistique, Penvénan)</span>
+                  L’Autre Canal <span className="text-foreground text-xs font-normal">(SMAC, Nancy)</span> <br />
+                  Théâtre de Vanves <span className="text-foreground text-xs font-normal">(Scène Conventionnée, Vanves)</span> <br />
+                  Le Logelloù <span className="text-foreground text-xs font-normal">(Centre de création artistique, Penvénan)</span>
                   <br />
-                  Bords² Scènes
-                  <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Vitry-Le-François)</span>
+                  Bords² Scènes <span className="text-foreground text-xs font-normal">(SMAC, Vitry-Le-François)</span>
                   <br />
                 </p>
               </div>
 
               <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center  z-10">
                 <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Remerciements :</h2>
-                <p className="text-foreground font-bold">
-                  Julien Roncaglia <br /> Leslie Seuqram <br />
-                  Caroline G. <br />
-                  Jérémy Nattier <br />
-                  Léo C.M. <br />
-                  Malena Al. <br />
-                  Aurélie Arnaud <br />
-                  Timothée Scherr <br />
-                  Fabien Leroux <br />
+                <p className="text-foreground font-semibold">
+                  Julien Roncaglia, Leslie Seuqram, Caroline G., Jérémy Nattier, Léo C.M., Malena Al., Aurélie Arnaud, Timothée Scherr, Fabien Leroux,
                   Émeric Jeansen
                 </p>
               </div>

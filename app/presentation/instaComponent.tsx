@@ -36,14 +36,14 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             <InstaAvatarJpgMemo name={vidMeta.name.substring(0, 3)} />
           </div>
           <div className="flex flex-col gap-0">
-            <p className="text-primary font-black text-sm xs:text-xl">{vidMeta.name}</p>
+            <p className="text-primary font-black text-sm xs:text-xl portrait:sm:text-4xl">{vidMeta.name}</p>
             {vidMeta.link !== "" && (
               <Link href={vidMeta.link} className="text-primary italic hover:underline" target="_blank">
                 {"╰┈➤ " + vidMeta.linkname}
               </Link>
             )}
-            {vidMeta.alias && <p className="text-xxs xs:text-xs italic text-center">{vidMeta.alias}</p>}
-            <p className="text-xxs xs:text-xs italic text-center">{`il y a ${Math.round(vidMeta.hashtag.length / 10)} jours`}</p>
+            {vidMeta.alias && <p className="text-xxs xs:text-xs portrait:sm:text-lg italic text-center">{vidMeta.alias}</p>}
+            <p className="text-xxs xs:text-xs portrait:sm:text-lg italic text-center">{`il y a ${Math.round(vidMeta.hashtag.length / 10)} jours`}</p>
           </div>
         </div>
 
@@ -56,18 +56,20 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 disableCookies
                 theme="minimal"
                 playbackId="YSDUx26zKBmlENVACbM89sIUBZNDuznxef2cj2vA42A"
+                title="Teaser #1"
                 metadata={{
                   video_id: "Teaser01",
                   video_title: "Teaser smart.phonics",
                   viewer_user_id: "Romain AL.",
                 }}
+                accentColor="#f97316"
                 style={{ aspectRatio: 16 / 9 }}
               />
             </div>
           )}
 
           {vidMeta.index === 0 && (
-            <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
+            <div className="text-sm portrait:sm:text-2xl text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 Live audiovisuel augmenté de vos smartphones
                 <br />
@@ -94,7 +96,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           )}
 
           {vidMeta.index === 1 && (
-            <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
+            <div className="text-sm portrait:sm:text-2xl text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <div>
                 Ingénieur-chercheur en mathématiques appliquées à l&apos;imagerie 3D radar et médicale, et guitariste classique,{" "}
                 <strong>Romain AL.</strong> s&apos;est reconverti en artiste visuel auprès de musiciens, collectifs et orchestres gravitant
@@ -104,11 +106,11 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 Réalisateur et développeur numérique, il compose notamment des performances audiovisuelles hybrides telles que le trio{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       TAI YANG
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[550px]">
+                  <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">TAI YANG & AL.</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -117,16 +119,21 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"/al_TYAL.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"https://vimeo.com/libertad/tyal06"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la vidéo"}
+                      </Link>
+                    </DialogFooter>
                   </DialogContent>
-                </Dialog>
-                , l&apos;installation/performance participative via les smartphones du public{" "}
+                </Dialog>{" "}
+                (art génératif, sons et poésie), l&apos;installation participative via les smartphones du public -{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       @TABLÉE
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[550px]">
+                  <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">@TABLÉE</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -143,14 +150,14 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
-                ,{" "}
+                , les variations musicales sur 5 tableaux de Fabienne VERDIER -{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       CIRCLES
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[550px]">
+                  <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">CIRCLES</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -160,18 +167,20 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     </DialogHeader>
                     <Image src={"/al_Circles.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
-                </Dialog>{" "}
-                (variations sur 5 tableaux de Fabienne VERDIER), la création vidéoprojetée{" "}
+                </Dialog>
+                , la création vidéoprojetée{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       EUROPA Oslo
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[550px]">
+                  <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">ONJ & AL.</DialogTitle>
-                      <DialogDescription className="text-justify">Performance cinématographique et numérique improvisée.</DialogDescription>
+                      <DialogDescription className="text-justify">
+                        Performance cinématographique et numérique improvisée sur le répertoire EUROPA Oslo de l&apos;Orchestre Nationale de Jazz.
+                      </DialogDescription>
                     </DialogHeader>
                     <Image src={"/al_ONJ.jpg"} width={1280} height={720} alt="Picture of the performance" />
                   </DialogContent>
@@ -179,11 +188,11 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 pour l&apos;Orchestre National de Jazz, le projet collectif{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       COAX - Brazil Mashup
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[550px]">
+                  <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">COAX - Brazil Mashup</DialogTitle>
                       <DialogDescription className="text-justify">
@@ -199,7 +208,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 Il confectionne aussi beaucoup de films musicaux&nbsp;: documentaire expérimental{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       D_PHASE
                     </Button>
                   </DialogTrigger>
@@ -207,8 +216,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <DialogHeader>
                       <DialogTitle className="text-primary">D_PHASE</DialogTitle>
                       <DialogDescription className="text-justify">
-                        Film documentaire expérimental (∼30min) sur le projet scientifique DSYNC (CNRS / IRCAM) de Clément CANONNE avec le
-                        MILESDAVISQUINTETORCHESTRA! de Sylvain DARRIFOURCQ.
+                        Film documentaire expérimental (∼30min) sur le projet scientifique (sciences cognitives) DSYNC (CNRS / IRCAM) de Clément
+                        CANONNE avec le MILESDAVISQUINTETORCHESTRA! de Sylvain DARRIFOURCQ.
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"/al_D_PHASE.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -222,7 +231,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 , documentaire{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       Dans le laboratoire de Dracula
                     </Button>
                   </DialogTrigger>
@@ -230,8 +239,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <DialogHeader>
                       <DialogTitle className="text-primary">Dans le laboratoire de Dracula</DialogTitle>
                       <DialogDescription className="text-justify">
-                        Film documentaire (∼25min) autour d’ateliers menés par des musiciens de l’Orchestre National de Jazz auprès de résidents de La
-                        Cerisaie, foyer d’hébergement pour adultes handicapés.
+                        Film documentaire (∼25min) autour d&apos;ateliers menés par des musiciens de l&apos;Orchestre National de Jazz auprès de
+                        résidents de La Cerisaie, foyer d&apos;hébergement pour adultes handicapés.
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"/al_dracula.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -242,20 +251,20 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>{" "}
-                pour l&apos;ONJ, documentaire{" "}
+                pour l&apos;ONJ,{" "}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="biodial" className="p-0 -my-10">
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
                       Tomber sans bruit
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[550px]">
+                  <DialogContent className="sm:max-w-[650px]">
                     <DialogHeader>
                       <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
                       <DialogDescription className="text-justify">
-                        Film documentaire (∼10min) autour de la création lyrique &quot;Tomber Sans Bruit&quot; d’Elise DABROWKI inspiré du drame
-                        industriel et social d’un grand groupe français, leader de l’habillement : Vivarte (La Halle, André, Caroll...) qui a
-                        licenciée en France 20 000 personnes en 20 ans jusqu’en 2020.
+                        Film documentaire (∼10min) autour de la création lyrique &quot;Tomber Sans Bruit&quot; d&apos;Elise DABROWKI inspiré du drame
+                        industriel et social d&apos;un grand groupe français, leader de l&apos;habillement : Vivarte (La Halle, André, Caroll...) qui
+                        a licenciée en France 20 000 personnes en 20 ans jusqu’en 2020.
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"/al_TSB.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -266,8 +275,52 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>{" "}
-                pour Elise DABROWSKI, clip &quot;In Love With&quot; pour Sylvain DARRIFOURCQ, live-streams artistiques pour le festival SONS D’HIVER -
-                Germination & Abacaxi de Julien DESPREZ, etc.
+                pour Elise DABROWSKI, clip{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
+                      In Love With
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[650px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">In Love With</DialogTitle>
+                      <DialogDescription className="text-justify">
+                        Clip / captation expérimentale d&pas;In Love With de Sylvain DARRIFOUCS.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"/al_ILW.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"https://vimeo.com/libertad/inlovewith"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la vidéo"}
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>{" "}
+                pour Sylvain DARRIFOURCQ, live-streams artistiques pour le festival SONS D&apos;HIVER&nbsp;:{" "}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="biodial" className="p-0 -my-10 portrait:sm:text-2xl">
+                      Germination
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[650px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-primary">Tomber sans bruit</DialogTitle>
+                      <DialogDescription className="text-justify">
+                        Clip live-streamé : filmé, monté, joué et diffusé en temps réel pour la plateforme numérique du festival SONS D&apos;HIVER
+                        (∼30min).
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Image src={"/al_Germination.jpg"} width={1280} height={720} alt="Picture of the performance" />
+                    <DialogFooter className="text-center">
+                      <Link href={"https://vimeo.com/libertad/pdtetal"} className="text-primary italic hover:underline" target="_blank">
+                        {"╰┈➤ voir la vidéo"}
+                      </Link>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>{" "}
+                & Abacaxi de Julien DESPREZ, etc.
                 <br />
               </div>
             </div>
@@ -275,13 +328,14 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 
           {vidMeta.index === 2 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
+              <Image src={"/sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos01.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos11.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos02.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos08.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos03.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"/sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/ImageSma.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos04.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos09.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos06.jpg"} width={1280} height={720} alt="Photos of the performance" />
@@ -290,7 +344,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           )}
 
           {vidMeta.index === 3 && (
-            <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center">
+            <div className="text-sm portrait:sm:text-lg text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
                 À l’origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
                 travail de la matière et des espaces du son. Son travail se focalise ainsi depuis plusieurs années sur les créations musicales et
@@ -318,11 +372,18 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           )}
 
           {vidMeta.index === 4 && (
-            <div className="relative flex flex-col flex-1 justify-evenly gap-2 overflow-auto">
-              <div className="text-sm p-4 flex flex-col gap-0 text-center z-10">
-                <h2 className="text-sm text-primary font-bold">Productions :</h2>
+            <div className="relative flex flex-col flex-1 justify-evenly overflow-auto">
+              <Image
+                src={"/fond02.jpg"}
+                width={3500}
+                height={1500}
+                alt="Picture of the performance"
+                className="absolute object-cover size-full z-0 blur-xs opacity-50"
+              ></Image>
+              <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center z-10">
+                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Production :</h2>
                 <p className="text-foreground font-bold">
-                  Les Transitives / LÜDICKE <span className="text-foreground text-xs font-normal">- Co-production</span>
+                  Les Transitives / Lüdicke <span className="text-foreground text-xs font-normal">- Co-production</span>
                   <br />
                   Césaré <span className="text-foreground text-xs font-normal">- Co-production</span>
                   <br />
@@ -330,8 +391,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 </p>
               </div>
 
-              <div className="text-sm p-4 flex flex-col gap-0 text-center  z-10">
-                <h2 className="text-sm text-primary font-bold">Soutiens / Accueils en résidence :</h2>
+              <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center  z-10">
+                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Soutiens / Accueils en résidence :</h2>
                 <p className="text-foreground font-bold">
                   La Cartonnerie
                   <br /> <span className="text-foreground text-xs font-normal">(Scène de Musiques Actuelles, Reims)</span>
@@ -352,8 +413,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 </p>
               </div>
 
-              <div className="text-sm p-4 flex flex-col gap-0 text-center  z-10">
-                <h2 className="text-sm text-primary font-bold">Remerciements :</h2>
+              <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center  z-10">
+                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Remerciements :</h2>
                 <p className="text-foreground font-bold">
                   Julien Roncaglia <br /> Leslie Seuqram <br />
                   Caroline G. <br />
@@ -373,7 +434,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
         </div>
 
         <div className={cn("px-4 py-1 w-full max-h-1/11 flex flex-row gap-3 items-center z-20 bg-card ring-2 ring-accent border-2 border-b-accent")}>
-          <p className="text-xxs xs:text-xs italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden flex items-center">
+          <p className="text-xxs xs:text-xs portrait:sm:text-sm italic text-primary text-ellipsis h-full whitespace-wrap overflow-hidden flex items-center">
             {vidMeta.hashtag}
           </p>
           <InstaComLike index={vidMeta.index} />

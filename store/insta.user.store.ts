@@ -8,7 +8,7 @@ export const initInstaUserStore = {
       alias: "Contenu suggéré",
       link: "",
       linkname: "",
-      im: "ImageSma.jpg",
+      im: "",
       hashtag:
         "#web #digitalarts #electronicmusic #hacking #cats #collaborativeart #glitches #technomusic #whales #socialnetworks #climaticdisasters",
     },

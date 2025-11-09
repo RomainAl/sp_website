@@ -17,7 +17,7 @@ export default function Home() {
         alt="Picture of the performance"
         className="absolute object-cover size-full z-0 blur-xs"
       ></Image>
-      <div className="max-w-2xl p-6 sm:p-10 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-5 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
+      <div className="max-w-2xl p-6 text-sm portrait:sm:text-lg sm:p-10 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-5 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
         <Image
           src={"/sp_photos07.jpg"}
           width={1280}
@@ -25,9 +25,9 @@ export default function Home() {
           alt="Picture of the performance"
           className="object-cover w-full top-0 left-0 z-0 rounded-t-lg hidden xs:block"
         ></Image>
-        <div className="flex flex-col gap-2">
-          <h2 className="text-sm text-primary font-bold text-center">PROCHAINES DATES :</h2>
-          <p className="text-sm text-justify sm:w-2/3 m-auto">
+        <div className="flex flex-col gap-2 w-full portrait:sm:w-2/3 landscape:sm:w-1/2 m-auto">
+          <h2 className="text-primary font-bold">PROCHAINES DATES :</h2>
+          <p className="text-justify m-auto">
             <span className="text-primary font-bold">L&apos;Autre Canal</span>{" "}
             <span className="text-foreground text-xs font-normal">(SMAC, Nancy)</span>
             <br />
@@ -51,7 +51,7 @@ export default function Home() {
             <span className="text-primary font-bold">Théâtre de Vanves</span>{" "}
             <span className="text-foreground text-xs font-normal">(Scène conventionnée)</span>
             <br />
-            <strong>05 déc. 2025</strong> <span className="text-foreground text-xs font-normal">(Festival OVNI + actions culturelles)</span>
+            <strong>05 déc. 2025</strong> <span className="text-foreground text-xs font-normal">(+ actions culturelles)</span>
             <br />
             <span className="text-primary font-bold">Ici l&apos;Onde</span> <span className="text-foreground text-xs font-normal">(CNCM, Dijon)</span>
             <br />
@@ -63,9 +63,9 @@ export default function Home() {
             <strong>Rentrée 2026</strong> <span className="text-foreground text-xs font-normal">(+ actions culturelles)</span>.
           </p>
         </div>
-        <div className="text-center">
-          <h2 className="text-sm text-primary font-bold">CONTACT :</h2>
-          <p className="text-sm font-bold">
+        <div className="flex flex-col gap-2 w-full portrait:sm:w-2/3 landscape:sm:w-1/2 m-auto">
+          <h2 className="text-primary font-bold">CONTACT :</h2>
+          <p className="font-bold">
             romainal@gmail.com
             <br />
             +336 58 65 29 20

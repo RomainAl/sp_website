@@ -193,7 +193,6 @@ mux-player {
   /* --time-display: none; */
   /* --duration-display: none; */
   --rendition-menu-button: none;
-
   /* Target a specific section by prefixing the CSS var with (top|center|bottom) */
   /* --center-controls: none; */
   /* --bottom-play-button: none; */

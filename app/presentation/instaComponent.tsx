@@ -18,18 +18,13 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
   return (
     <div className={cn("relative flex size-full flex-col justify-center items-center")}>
       <div className="absolute size-full flex flex-row justify-between items-center z-40 pointer-events-none">
-        <ChevronUp
-          onClick={goPrev}
-          strokeWidth={0.85}
-          size={60}
-          className="text-primary -rotate-90 -ml-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
-        />
-        <ChevronUp
-          onClick={goNext}
-          strokeWidth={0.85}
-          size={60}
-          className="text-primary rotate-90 -mr-3 hover:border hover:border-accent z-40 pointer-events-auto animate-bounce"
-        />
+        <div className="w-6 py-10 -ml-2 pointer-events-auto cursor-pointer hover:border hover:border-accent" onClick={goPrev}></div>
+        <div className="w-6 py-10 -mr-2 pointer-events-auto cursor-pointer hover:border hover:border-accent" onClick={goNext}></div>
+      </div>
+      <div className="absolute size-full flex flex-row justify-between items-center z-40 pointer-events-none">
+        <ChevronUp strokeWidth={0.85} size={60} className="text-primary -rotate-90 -m-3 animate-bounce" />
+
+        <ChevronUp strokeWidth={0.85} size={60} className="text-primary rotate-90 -mr-3 animate-bounce" />
       </div>
 
       <div className={cn("size-full ring-2 ring-accent rounded-none flex flex-col justify-between bg-card")}>
@@ -416,8 +411,13 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center  z-10">
                 <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Remerciements :</h2>
                 <p className="text-foreground font-semibold">
-                  Julien Roncaglia, Leslie Seuqram, Caroline G., Jérémy Nattier, Léo C.M., Malena Al., Aurélie Arnaud, Timothée Scherr, Fabien Leroux,
-                  Émeric Jeansen
+                  Julien Roncaglia, Leslie Seuqram, Caroline G.,
+                  <br />
+                  Jérémy Nattier, Léo C.M., Malena Al.,
+                  <br />
+                  Aurélie Arnaud, Timothée Scherr,
+                  <br />
+                  Fabien Leroux, Émeric Jeansen
                 </p>
               </div>
             </div>

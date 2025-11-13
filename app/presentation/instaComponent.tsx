@@ -82,7 +82,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 <br />
                 <br />
                 Ici, les téléphones du public (via un simple site Web) deviennent instruments, écrans et extensions de la scène : tantôt générateurs
-                sonores, tantôt créateurs d’images, ils transforment la salle en un espace immersif et interactif.
+                sonores, tantôt créateurs d&apos;images, ils transforment la salle en un espace immersif et interactif.
                 <br />
                 <br />
                 <strong className="italic">smart.phonics</strong> interroge notre relation aux technologies qui rythment nos vies connectées,
@@ -287,7 +287,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                     <DialogHeader>
                       <DialogTitle className="text-primary">In Love With</DialogTitle>
                       <DialogDescription className="text-justify">
-                        Clip / captation expérimentale d&pas;In Love With de Sylvain DARRIFOUCS.
+                        Clip / captation expérimentale d&apos;In Love With de Sylvain DARRIFOURCQ.
                       </DialogDescription>
                     </DialogHeader>
                     <Image src={"/al_ILW.jpg"} width={1280} height={720} alt="Picture of the performance" />
@@ -330,15 +330,16 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           {vidMeta.index === 2 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
               <Image src={"/sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos01.jpg"} width={853} height={1280} alt="Photos of the performance" />
+              <Image src={"/sp_photos12.jpg"} width={1280} height={861} alt="Photos of the performance" />
               <Image src={"/sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"/sp_photos01.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"/sp_photos11.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"/sp_photos02.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos02.jpg"} width={853} height={1280} alt="Photos of the performance" />
               <Image src={"/sp_photos08.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos03.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/ImageSma.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos04.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos09.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos11.jpg"} width={1280} height={1644} alt="Photos of the performance" />
               <Image src={"/sp_photos06.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos10.jpg"} width={1280} height={720} alt="Photos of the performance" />
             </div>
@@ -347,9 +348,9 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
           {vidMeta.index === 3 && (
             <div className="text-sm portrait:sm:text-lg text-justify p-4 flex-1 flex flex-col items-center justify-center">
               <p>
-                À l’origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
+                À l&apos;origine, guitariste classique, rock et improvisateur, son parcours musical a toujours été lié aux musiques de création et au
                 travail de la matière et des espaces du son. Son travail se focalise ainsi depuis plusieurs années sur les créations musicales et
-                sonores électroniques, électroacoustiques ou génératives, ainsi que les installations d’art numérique et les formes sonores
+                sonores électroniques, électroacoustiques ou génératives, ainsi que les installations d&apos;art numérique et les formes sonores
                 improvisées. <br />
                 <br />
                 Il se produit seul ou en collaboration avec des artistes plasticiens, instrumentistes improvisateurs ou chorégraphes. Ses performances
@@ -363,7 +364,8 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 <br />
                 Il est également concepteur, réalisateur en informatique musicale, designer d’installations et de performances sonores numériques poue
                 de nombreux artistes ou compagnies. En 2023 et 2024, il participe au projet Street Art (ensemble Les Apaches / Paris) en composant
-                quatre variations sur des œuvres de Steve Reich (création théâtre de l’Athénée, reprise au Musée d’Orsay / Paris, février 2024).{" "}
+                quatre variations sur des œuvres de Steve Reich (création théâtre de l&apos;Athénée, reprise au Musée d&apos;Orsay / Paris, février
+                2024).
                 <br />
                 <br />
                 Nicolas CANOT est membre de <strong>Futurs Composés</strong> - Réseau national de la création musicale.

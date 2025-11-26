@@ -149,7 +149,6 @@ export default function Home() {
 }
 
 const Knob_RNBO = ({ indexI, nameP, paramsNb }: { indexI: number; nameP: string; paramsNb: number }) => {
-  console.log("RENDER KNOB");
   const RNBOparam = useAudioAdminStore(useShallow((store) => store.instrus[indexI].parameters.find((p) => p.name === nameP)));
   const setVal = (val: number) => {
     RNBOparam.value = val;

@@ -13,6 +13,8 @@ import {
   useAudioAdminStore,
 } from "@/store/audio.admin.store";
 import { setStart } from "@/store/demo.store";
+import MuxPlayer from "@mux/mux-player-react";
+import "@mux/mux-player/themes/minimal";
 import { House, RotateCcw, SquareMousePointer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,13 +49,28 @@ export default function Home() {
         className="absolute object-cover size-full z-0 blur-xs"
       ></Image>
       <div className="max-w-2xl p-6 sm:p-10 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-3 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
-        <Image
+        {/* <Image
           src={"/sp_photos07.jpg"}
           width={1280}
           height={720}
           alt="Picture of the performance"
           className="object-cover w-full top-0 left-0 z-0 rounded-t-lg hidden xs:block"
-        ></Image>
+        ></Image> */}
+        <MuxPlayer
+          className="w-full hidden xs:block"
+          poster="/sp_photos07.jpg"
+          disableCookies
+          theme="minimal"
+          title="Teaser #1"
+          playbackId="hQcHf53mkP0201UOOizlNATLCfxlNISfsCDSXggrboRBs"
+          metadata={{
+            video_id: "Teaser01",
+            video_title: "Teaser smart.phonics",
+            viewer_user_id: "Romain AL.",
+          }}
+          accentColor="#f97316"
+          style={{ aspectRatio: 16 / 9 }}
+        />
         <h2 className="text-lg text-center text-primary font-semibold">FIN ET MERCI !</h2>
         <Link href={"/list"} className="text-sm text-primary flex flex-row items-center gap-3 justify-center">
           <p>Rejouer un tableau en particulier</p> <SquareMousePointer size={20} />

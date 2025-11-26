@@ -37,7 +37,7 @@ export function MyHeader() {
 
   return (
     <motion.div
-      className="absolute top-0 h-dvh w-dvw pointer-events-none z-40"
+      className="absolute top-0 h-dvh w-dvw pointer-events-none z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 2 } }}
     >

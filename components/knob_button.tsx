@@ -10,8 +10,6 @@ type Props = {
 };
 
 export function Knob_button({ Kname, Kinitval, setVal, midiCC, color, children }: PropsWithChildren<Props>) {
-  console.log("RENDER KNOB BUTTON");
-
   const [count, setCount] = useState(0);
   // const al_out = useMidiStore((store) => store.al_out);
   const refPath = useRef<SVGPathElement>(null);

@@ -99,7 +99,7 @@ export default function Home() {
   return (
     <div className="relative h-dvh w-dvw max-w-2xl m-auto flex flex-col items-center justify-evenly">
       {(!stream || !stream.active) && (
-        <div className="absolute size-full bg-[#000000AA] backdrop-blur-xs flex items-center justify-center z-50">
+        <div className="absolute size-full bg-[#000000AA] backdrop-blur-xs flex items-center justify-center z-40">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 size-20 md:size-30 rounded-full border-1 border-accent-foreground pointer-events-auto">
             <span className="absolute z-0 size-full animate-ping rounded-full bg-primary pointer-events-none"></span>
             <Button
@@ -121,7 +121,7 @@ export default function Home() {
         <SoundwaveCanvas width={width} height={width / 3} analyser={analyser} />
       </div>
 
-      <div className="relative flex flex-row flex-wrap items-center justify-between w-4/5 gap-3 -mb-2 p-0">
+      <div className="relative flex flex-row flex-wrap items-center justify-between w-4/5 gap-3 -mb-2 p-0 z-20">
         <div className={cn("relative aspect-square w-1/4 pointer-events-none", { "pointer-events-auto": stream })}>
           <Knob_button_RNBO nameP={"REC"} />
         </div>
@@ -172,7 +172,6 @@ export default function Home() {
 }
 
 const Knob_button_RNBO = ({ nameP }: { nameP: string }) => {
-  console.log("RENDER KNOB BUTTON");
   const RNBOparam = useAudioAdminStore(useShallow((store) => store.sampler!.parameters.find((p) => p.name === nameP)));
   const setVal = (val: number) => {
     if (nameP === "PLAY") {
@@ -198,7 +197,6 @@ const Knob_button_RNBO = ({ nameP }: { nameP: string }) => {
 };
 
 const Knob_RNBO = ({ nameP }: { nameP: string }) => {
-  console.log("RENDER KNOB");
   const RNBOparam = useAudioAdminStore(useShallow((store) => store.sampler!.parameters.find((p) => p.name === nameP)));
   const setVal = (val: number) => {
     RNBOparam.value = val;

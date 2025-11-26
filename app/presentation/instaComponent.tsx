@@ -2,19 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { useInstaUserStore } from "@/store/insta.user.store";
-import MuxPlayerElement from "@mux/mux-player";
 import MuxPlayer from "@mux/mux-player-react";
 import "@mux/mux-player/themes/minimal";
 import { ChevronUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 import { InstaAvatarJpgMemo } from "../../components/userAvatar";
 import { InstaComLike } from "./instaComLike";
 
 export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPrev: () => void; goNext: () => void }) => {
   const vidMeta = useInstaUserStore((store) => store.vidMeta[index]);
-  const refMux = useRef<MuxPlayerElement>(null);
   return (
     <div className={cn("relative flex size-full flex-col justify-center items-center")}>
       <div className="absolute size-full flex flex-row justify-between items-center z-40 pointer-events-none">
@@ -52,12 +49,12 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
               }}
             >
               <MuxPlayer
-                ref={refMux}
-                className="mt-1"
+                className="mt-1 w-full"
                 poster="/sp_photos00.jpg"
                 disableCookies
                 theme="minimal"
-                playbackId="YSDUx26zKBmlENVACbM89sIUBZNDuznxef2cj2vA42A"
+                title="Teaser #1"
+                playbackId="hQcHf53mkP0201UOOizlNATLCfxlNISfsCDSXggrboRBs"
                 metadata={{
                   video_id: "Teaser01",
                   video_title: "Teaser smart.phonics",
@@ -329,7 +326,21 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
 
           {vidMeta.index === 2 && (
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
-              <Image src={"/sp_photos05.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <MuxPlayer
+                className="mt-1"
+                poster="/sp_photos05.jpg"
+                disableCookies
+                theme="minimal"
+                playbackId="4a71wWJcgZOs4xmNgA28aaRGmbzjltHToNejQjOUygU"
+                title="Teaser #2"
+                metadata={{
+                  video_id: "Teaser01",
+                  video_title: "Teaser smart.phonics",
+                  viewer_user_id: "Romain AL.",
+                }}
+                accentColor="#f97316"
+                style={{ aspectRatio: 16 / 9 }}
+              />
               <Image src={"/sp_photos01.jpg"} width={853} height={1280} alt="Photos of the performance" />
               <Image src={"/sp_photos12.jpg"} width={1280} height={861} alt="Photos of the performance" />
               <Image src={"/sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
@@ -384,18 +395,20 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 className="absolute object-cover size-full z-0 blur-xs opacity-50"
               ></Image>
               <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center z-10">
-                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Production :</h2>
+                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Production / Aides :</h2>
                 <p className="text-foreground font-bold">
                   Les Transitives / Lüdicke <span className="text-foreground text-xs font-normal">- Co-production</span>
                   <br />
                   Césaré <span className="text-foreground text-xs font-normal">- Co-production</span>
                   <br />
                   MMC <span className="text-foreground text-xs font-normal">- Partenaire institutionnel</span>
+                  <br />
+                  Région Grand Est <span className="text-foreground text-xs font-normal">- Création et Culture Numérique</span>
                 </p>
               </div>
 
               <div className="text-sm portrait:sm:text-lg flex flex-col gap-0 text-center  z-10">
-                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Soutiens / Accueils en résidence :</h2>
+                <h2 className="text-sm portrait:sm:text-lg text-primary font-bold">Soutiens / Accueils en résidence / Actions culturelles :</h2>
                 <p className="text-foreground font-bold">
                   La Cartonnerie <span className="text-foreground text-xs font-normal">(SMAC, Reims)</span>
                   <br />

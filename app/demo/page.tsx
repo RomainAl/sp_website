@@ -14,6 +14,8 @@ import {
   useAudioAdminStore,
 } from "@/store/audio.admin.store";
 import { setStart } from "@/store/demo.store";
+import MuxPlayer from "@mux/mux-player-react";
+import "@mux/mux-player/themes/minimal";
 import { Play } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -60,13 +62,21 @@ export default function Home() {
         className="absolute object-cover size-full top-0 left-0 z-0 blur-sm"
       ></Image>
       <div className="max-w-2xl p-6 sm:p-10 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-3 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
-        <Image
-          src={"/sp_photos00.jpg"}
-          width={1280}
-          height={857}
-          alt="Picture of the performance"
-          className="object-cover w-full top-0 left-0 z-0 rounded-t-lg hidden xs:block"
-        ></Image>
+        <MuxPlayer
+          className="w-full hidden xs:block"
+          poster="/sp_photos00.jpg"
+          disableCookies
+          theme="minimal"
+          title="Teaser vidéo"
+          playbackId="hQcHf53mkP0201UOOizlNATLCfxlNISfsCDSXggrboRBs"
+          metadata={{
+            video_id: "Teaser01",
+            video_title: "Teaser smart.phonics",
+            viewer_user_id: "Romain AL.",
+          }}
+          accentColor="#f97316"
+          style={{ aspectRatio: 16 / 9 }}
+        />
         <h2 className="text-lg text-primary font-semibold">Démonstration de smart.phonics</h2>
         <p className="text-sm text-justify">
           <strong className="italic">smart.phonics</strong> utilise les smartphones du public comme dispositif numérique principal, accompagné

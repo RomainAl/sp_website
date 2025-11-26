@@ -27,7 +27,6 @@ export function Knob({
   duration?: number;
   Kdisplayname?: string;
 }) {
-  console.log("RENDER KNOB");
   // const al_out = useMidiStore((store) => store.al_out);
   const refPath = useRef<SVGPathElement>(null);
   const refLine = useRef<SVGLineElement>(null);

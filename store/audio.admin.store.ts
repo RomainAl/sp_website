@@ -235,6 +235,37 @@ export const setSetAudio = (path: string) => {
         }
       };
       break;
+    case "/list":
+      setAudio = async () => {
+        setOnLoad(1);
+        vibrate(50);
+        await setAudioHack();
+        await setAudioInstrus();
+        await setAudioInstru0_drone();
+        await setAudioClimaticdisasters();
+        await setAudioFlashesTech();
+        await setAudioVerton();
+        await setAudioSampler();
+        await setAudioNikedal();
+        vibrate(50);
+        setOnLoad(0);
+      };
+      break;
+    default:
+      setAudio = async () => {
+        setOnLoad(1);
+        vibrate(50);
+        await setAudioNikedal();
+        await setAudioHack();
+        await setAudioInstrus();
+        await setAudioInstru0_drone();
+        await setAudioClimaticdisasters();
+        await setAudioFlashesTech();
+        await setAudioVerton();
+        await setAudioSampler();
+        vibrate(50);
+        setOnLoad(0);
+      };
   }
   useAudioAdminStore.setState({ setAudio });
 };

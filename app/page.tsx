@@ -5,17 +5,18 @@ import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useInterval } from "usehooks-ts";
 
 export default function Home() {
   console.log("RENDER ACCUEIL");
   // return <Nikedal />;
-
+  const [loading, setLoading] = useState(true);
   const abortControllerRef = useRef<AbortController | null>(null);
   // Constantes
   const targetUrl = "https://smartphonics.art";
   const handleExternalNavigation = async () => {
+    setLoading(true);
     // 2. Annuler la requête précédente si elle existe
     if (abortControllerRef.current) {
       // Appeler abort() sur la requête encore en cours
@@ -41,7 +42,8 @@ export default function Home() {
       const isConnectionSuccessful = response.type === "opaque" || (response.status >= 200 && response.status < 400);
 
       if (isConnectionSuccessful) {
-        // window.location.replace(targetUrl);
+        window.location.replace(targetUrl);
+        setLoading(false);
       } else {
         console.warn("Le site cible a répondu de manière inattendue. Restez sur ici");
       }
@@ -105,18 +107,21 @@ export default function Home() {
         </Link> */}
 
         <p className="text-sm text-justify">
-          Veuillez vous connectez au réseau wifi :{" "}
+          Connectez-vous bien au réseau wifi :{" "}
           <a href="WIFI:T:nopass;S:WifiTest;;">
             <strong className="text-primary font-black">smartphonics</strong>
           </a>
           . Vous allez ensuite être redirigé automatiquement vers le site Web de la performance (
-          <a href="https://smartphonics.art">
-            <strong className="text-primary font-black">smartphonics.art</strong>
-          </a>
-          )
+          <strong className="text-primary font-black">smartphonics.art</strong>)
         </p>
-        <Spinner size="large" className="mt-2" />
-
+        {loading && <Spinner size="large" className="mt-2" />}
+        {!loading && (
+          <Button variant="outline" size={"circle"} className="w-fit m-auto rounded-full bg-primary" asChild>
+            <a href="https://smartphonics.art" className="p-3">
+              <strong className="text-primary font-black">GO</strong>
+            </a>
+          </Button>
+        )}
         {/* {error !== "" && (
           <p className="text-sm">
             1. Ouvrez l&apos;application &quot;Réglages&quot; de votre téléphone.
@@ -126,7 +131,7 @@ export default function Home() {
             3. Sélectionnez le réseau ouvert &quot;smartphonics&quot;.
           </p>
         )} */}
-        <div className="w-full flex flex-row gap-2 flex-wrap items-center justify-center">
+        {/* <div className="w-full flex flex-row gap-2 flex-wrap items-center justify-center">
           <Button asChild>
             <a href="WIFI:T:nopass;S:WifiTest;;">Wifi</a>
           </Button>
@@ -136,7 +141,7 @@ export default function Home() {
           <Button asChild>
             <a href={"App-Prefs:root=WIFI"}>Regle Wi-Fi (iPhone/iPad)</a>
           </Button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

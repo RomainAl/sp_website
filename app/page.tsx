@@ -106,12 +106,14 @@ export default function Home() {
           <p className="text-sm">Vendredi 5 dec. au Théâtre de Vanves, à 20h</p> <SquareMousePointer className="text-primary" size={20} />
         </Link> */}
 
-        <p className="text-sm text-justify">
+        <p className="text-lg">
           Connectez-vous bien au réseau wifi :{" "}
           <a href="WIFI:T:nopass;S:WifiTest;;">
             <strong className="text-primary font-black">smartphonics</strong>
           </a>
-          . Vous allez ensuite être redirigé automatiquement vers le site Web de la performance (
+          . <br />
+          <br />
+          Vous allez ensuite être redirigé automatiquement vers le site Web de la performance (
           <strong className="text-primary font-black">smartphonics.art</strong>)
         </p>
         {loading && <Spinner size="large" className="mt-2" />}

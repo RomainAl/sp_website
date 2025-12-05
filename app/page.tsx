@@ -1,11 +1,10 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
-import { SquareMousePointer } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import { useInterval } from "usehooks-ts";
 
@@ -42,7 +41,7 @@ export default function Home() {
       const isConnectionSuccessful = response.type === "opaque" || (response.status >= 200 && response.status < 400);
 
       if (isConnectionSuccessful) {
-        window.location.replace(targetUrl);
+        // window.location.replace(targetUrl);
       } else {
         console.warn("Le site cible a répondu de manière inattendue. Restez sur ici");
       }
@@ -97,17 +96,24 @@ export default function Home() {
           "max-w-2xl p-6 sm:p-10 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-5 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs"
         )}
       >
-        <h2 className="text-lg text-primary font-semibold">Performance en préparation...</h2>
-        <Link
+        <h2 className="text-lg text-primary font-semibold">Performance en cours...</h2>
+        {/* <Link
           href={"https://www.theatre-vanves.fr/spectacle/nicolas-canot-romain-al"}
           className="text-sm text-foreground flex flex-row gap-3 items-center"
         >
           <p className="text-sm">Vendredi 5 dec. au Théâtre de Vanves, à 20h</p> <SquareMousePointer className="text-primary" size={20} />
-        </Link>
+        </Link> */}
 
         <p className="text-sm text-justify">
-          Veuillez vous connectez au wifi <strong className="text-primary font-black">smartphonics</strong>. Vous allez ensuite être redirigé
-          automatiquement vers le site Web de la performance (<strong className="text-primary font-black">smartphonics.art</strong>)
+          Veuillez vous connectez au réseau wifi :{" "}
+          <a href="WIFI:T:nopass;S:WifiTest;;">
+            <strong className="text-primary font-black">smartphonics</strong>
+          </a>
+          . Vous allez ensuite être redirigé automatiquement vers le site Web de la performance (
+          <a href="https://smartphonics.art">
+            <strong className="text-primary font-black">smartphonics.art</strong>
+          </a>
+          )
         </p>
         <Spinner size="large" className="mt-2" />
 
@@ -120,7 +126,7 @@ export default function Home() {
             3. Sélectionnez le réseau ouvert &quot;smartphonics&quot;.
           </p>
         )} */}
-        {/* <div className="w-full flex flex-row gap-2 flex-wrap items-center justify-center">
+        <div className="w-full flex flex-row gap-2 flex-wrap items-center justify-center">
           <Button asChild>
             <a href="WIFI:T:nopass;S:WifiTest;;">Wifi</a>
           </Button>
@@ -130,7 +136,7 @@ export default function Home() {
           <Button asChild>
             <a href={"App-Prefs:root=WIFI"}>Regle Wi-Fi (iPhone/iPad)</a>
           </Button>
-        </div> */}
+        </div>
       </div>
     </motion.div>
   );

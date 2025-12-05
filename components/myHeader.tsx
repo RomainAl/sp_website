@@ -22,7 +22,7 @@ export function MyHeader() {
   }, [pathname, nikedal]);
 
   const showPlay =
-    pathname === "/" ||
+    // pathname === "/" ||
     pathname.includes("instru") ||
     pathname.includes("verton") ||
     pathname.includes("hack") ||

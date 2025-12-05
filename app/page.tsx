@@ -98,7 +98,10 @@ export default function Home() {
         )}
       >
         <h2 className="text-lg text-primary font-semibold">Performance en préparation...</h2>
-        <Link href={"/list"} className="text-sm text-foreground flex flex-row gap-3 items-center">
+        <Link
+          href={"https://www.theatre-vanves.fr/spectacle/nicolas-canot-romain-al"}
+          className="text-sm text-foreground flex flex-row gap-3 items-center"
+        >
           <p className="text-sm">Vendredi 5 dec. au Théâtre de Vanves, à 20h</p> <SquareMousePointer className="text-primary" size={20} />
         </Link>
 

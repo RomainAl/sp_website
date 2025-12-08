@@ -78,7 +78,7 @@ function genererVideosAnimalieres() {
   const files = [
     "AnaelleSERRES01.jpg",
     "AnnaLouvet.jpg",
-    "GaëlleMauduit.mp4",
+    "GaelleMauduit.mp4",
     "ThomasBemal01.jpg",
     "ArthurMontenache.jpg",
     "MaeLeroux.jpg",

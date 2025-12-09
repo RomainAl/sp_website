@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { useInstaGossesUserStore } from "@/store/ac.michelet.store";
 import { setToast } from "@/store/shared.store";
 import { Eye } from "lucide-react";
 import { motion } from "motion/react";
@@ -12,10 +13,11 @@ import { useActionState } from "react";
 
 export default function Home() {
   const router = useRouter();
+  const link = useInstaGossesUserStore((s) => s.link);
   const [message, submitaction] = useActionState((_: unknown, formData: FormData) => {
     const pass: string = formData.get("password") as string;
-    if (pass === process.env.NEXT_PUBLIC_MICHELET) {
-      router.push(`/ac/${process.env.NEXT_PUBLIC_MICHELET}`);
+    if (pass === link) {
+      router.push(`/ac/${link}`);
       return "success";
     } else {
       setToast({ type: "error", data: { content: "Mauvais mot de passe..." } });

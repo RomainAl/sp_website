@@ -5,6 +5,7 @@ type instaUserStoreType = {
   currentVidGosses_Loc: number[];
   vidGossesMeta: { name: string; description: string; file: string; hashtag: string }[];
   playVidGossesGlobal: boolean;
+  link: string;
 };
 
 export const vidGossesNb = 30;
@@ -15,6 +16,7 @@ export const initInstaGossesUserStore = {
   currentVidGosses_Loc: [startVidGosses, (startVidGosses + 1) % vidGossesNb, (startVidGosses - 1 + vidGossesNb) % vidGossesNb],
   vidGossesMeta: genererVideosAnimalieres(),
   playVidGossesGlobal: false,
+  link: "michelet405",
 };
 
 export const useInstaGossesUserStore = create<instaUserStoreType>(() => ({ ...initInstaGossesUserStore }));

@@ -50,18 +50,34 @@ export default function Home() {
         <div className="flex flex-col gap-2 w-full  m-auto">
           <h2 className="text-primary font-bold mb-2">Actions Culturelles</h2>
           <p className="text-justify m-auto">
-            Les sujets abordés par <strong className="italic">smart.phonics</strong> amènent à proposer des actions de médiation.
+            Les ateliers autour de <strong className="italic">smart.phonics</strong> s&apos;adressent en premier lieu à un public adolescent et jeunes
+            adultes (collégiens dès la 4ème, lycéens, élèves en Conservatoires, en écoles d’art et design, etc.), très sensibles aux questions
+            nombreuses, complexes et ambiguës que pose l&apos;utilisation du smartphone et des réseaux sociaux.
             <br />
             <br />
-            Les ateliers autour de cette création s&apos;adressent en premier lieu à un public adolescent et jeunes adultes (collégiens dès la 4ème,
-            lycéens, élèves en Conservatoires, en écoles d’art et design, etc.), très sensibles aux questions nombreuses, complexes et ambiguës que
-            pose l&apos;utilisation du smartphone et des réseaux sociaux.
+            Selon le nombre et la durée des interventions envisagées, des actions sur-mesure seront proposées et co-construites avec les lieux de
+            diffusion et les enseignants :
+            <ul className="text-left">
+              <li>
+                - <strong>Sensibilisation</strong> (conférences, rencontres, etc.) et <strong>démonstrations</strong>,
+              </li>
+              <li>
+                - <strong>Manipulations</strong> d&apos;instruments de musique électronique &quot;smartphoniques&quot;,
+              </li>
+              <li>
+                - <strong>Ateliers de création</strong> sonores et visuels,
+              </li>
+              <li>
+                - <strong>Conception collective</strong> d&apos;un faux Instagram avec des contenus artistiques ou documentaires sur une thématique,
+              </li>
+              <li>
+                - <strong>Workshop</strong> technologique (pour les plus initiés) autour des outils utilisés dans ce spectacle (Javascript / Max/MSP /
+                RNBO, etc.)...
+              </li>
+            </ul>
             <br />
-            <br />
-            Selon la durée d’intervention envisagée, des actions sur-mesure seront proposées et co-construites avec les lieux de diffusion et les
-            enseignants (sensibilisation, démonstrations, manipulations, ateliers de création collective, etc.). Ces ateliers peuvent avoir lieu en
-            amont ou en aval de la représentation de la création <strong className="italic">smart.phonics</strong>. Ceci est à établir avec les
-            enseignants, en fonction des possibilités horaires des classes et des lieux d&apos;accueil.
+            Elles peuvent avoir lieu en amont ou en aval de la représentation de <strong className="italic">smart.phonics</strong>. Ceci est à établir
+            avec les enseignants, en fonction des possibilités horaires des classes et des lieux d&apos;accueil.
           </p>
         </div>
         <div className="flex flex-col gap-2 w-full  m-auto">
@@ -77,15 +93,16 @@ export default function Home() {
                 <DialogTitle className="mb-3">COLLÈGE MICHELET</DialogTitle>
                 <DialogDescription className="text-justify">
                   Actions culturelles menées auprès d&apos;une classe de 4ieme au collège Michelet à Vanves (divisée en trois séances de 2h + 2h +
-                  spectacle + 1h). <br />
+                  spectacle + 1h) en novembre 2025, durant les cours de musique.
                   <br />
-                  Cette action a permis de présenter la création (ses aspects technologiques et proprement musicaux) aux élèves. Elle a également
-                  permis d’aborder (puisque c’est le cœur narratif du projet smart.phonics !) les questions liées à l&apos;usage omniprésent des
-                  smartphones et des réseaux sociaux. Durant la deuxième séance, des ateliers de pratique artistique ont été réalisés avec les
-                  collégiens ; ateliers pendant lesquels ils ont pu découvrir ce qu’est un &quot;échantillonneur sonore numérique&quot; et manipuler
-                  cet instrument directement sur leurs smartphones (ce qui constitue l&apos;un des tableaux de smart.phonics, et réaliser un
-                  &quot;faux réseau social&quot; de type Instagram à partir de leurs propres images. Après deux interventions en classe, les
-                  collégiens ont pu assister au spectacle, en conditions réelles, et échanger avec les artistes.
+                  <br />
+                  Cette action a permis de présenter la création aux élèves (ses aspects technologiques et proprement musicaux). Elle a également
+                  permis d’aborder (puisque c’est le cœur narratif du projet <strong className="italic">smart.phonics</strong> !) les questions liées
+                  à l&apos;usage omniprésent des smartphones et des réseaux sociaux. Durant la deuxième séance, des ateliers de pratique artistique
+                  ont été réalisés avec les collégiens ; ateliers pendant lesquels ils ont pu découvrir ce qu’est un &quot;échantillonneur sonore
+                  numérique&quot; et manipuler cet instrument directement sur leurs smartphones. Ils ont aussi pu réaliser un &quot;faux réseau
+                  social&quot; de type Instagram à partir de leurs propres images. Après deux interventions en classe, les collégiens ont pu assister
+                  au spectacle, puis échanger avec les artistes.
                 </DialogDescription>
               </DialogHeader>
 

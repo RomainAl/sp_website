@@ -14,8 +14,8 @@ export default function Home() {
   const router = useRouter();
   const [message, submitaction] = useActionState((_: unknown, formData: FormData) => {
     const pass: string = formData.get("password") as string;
-    if (pass === "michelet405") {
-      router.push("/ac/michelet");
+    if (pass === process.env.NEXT_PUBLIC_MICHELET) {
+      router.push(`/ac/${process.env.NEXT_PUBLIC_MICHELET}`);
       return "success";
     } else {
       setToast({ type: "error", data: { content: "Mauvais mot de passe..." } });
@@ -31,7 +31,7 @@ export default function Home() {
       className="relative h-dvh w-dvw flex flex-col items-center justify-center gap-3 p-4"
     >
       <Image
-        src={"/fond01.jpg"}
+        src={"/sp_photos00.jpg"}
         width={3500}
         height={1500}
         alt="Picture of the performance"
@@ -45,8 +45,8 @@ export default function Home() {
           alt="Picture of the performance"
           className="object-cover w-full top-0 left-0 z-0 rounded-t-lg hidden xs:block"
         ></Image> */}
-        <div className="flex flex-col gap-2 w-full portrait:sm:w-2/3 landscape:sm:w-1/2 m-auto">
-          <h2 className="text-primary font-bold">Actions Culturelles</h2>
+        <div className="flex flex-col gap-2 w-full  m-auto">
+          <h2 className="text-primary font-bold mb-2">Actions Culturelles</h2>
           <p className="text-justify m-auto">
             Les sujets abordés par <strong className="italic">smart.phonics</strong> amènent à proposer des actions de médiation.
             <br />
@@ -62,17 +62,17 @@ export default function Home() {
             enseignants, en fonction des possibilités horaires des classes et des lieux d&apos;accueil.
           </p>
         </div>
-        <div className="flex flex-col gap-2 w-full portrait:sm:w-2/3 landscape:sm:w-1/2 m-auto">
-          <h2 className="text-primary font-bold">Liste des actions menées</h2>
+        <div className="flex flex-col gap-2 w-full  m-auto">
+          <h2 className="text-primary font-bold">Liste des actions menées :</h2>
           <Dialog>
             <DialogTrigger asChild>
               <Button className="w-full" variant="secondary">
                 Collège Michelet (@Vanves)
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px] max-h-full overflow-scroll">
+            <DialogContent className="sm:max-w-[425px] max-h-full overflow-scroll" onOpenAutoFocus={(e) => e.preventDefault()}>
               <DialogHeader>
-                <DialogTitle>COLLÈGE MICHELET</DialogTitle>
+                <DialogTitle className="mb-3">COLLÈGE MICHELET</DialogTitle>
                 <DialogDescription className="text-justify">
                   Actions culturelles menées auprès d&apos;une classe de 4ieme au collège Michelet à Vanves (divisée en trois séances de 2h + 2h +
                   spectacle + 1h). <br />

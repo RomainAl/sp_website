@@ -24,14 +24,10 @@ export const VideoComponent = ({ index, currentIndex, pathVid, ...props }: Video
     if (refS.current && ref.current) {
       ref.current.load();
       ref.current.playbackRate = 1;
-      if (isElon) {
+      if (currentIndex !== undefined && index - currentIndex === 0) {
         ref.current.play();
       } else {
-        if (currentIndex !== undefined && index - currentIndex === 0) {
-          ref.current.play();
-        } else {
-          ref.current.pause();
-        }
+        ref.current.pause();
       }
     }
   }, [currentVid_loc]);

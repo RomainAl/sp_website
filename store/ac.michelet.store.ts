@@ -7,7 +7,7 @@ type instaUserStoreType = {
   playVidGossesGlobal: boolean;
 };
 
-export const vidGossesNb = 28;
+export const vidGossesNb = 30;
 export const startVidGosses = Math.floor(Math.random() * vidGossesNb);
 
 export const initInstaGossesUserStore = {
@@ -69,6 +69,7 @@ function genererVideosAnimalieres() {
     "Anaelle SERRES",
     "Judith JEAN-MARIUS",
     "Anaelle SERRES",
+    "Amine Rharbi",
     "Anaelle SERRES",
     "Gaston Bouyer",
     "Mathys Faroux",
@@ -101,6 +102,7 @@ function genererVideosAnimalieres() {
     "AnaelleSERRES06.jpg",
     "JudithJEAN-MARIUS.mp4",
     "AnaelleSERRES07.jpg",
+    "aminerharbi.mp4",
     "AnaelleSERRES08.jpg",
     "GastonBouyer.jpg",
     "MathysFaroux.mp4",
@@ -136,6 +138,7 @@ function genererVideosAnimalieres() {
     "",
     "",
     "",
+    "",
   ];
 
   const hashtags = [
@@ -151,6 +154,7 @@ function genererVideosAnimalieres() {
     "#Collège #Michelet #4ieme5 #Vanves",
     "#Collège #Michelet #4ieme5 #Vanves",
     "#Collège #Michelet #4ieme5 #Vanves #I love",
+    "#Collège #Michelet #4ieme5 #Vanves",
     "#Collège #Michelet #4ieme5 #Vanves",
     "#Collège #Michelet #4ieme5 #Vanves",
     "#Collège #Michelet #4ieme5 #Vanves",

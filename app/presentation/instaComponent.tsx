@@ -328,7 +328,7 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
             <div className="text-sm text-justify p-4 flex-1 flex flex-col items-center justify-center gap-3">
               <MuxPlayer
                 className="mt-1"
-                poster="/sp_photos05.jpg"
+                poster="/sp_photos20.jpg"
                 disableCookies
                 theme="minimal"
                 playbackId="4a71wWJcgZOs4xmNgA28aaRGmbzjltHToNejQjOUygU"
@@ -342,17 +342,25 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                 style={{ aspectRatio: 16 / 9 }}
               />
               <Image src={"/sp_photos01.jpg"} width={853} height={1280} alt="Photos of the performance" />
+              <Image src={"/sp_photos15.jpg"} width={1280} height={861} alt="Photos of the performance" />
               <Image src={"/sp_photos12.jpg"} width={1280} height={861} alt="Photos of the performance" />
               <Image src={"/sp_photos00.jpg"} width={1280} height={720} alt="Photos of the performance" />
-              <Image src={"/sp_photos02.jpg"} width={853} height={1280} alt="Photos of the performance" />
+              <Image src={"/sp_photos14.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos16.jpg"} width={853} height={1280} alt="Photos of the performance" />
               <Image src={"/sp_photos08.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos03.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos19.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/ImageSma.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos22.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos04.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos09.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos21.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos11.jpg"} width={1280} height={1644} alt="Photos of the performance" />
+              <Image src={"/sp_photos23.jpg"} width={1280} height={1644} alt="Photos of the performance" />
               <Image src={"/sp_photos06.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos18.jpg"} width={1280} height={720} alt="Photos of the performance" />
               <Image src={"/sp_photos10.jpg"} width={1280} height={720} alt="Photos of the performance" />
+              <Image src={"/sp_photos05.jpg"} width={853} height={1280} alt="Photos of the performance" />
             </div>
           )}
 
@@ -401,7 +409,11 @@ export const InstaComponent = ({ index, goPrev, goNext }: { index: number; goPre
                   <br />
                   Césaré <span className="text-foreground text-xs font-normal">- Co-production</span>
                   <br />
-                  MMC <span className="text-foreground text-xs font-normal">- Partenaire institutionnel</span>
+                  Maison de la Musique Contemporaine{" "}
+                  <span className="text-foreground text-xs font-normal">
+                    - <br />
+                    Partenaire institutionnel
+                  </span>
                   <br />
                   Région Grand Est <span className="text-foreground text-xs font-normal">- Création et Culture Numérique</span>
                 </p>

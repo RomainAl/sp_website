@@ -13,7 +13,7 @@ export const initInstaUserStore = {
         "#web #digitalarts #electronicmusic #hacking #cats #collaborativeart #glitches #technomusic #whales #socialnetworks #climaticdisasters",
     },
     {
-      name: "smart.phonics",
+      name: "Visuels",
       index: 2,
       alias: "Reels",
       link: "",
@@ -41,8 +41,17 @@ export const initInstaUserStore = {
       hashtag: "#Compositeur #Improvisateur #Modulariste #Artiste digital #Développeur numérique #Enseignant",
     },
     {
-      name: "smart.phonics",
+      name: "Actions culturelles",
       index: 4,
+      alias: "Story pour toi",
+      link: "",
+      linkname: "",
+      im: "",
+      hashtag: "#Médiation #Actions pédagogiques #Sensibilisation #Ateliers",
+    },
+    {
+      name: "smart.phonics",
+      index: 5,
       alias: "Sponsorisée",
       link: "",
       linkname: "",

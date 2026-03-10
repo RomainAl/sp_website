@@ -50,7 +50,7 @@ export const initInstaUserStore = {
       hashtag: "#Médiation #Actions pédagogiques #Sensibilisation #Ateliers",
     },
     {
-      name: "smart.phonics",
+      name: "Partenaires",
       index: 5,
       alias: "Sponsorisée",
       link: "",

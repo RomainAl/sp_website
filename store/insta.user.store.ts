@@ -43,7 +43,7 @@ export const initInstaUserStore = {
     {
       name: "Actions culturelles",
       index: 4,
-      alias: "Story pour toi",
+      alias: "Suggestions",
       link: "",
       linkname: "",
       im: "",
@@ -52,7 +52,7 @@ export const initInstaUserStore = {
     {
       name: "Partenaires",
       index: 5,
-      alias: "Sponsorisée",
+      alias: "Sponsorisé",
       link: "",
       linkname: "",
       im: "",

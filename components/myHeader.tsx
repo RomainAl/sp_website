@@ -92,8 +92,8 @@ export function MyHeader() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link onClick={init} href={"/contact"}>
-                <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname === "/contact" })}>INFOS</p>
+              <Link onClick={init} href={"/infos"}>
+                <p className={cn("w-full text-center font-semibold active:text-foreground", { "text-foreground": pathname === "/infos" })}>INFOS</p>
               </Link>
             </DropdownMenuItem>
             {/* <DropdownMenuGroup> */}

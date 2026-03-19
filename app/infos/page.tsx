@@ -2,8 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { SquareMousePointer } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -20,14 +22,7 @@ export default function Home() {
         className="absolute object-cover size-full z-0 blur-xs"
       ></Image>
       <div className="max-w-2xl p-6 text-sm portrait:sm:text-lg sm:p-10 rounded-lg shadow-md ring-2 ring-accent flex flex-col gap-5 overflow-auto z-10 bg-[#000000BB] backdrop-blur-xs">
-        <Image
-          src={"/sp_photos07.jpg"}
-          width={1280}
-          height={720}
-          alt="Picture of the performance"
-          className="object-cover w-full top-0 left-0 z-0 rounded-t-lg hidden xs:block"
-        ></Image>
-        <div className="flex flex-col gap-2 w-full portrait:sm:w-2/3 landscape:sm:w-1/2 m-auto">
+        <div className="flex flex-col gap-2 w-full  m-auto">
           <h2 className="text-primary font-bold">ÉVÈNEMENTS À VENIR :</h2>
           <div className="text-justify flex flex-col gap-2">
             <div>
@@ -111,13 +106,26 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 w-full portrait:sm:w-2/3 landscape:sm:w-1/2 m-auto">
+        <div className="flex flex-col gap-2 w-full m-auto">
           <h2 className="text-primary font-bold">CONTACT :</h2>
           <p className="font-bold">
             romainal@gmail.com
             <br />
             +336 58 65 29 20
           </p>
+        </div>
+
+        <div className="flex flex-col gap-2 w-full m-auto">
+          <h2 className="text-primary font-bold">DOCS :</h2>
+          <Link href={"/docs"} className="text-foreground flex flex-row gap-3">
+            <SquareMousePointer size={20} /> <p>Dossier de présentation</p>
+          </Link>
+          <Link href={"/docs?file=smartphonics_MEDIATION.pdf"} className="text-sm text-foreground flex flex-row gap-3">
+            <SquareMousePointer size={20} /> <p>Note de médiation</p>
+          </Link>
+          <Link href={"/docs?file=smartphonics_FICHETECHNIQUE.pdf"} className="text-sm text-foreground flex flex-row gap-3">
+            <SquareMousePointer size={20} /> <p>Fiche technique</p>
+          </Link>
         </div>
       </div>
     </motion.div>

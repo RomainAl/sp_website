@@ -17,8 +17,8 @@ import { useShallow } from "zustand/react/shallow";
 export default function Home() {
   const searchParams = useSearchParams();
   const audioContext = useAudioAdminStore((store) => store.audioContext);
-  const intruNum: number = searchParams.has("n") ? Number(searchParams.get("n")) : 0;
-  const instru = useAudioAdminStore((store) => store.instrus[intruNum]);
+  const instruNum: number = searchParams.has("n") ? Number(searchParams.get("n")) : 0;
+  const instru = useAudioAdminStore((store) => store.instrus[instruNum]);
   const analyser = useAudioAdminStore((store) => store.audioAnalyser);
   const refOutports = useRef<HTMLParagraphElement>(null);
   const instru0_drone = useAudioAdminStore((store) => store.instru0_drone);
@@ -33,9 +33,9 @@ export default function Home() {
     console.log("LOG INSTRU");
     instru.node.connect(analyser);
     instru.node.connect(audioContext.destination);
-    if (intruNum === 0) instru0_drone.node.connect(audioContext.destination);
+    if (instruNum === 0) instru0_drone.node.connect(audioContext.destination);
     audioContext.resume();
-    if (intruNum === 0) {
+    if (instruNum === 0) {
       instru0_drone.parameters.find((p) => p.name === "PLAY").value = 1.0;
       instru0_drone.parameters.find((p) => p.name === "MASTER-G").value = 0.15;
     }
@@ -62,13 +62,13 @@ export default function Home() {
       //   instru.messageEvent.removeAllSubscriptions();
       //   console.log(instru.node);
     };
-  }, [audioContext, instru, analyser, instru0_drone, intruNum]);
+  }, [audioContext, instru, analyser, instru0_drone, instruNum]);
 
   useUnmount(() => {
     analyser?.disconnect();
     instru?.node.disconnect();
-    if (intruNum === 0 && instru0_drone && instru0_drone.parameters) instru0_drone.parameters.find((p) => p.name === "PLAY").value = 0.0;
-    if (intruNum === 0) instru0_drone?.node.disconnect();
+    if (instruNum === 0 && instru0_drone && instru0_drone.parameters) instru0_drone.parameters.find((p) => p.name === "PLAY").value = 0.0;
+    if (instruNum === 0) instru0_drone?.node.disconnect();
     // audioContext?.suspend();
     try {
       instru?.messageEvent?.removeAllSubscriptions();
@@ -99,7 +99,7 @@ export default function Home() {
         </div>
       )}
       <div className="relative flex w-full flex-row flex-wrap items-center justify-center gap-4">
-        {intruNum === 0 && (
+        {instruNum === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 3 } }}
@@ -138,9 +138,9 @@ export default function Home() {
                   "w-1/5": instru?.parameters.length - 2 >= 10,
                 })}
               >
-                <Knob_RNBO indexI={intruNum} nameP={param.name} paramsNb={instru?.parameters.length - 2} />
+                <Knob_RNBO indexI={instruNum} nameP={param.name} paramsNb={instru?.parameters.length - 2} />
               </div>
-            )
+            ),
         )}
       </div>
       <p className="text-xl text-primary" ref={refOutports}></p>
@@ -165,6 +165,7 @@ const Knob_RNBO = ({ indexI, nameP, paramsNb }: { indexI: number; nameP: string;
       setDirectValue={true}
       unit={RNBOparam.unit}
       duration={700}
+      Kdisplayname={indexI === 0 ? "OPINION" : ""}
     />
   );
 };
